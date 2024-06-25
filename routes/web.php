@@ -11,26 +11,10 @@ use App\Http\Controllers\Admin\Company\CompanyOccupationController;
 use App\Http\Controllers\Admin\Company\CompanyOrganizationController;
 use App\Http\Controllers\Admin\Company\CompanyOrganizationLinkedUserController;
 use App\Http\Controllers\Admin\Company\CompanyTypeEstablishmentController;
-use App\Http\Controllers\Admin\Medication\MedicationClassificationController;
-use App\Http\Controllers\Admin\Medication\MedicationController;
-use App\Http\Controllers\Admin\Medication\MedicationTypeController;
-use App\Http\Controllers\Admin\Medication\MedicationUnitController;
-use App\Http\Controllers\Admin\Consumable\ConsumableClassificationController;
-use App\Http\Controllers\Admin\Consumable\ConsumableController;
-use App\Http\Controllers\Admin\Consumable\ConsumableTypeController;
-use App\Http\Controllers\Admin\Consumable\ConsumableUnitController;
 use App\Http\Controllers\Admin\Region\RegionCityController;
 use App\Http\Controllers\Admin\Region\RegionCountryController;
 use App\Http\Controllers\Admin\Region\RegionStateController;
 use App\Http\Controllers\Admin\User\UsersController;
-use App\Http\Controllers\Inventory\Warehouse\InventoryWarehouseController;
-use App\Http\Controllers\Inventory\Warehouse\InventoryWarehousePermissionController;
-use App\Http\Controllers\Inventory\WarehouseCenter\InventoryWarehouseCenterController;
-use App\Http\Controllers\Inventory\WarehouseCenter\InventoryWarehouseCenterPermissionController;
-use App\Http\Controllers\Inventory\Pharmacy\InventoryPharmacyController;
-use App\Http\Controllers\Inventory\Pharmacy\InventoryPharmacyPermissionController;
-use App\Http\Controllers\Inventory\PharmacyCenter\InventoryPharmacyCenterController;
-use App\Http\Controllers\Inventory\PharmacyCenter\InventoryPharmacyCenterPermissionController;
 use App\Http\Controllers\Profile\ProfileController;
 use App\Http\Controllers\Public\ContactListsController;
 
@@ -94,40 +78,6 @@ Route::middleware('auth')->group(function () {
                     Route::put('cities/status/{city}',[RegionCityController::class,'status'])->name('cities.status');
                     Route::resource('cities',RegionCityController::class);
 
-            });
-
-            //Grupo de Rotas - Configuração de Localização
-            Route::prefix('consumable')->group(function (){
-
-                //Rota - Apresentação de Medicamentos
-                    Route::put('consumable_classifications/status/{consumable_classification}',[ConsumableClassificationController::class,'status'])->name('consumable_classifications.status');
-                    Route::resource('consumable_classifications',ConsumableClassificationController::class);
-                //Rota - Apresentação de Medicamentos                
-                    Route::put('consumable_units/status/{consumable_unit}',[ConsumableUnitController::class,'status'])->name('consumable_units.status');
-                    Route::resource('consumable_units',ConsumableUnitController::class);    
-                //Rota - Tipos de Medicamentos                    
-                    Route::put('consumable_types/status/{consumable_type}',[ConsumableTypeController::class,'status'])->name('consumable_types.status');
-                    Route::resource('consumable_types',ConsumableTypeController::class);
-                //Rota - Medicamentos
-                    Route::put('consumables/status/{consumable}',[ConsumableController::class,'status'])->name('consumables.status');
-                    Route::resource('consumables',ConsumableController::class);
-            });
-
-            //Grupo de Rotas - Configuração de Localização
-            Route::prefix('medication')->group(function (){
-
-                //Rota - Apresentação de Produtos
-                    Route::put('medication_classifications/status/{medication_classification}',[MedicationClassificationController::class,'status'])->name('medication_classifications.status');
-                    Route::resource('medication_classifications',MedicationClassificationController::class);                    
-                //Rota - Apresentação de Produtos
-                    Route::put('medication_units/status/{medication_unit}',[MedicationUnitController::class,'status'])->name('medication_units.status');
-                    Route::resource('medication_units',MedicationUnitController::class);
-                //Rota - Tipos de Produtos
-                    Route::put('medication_types/status/{medication_type}',[MedicationTypeController::class,'status'])->name('medication_types.status');
-                    Route::resource('medication_types',MedicationTypeController::class);
-                //Rota - Produtos
-                    Route::put('medications/status/{medication}',[MedicationController::class,'status'])->name('medications.status');
-                    Route::resource('medications',MedicationController::class);
             });
         });
     });

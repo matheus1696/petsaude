@@ -1,1 +1,0 @@
-<x-form.input col="12" label="Classificação do Suprimento" id="title" name="title" value="{{$db->title ?? ''}}" />

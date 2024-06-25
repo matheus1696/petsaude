@@ -33,14 +33,6 @@ class DatabaseSeeder extends Seeder
             CompanyFinancialBlockSeeder::class,
             CompanyEstablishmentSeeder::class,
             CompanyEstablishmentDepartmentSeeder::class,
-            ConsumableClassificationSeeder::class,
-            ConsumableTypeSeeder::class,
-            ConsumableUnitSeeder::class,
-            ConsumableSeeder::class,
-            MedicationClassificationSeeder::class,
-            MedicationTypeSeeder::class,
-            MedicationUnitSeeder::class,
-            MedicationSeeder::class,
         ]);
     }
 }
