@@ -5,7 +5,8 @@ const handleRegistration = (event) => {
 
 const registrationMask = (value) => {
     if (!value) return "";
-    value = value.replace(/\D/g,'');
-    value = value.replace(/^(\d{2})(\d{3})(\d)/g,"$1.$2-$3");
+    value = value.replace(/\D/g, ''); // Remove todos os caracteres não numéricos
+    value = value.replace(/(\d{3})(\d)/, "$1.$2"); // Adiciona o ponto após os primeiros 4 dígitos
+    value = value.replace(/(\d{3})(\d{1,2})$/, "$1-$2"); // Adiciona o hífen antes do último dígito
     return value;
 }

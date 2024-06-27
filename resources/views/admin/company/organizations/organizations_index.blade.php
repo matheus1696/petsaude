@@ -2,7 +2,7 @@
     <!-- Slot Header -->
     @slot('header')
         <x-header 
-        title="Organograma"
+        title="Grupos"
         routeCreate="{{ route('organizations.create') }}" btnTitleCreate="Adicionar"/>
     @endslot
 

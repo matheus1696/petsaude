@@ -5,7 +5,7 @@ namespace App\Models\Profile;
 use App\Models\Company\CompanyEstablishment;
 use App\Models\Company\CompanyOccupation;
 use App\Models\Company\CompanyOrganization;
-use App\Models\User\UserSex;
+use App\Models\User\UserSexualOrientation;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,12 +19,23 @@ class Profile extends Model
     [
         'name',
         'password',
+        'address',
+        'name_mother',
         'cpf',
         'registration',
         'contact_1',
         'contact_2',
         'birthday',
-        'sex_id',
+        'sexual_orientation_id',
+        'organization_id',
+        'education_institution_id',
+        'education_course_id',
+        'occupation_id',
+        'establishment_id',
+        'bank_account_type',
+        'bank',
+        'bank_agency',
+        'bank_account',
     ];
 
     /**
@@ -39,11 +50,11 @@ class Profile extends Model
 
 
     public function SexualOrientation(){
-        return $this->belongsTo(UserSex::class,'sex_id','id');
+        return $this->belongsTo(UserSexualOrientation::class,'sex_id','id');
     }
 
     public function CompanyOccupation(){
-        return $this->belongsTo(CompanyOccupation::class,'cbo_id','id');
+        return $this->belongsTo(CompanyOccupation::class,'occupation_id','id');
     }
 
     public function CompanyEstablishment(){

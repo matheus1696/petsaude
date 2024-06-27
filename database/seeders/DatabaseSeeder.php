@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             UserPermissionsSeeder::class,
-            UserSexSeeder::class,
+            UserSexualOrientationSeeder::class,
             UserSeeder::class,
             RegionCountrySeeder::class,
             RegionStateSeeder::class,
@@ -33,6 +33,8 @@ class DatabaseSeeder extends Seeder
             CompanyFinancialBlockSeeder::class,
             CompanyEstablishmentSeeder::class,
             CompanyEstablishmentDepartmentSeeder::class,
+            CompanyEducationInstitutionSeeder::class,
+            CompanyEducationCourseSeeder::class,
         ]);
     }
 }

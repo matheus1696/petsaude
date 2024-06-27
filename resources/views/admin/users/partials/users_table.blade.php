@@ -44,11 +44,11 @@
                                 <x-form.form method="edit" route="{{route('users.update',['user'=>$item->id])}}">
 
                                     <!-- Inicio de Componentização de Select -->
-                                    <x-form.select col="12" label="Setor" name="company_id" id="company_id_{{$item}}">
+                                    <x-form.select col="12" label="Grupo" name="organization_id" id="organization_id_{{$item}}">
                                         @foreach ($dbCompanyOrganizational as $dbCompanyOrganization)
                                             <option 
                                                 value="{{$dbCompanyOrganization->id}}" 
-                                                @if ($item->company_id == $dbCompanyOrganization->id) selected @endif>
+                                                @if ($item->organization_id == $dbCompanyOrganization->id) selected @endif>
                                                     @for ($i = 0; $i < $dbCompanyOrganization->number_hierarchy; $i++) <span> - </span> @endfor
                                                     {{$dbCompanyOrganization->acronym}} - {{$dbCompanyOrganization->title}}
                                             </option>
@@ -56,23 +56,11 @@
                                     </x-form.select>
 
                                     <!-- Inicio de Componentização de Select -->
-                                    <x-form.select col="12" label="Cargo" name="occupation_id" id="occupation_id_{{$item}}">
+                                    <x-form.select col="12" label="Função no Grupo" name="occupation_id" id="occupation_id_{{$item}}">
                                         @foreach ($dbCompanyOccupations as $dbCompanyOccupation)
                                             <option
-                                                value="{{$dbCompanyOccupation->id}}"
-                                                @if ($item->occupation_id == $dbCompanyOccupation->id) selected @endif>
+                                                value="{{$dbCompanyOccupation->id}}" @if ($item->occupation_id == $dbCompanyOccupation->id) selected @endif>
                                                     {{$dbCompanyOccupation->code}} - {{$dbCompanyOccupation->title}}
-                                            </option>
-                                        @endforeach
-                                    </x-form.select>
-
-                                    <!-- Inicio de Componentização de Select -->
-                                    <x-form.select col="12" label="Estabelecimento" name="establishment_id" id="establishment_id_{{$item}}">
-                                        @foreach ($dbEstablishments as $dbEstablishment)
-                                            <option 
-                                                value="{{$dbEstablishment->id}}"
-                                                @if ($item->establishment_id == $dbEstablishment->id) selected @endif>
-                                                    {{$dbEstablishment->title}}
                                             </option>
                                         @endforeach
                                     </x-form.select>

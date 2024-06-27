@@ -7,14 +7,16 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     *  Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('users_sex', function (Blueprint $table) {
+        Schema::create('company_education_courses', function (Blueprint $table) {
             $table->id();
-            $table->string('sex');
-            $table->boolean('status');
+            $table->string('title');
+            $table->string('filter');
+            $table->text('description')->nullable();
+            $table->boolean('status')->default(true);
             $table->timestamps();
         });
     }
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users_sex');
+        Schema::dropIfExists('company_education_courses');
     }
 };

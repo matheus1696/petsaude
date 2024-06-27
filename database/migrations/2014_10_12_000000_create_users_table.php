@@ -24,6 +24,12 @@ return new class extends Migration
             $table->string('contact_1')->nullable();
             $table->string('contact_2')->nullable();
             $table->date('birthday')->nullable();
+            $table->string('address')->nullable();
+            $table->string('name_mother')->nullable();
+            $table->string('bank_account_type')->nullable();
+            $table->string('bank')->nullable();
+            $table->string('bank_agency')->nullable();
+            $table->string('bank_account')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

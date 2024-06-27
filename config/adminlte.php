@@ -314,14 +314,32 @@ return [
         [
             'text'    => 'Perfil',
             'classes' => 'btn-sm',
-            'icon'    => 'fas fa-user pr-2',
+            'icon'    => 'fas fa-user-circle pr-2',
             'can'     => 'user',
             'submenu' => [
                 [
                     'text'    => 'Dados Pessoais',
                     'classes' => 'btn-sm',
-                    'route'   => 'profiles.index',
+                    'route'   => 'profiles.editPersonal',
                     'icon'    => 'fas fa-user pr-2',
+                    'icon_color' => 'purple',
+                    'can'     => 'user'
+                ],
+                
+                [
+                    'text'    => 'Dados Bancários',
+                    'classes' => 'btn-sm',
+                    'route'   => 'profiles.editBankDetail',
+                    'icon'    => 'fas fa-money-check-alt pr-2',
+                    'icon_color' => 'purple',
+                    'can'     => 'user'
+                ],
+                
+                [
+                    'text'    => 'Grupo Participante',
+                    'classes' => 'btn-sm',
+                    'route'   => 'profiles.editProfessional',
+                    'icon'    => 'fas fa-user-friends pr-2',
                     'icon_color' => 'purple',
                     'can'     => 'user'
                 ],
@@ -329,26 +347,8 @@ return [
                 [
                     'text'    => 'Alteração de Senha',
                     'classes' => 'btn-sm',
-                    'route'   => 'profiles.index',
-                    'icon'    => 'fas fa-user pr-2',
-                    'icon_color' => 'purple',
-                    'can'     => 'user'
-                ],
-                
-                [
-                    'text'    => 'Dados Profissionais',
-                    'classes' => 'btn-sm',
-                    'route'   => 'profiles.index',
-                    'icon'    => 'fas fa-user pr-2',
-                    'icon_color' => 'purple',
-                    'can'     => 'user'
-                ],
-                
-                [
-                    'text'    => 'Dados Bancário',
-                    'classes' => 'btn-sm',
-                    'route'   => 'profiles.index',
-                    'icon'    => 'fas fa-user pr-2',
+                    'route'   => 'profiles.editPassword',
+                    'icon'    => 'fas fa-key pr-2',
                     'icon_color' => 'purple',
                     'can'     => 'user'
                 ],
@@ -385,7 +385,7 @@ return [
 
                 //Configurações de Empresas
                 [
-                    'text'    => 'Empresa',
+                    'text'    => 'Configuração Instituições',
                     'classes' => 'btn-sm',
                     'icon'    => 'fas fa-building pr-2',
                     'icon_color' => 'purple',
@@ -416,7 +416,7 @@ return [
                             'can'     => ['sysadmin','admin'],
                         ],
                         [
-                            'text'    => 'Organograma',
+                            'text'    => 'Grupos',
                             'classes' => 'btn-sm',
                             'route'   => 'organizations.organize',
                             'icon'    => 'fas fa-bezier-curve pr-2',
@@ -424,7 +424,7 @@ return [
                             'can'     => ['sysadmin','admin'],
                         ],
                         [
-                            'text'    => 'Ocupações (CBO)',
+                            'text'    => 'Ocupações',
                             'classes' => 'btn-sm',
                             'route'   => 'occupations.index',
                             'icon'    => 'fas fa-id-badge pr-2',

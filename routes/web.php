@@ -83,8 +83,14 @@ Route::middleware('auth')->group(function () {
     });
 
     //Rotas de Perfil do Usuário
-    Route::put('profiles/password/{profile}',[ProfileController::class,'updatePassword'])->name('profiles.updatePassword');
-    Route::resource('profiles', ProfileController::class);
+    Route::get('profiles/personal',[ProfileController::class,'editPersonal'])->name('profiles.editPersonal');
+    Route::put('profiles/personal',[ProfileController::class,'updatePersonal'])->name('profiles.updatePersonal');
+    Route::get('profiles/password',[ProfileController::class,'editPassword'])->name('profiles.editPassword');
+    Route::put('profiles/password',[ProfileController::class,'updatePassword'])->name('profiles.updatePassword');
+    Route::get('profiles/professional',[ProfileController::class,'editProfessional'])->name('profiles.editProfessional');
+    Route::put('profiles/professional',[ProfileController::class,'updateProfessional'])->name('profiles.updateProfessional');
+    Route::get('profiles/bank/detail',[ProfileController::class,'editBankDetail'])->name('profiles.editBankDetail');
+    Route::put('profiles/bank/detail',[ProfileController::class,'updateBankDetail'])->name('profiles.updateBankDetail');
 });
 
 Route::get('/',function(){return view('index');});

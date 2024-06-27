@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Company\CompanyEstablishment;
 use App\Models\Company\CompanyOccupation;
 use App\Models\Company\CompanyOrganization;
 use App\Models\User;
@@ -32,9 +31,8 @@ class UsersController extends Controller
         $dbUsers = User::select()->orderBy('name')->get();
         $dbPermissions= UserPermissions::all();
         $dbHasPermissions = UserHasPermissions::all();
-        $dbCompanyOrganizational = CompanyOrganization::where('status',true)->orderBy('order')->get();
-        $dbCompanyOccupations = CompanyOccupation::where('status',true)->orderBy('title')->get();
-        $dbEstablishments = CompanyEstablishment::where('status',true)->orderBy('title')->get();
+        $dbCompanyOrganizational = CompanyOrganization::where('status',true)->get();
+        $dbCompanyOccupations = CompanyOccupation::where('status',true)->get();
 
         //Pesquisa de Dados
         $search = $request->all();
@@ -53,6 +51,8 @@ class UsersController extends Controller
         //Log do Sistema
         Logger::access();
 
+        dd($dbCompanyOccupations);
+
         return view('admin.users.users_index',[
             'search'=>$search,
             'db'=>$db,
@@ -61,7 +61,6 @@ class UsersController extends Controller
             'dbHasPermissions'=>$dbHasPermissions,
             'dbCompanyOrganizational'=>$dbCompanyOrganizational,
             'dbCompanyOccupations'=>$dbCompanyOccupations,
-            'dbEstablishments'=>$dbEstablishments,
         ]);
     }
 
@@ -110,14 +109,14 @@ class UsersController extends Controller
         $db = User::find($id);
 
         //Alterando Dados do Usuário
-        $data = $request->only('organization_id','occupation_id','establishment_id');
+        $data = $request->only('organization_id','occupation_id');
         $db->update($data);
 
         //Log do Sistema
         Logger::updateUserProfileData($db->name);
         
         return(redirect(route('users.index'))
-            ->with('success',`Permissão do Usuário Alteradas`));
+            ->with('success',`Dados do Usuário Alterado com sucesso`));
     }
 
     /**
@@ -183,6 +182,6 @@ class UsersController extends Controller
         Logger::updateUserVerify($db->name);
 
         return redirect(route('users.index'))
-            ->with('success','Atualização realizada com sucesso.');
+            ->with('success','Conta desativada com sucesso.');
     }
 }

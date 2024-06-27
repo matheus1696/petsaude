@@ -3,7 +3,7 @@
     <!-- Slot Header -->
     @slot('header')
         <x-header 
-            title="Organigrama: {{ $db->title }} ({{$db->linked_users}})" 
+            title="Grupos: {{ $db->title }} ({{$db->linked_users}})" 
             routeBack="{{ route('organizations.index') }}"
         />
     @endslot

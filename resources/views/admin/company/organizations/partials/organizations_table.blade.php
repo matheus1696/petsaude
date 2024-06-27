@@ -1,6 +1,6 @@
     <x-table.table>
         @slot('thead')
-                <x-table.th>Organograma</x-table.th>
+                <x-table.th>Grupos</x-table.th>
                 <x-table.th class="w-28">Status</x-table.th>
                 <x-table.th class="w-40"></x-table.th>
         @endslot

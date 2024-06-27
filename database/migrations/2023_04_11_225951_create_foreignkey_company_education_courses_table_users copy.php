@@ -7,15 +7,15 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     *  Run the migrations.
      */
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
             //
-            $table->unsignedBigInteger('sex_id')->after('birthday')->nullable();
+            $table->unsignedBigInteger('education_course_id')->after('birthday')->nullable();
 
-            $table->foreign('sex_id','fk_users_sex')->references('id')->on('users_sex');
+            $table->foreign('education_course_id','fk_company_education_course')->references('id')->on('company_education_courses');
         });
     }
 
@@ -26,7 +26,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
-            $table->dropForeign('fk_users_sex');
+            $table->dropForeign('fk_company_education_course');
         });
     }
 };

@@ -3,7 +3,7 @@
     <!-- Slot Header -->
     @slot('header')
         <x-header 
-            title="Organograma"
+            title="Grupos"
             routeBack="{{route('organizations.index')}}"
         />
     @endslot
