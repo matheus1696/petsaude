@@ -33,9 +33,11 @@ Route::middleware('auth')->group(function () {
             //Grupo de Rotas - Configuração dos Perfis dos Usuários
             Route::prefix('user')->group(function (){
                 //Rota - Dados dos Usuários Cadastrados
+                    Route::get('users/index',[UsersController::class,'index'])->name('users.index');
+                    Route::put('users/update/{user}',[UsersController::class,'update'])->name('users.update');
                     Route::put('users/permission/{user}',[UsersController::class,'permission'])->name('users.permission');
+                    Route::put('users/bank/detail/{user}',[UsersController::class,'bankDetail'])->name('users.bankDetail');
                     Route::get('users/verify/{user}',[UsersController::class,'verify'])->name('users.verify');
-                    Route::resource('users',UsersController::class);
 
             });
 

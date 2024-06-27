@@ -27,6 +27,30 @@
 
                     <x-table.td>
                         <!-- Inicio de Componentização do ModalShow -->
+                        <x-button.minButtonModalEdit id="UserBankDetailModal{{$item->id}}" title="Dados Bancário" icon="fas fa-money-check-alt">
+                                <!-- Inicio de Componentização de Formulário -->
+                                <x-form.form method="edit" route="{{route('users.bankDetail',['user'=>$item->id])}}">
+
+                                    <!-- Inicio de Componentização de Select -->
+                                    <x-form.select col="12" label="Tipo de Conta" name="bank_account_type" id="bank_account_type_{{$item}}">
+                                        <option value="Conta Corrente" @if ($item->bank_account_type == "Conta Corrente") selected @endif>
+                                            Conta Corrente
+                                        </option>
+                                    </x-form.select>
+
+                                    <!-- Inicio de Componentização de Select -->
+                                    <x-form.select col="12" label="Banco" name="bank" id="bank_{{$item}}">
+                                        <option value="Santander" @if ($item->bank == "Santander") selected @endif>Santander</option>
+                                        <option value="Bradesco" @if ($item->bank == "Bradesco") selected @endif>Bradesco</option>
+                                    </x-form.select>
+
+                                    <x-form.input col="6" label="Agência" name="bank_agency" id="bank_agency" value="{{$item->bank_agency}}"/>
+                                    <x-form.input col="6" label="Conta" name="bank_account" id="bank_account" value="{{$item->bank_account}}"/>
+                                </x-form.form>
+                            </div>
+                        </x-button.minButtonModalEdit>
+
+                        <!-- Inicio de Componentização do ModalShow -->
                         <x-button.minButtonModalEdit id="UserModal{{$item->id}}" title="Dados do Perfil">
                             <div class="grid grid-cols-1 gap-3 mb-3 -mt-5 md:grid-cols-2">
                                 <p><strong>Nome: </strong>{{$item->name}}</p>

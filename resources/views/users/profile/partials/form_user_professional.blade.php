@@ -14,4 +14,7 @@
             </div>
         </div>
     </x-conteiner>
+    <div class="text-center">
+        <p class="text-xs text-gray-400">* Em caso de alterações, entre em contato pelo email: cnep.caruaru@gmail.com.br ou pelo nosso whatsapp: (81)9-98384-4299</p>
+    </div>
 </div>

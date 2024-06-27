@@ -51,8 +51,6 @@ class UsersController extends Controller
         //Log do Sistema
         Logger::access();
 
-        dd($dbCompanyOccupations);
-
         return view('admin.users.users_index',[
             'search'=>$search,
             'db'=>$db,
@@ -62,42 +60,6 @@ class UsersController extends Controller
             'dbCompanyOrganizational'=>$dbCompanyOrganizational,
             'dbCompanyOccupations'=>$dbCompanyOccupations,
         ]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-        return redirect()->route('login');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-        return redirect()->route('login');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-        return redirect()->route('login');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-        return redirect()->route('login');
     }
 
     /**
@@ -163,12 +125,22 @@ class UsersController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Update the specified resource in storage.
      */
-    public function destroy(string $id)
+    public function bankDetail(Request $request, string $id)
     {
-        //
-        return redirect()->route('login');
+        //Listando Dados Usuário
+        $db = User::find($id);
+
+        //Alterando Dados do Usuário
+        $data = $request->only('bank_account_type','bank','bank_agency','bank_account');
+        $db->update($data);
+
+        //Log do Sistema
+        Logger::updateUserProfileData($db->name);
+        
+        return(redirect(route('users.index'))
+            ->with('success',`Dados do Usuário Alterado com sucesso`));
     }
 
     public function verify(string $id)

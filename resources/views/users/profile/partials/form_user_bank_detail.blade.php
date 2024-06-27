@@ -4,33 +4,39 @@
         <h3 class="mb-3 text-lg font-semibold text-center">Dados Bancários</h3>
 
         @if (isset($db->CompanyOccupation->title))
+
             @if ($db->CompanyOccupation->title == "Estudante Voluntário")
                 <div class="h-40 flex justify-center items-center pb-3">
                     Estudante Voluntário
-                </div>
+                </div>                    
             @else
-                <x-form.form method="edit" route="{{route('profiles.updateBankDetail')}}">
-                            
-                    <x-form.select col="12" label="Tipo de Conta" name="bank_account_type" id="bank_account_type">
-                        <option value="Conta Corrente" selected>Conta Corrente</option>
-                    </x-form.select>
-
-                    <x-form.select col="12" label="Banco" name="bank" id="bank">
-                        <option value="Santander" @if($db->bank == "Santander") selected @endif>Santander</option>
-                        <option value="Bradesco"@if($db->bank == "Bradesco") selected @endif>Bradesco</option>
-                    </x-form.select>
-
-                    <x-form.input col="6" label="Agência" name="bank_agency" id="bank_agency" value="{{$db->bank_agency}}" maxlength="4" minlength="4"/>
-                    <x-form.input col="6" label="Conta" name="bank_account" id="bank_account" value="{{$db->bank_account}}"/>
-
-                </x-form.form>
+                <div class="px-1 mb-4 mt-2 flex flex-col gap-4">
+                    <div class="text-sm">            
+                        <p class="mb-2"><strong>Tipo de Conta:</strong> </p>
+                        <p class="p-2 rounded-lg bg-gray-200">{{$db->bank_account_type ?? ''}}</p>
+                    </div>
+                    <div class="text-sm">            
+                        <p class="mb-2"><strong>Banco:</strong> </p>
+                        <p class="p-2 rounded-lg bg-gray-200">{{$db->bank ?? ''}}</p>
+                    </div>
+                    <div class="text-sm">            
+                        <p class="mb-2"><strong>Agência:</strong> </p>
+                        <p class="p-2 rounded-lg bg-gray-200">{{$db->bank_agency ?? ''}}</p>
+                    </div>
+                    <div class="text-sm">
+                        <p class="mb-2"><strong>Conta - DV:</strong></p>
+                        <p class="p-2 rounded-lg bg-gray-200">{{$db->bank_account ?? ''}}</p>
+                    </div>
+                </div>                    
             @endif
-        @else            
+            
+        @else        
             <div class="h-40 flex justify-center items-center pb-3">
                 Participante sem Grupo ou Função Atribuida
-            </div>
+            </div>                
         @endif
-
-        
     </x-conteiner>
+    <div class="text-center">
+        <p class="text-xs text-gray-400">* Em caso de alterações, entre em contato pelo email: cnep.caruaru@gmail.com.br ou pelo nosso whatsapp: (81)9-98384-4299</p>
+    </div>
 </div>

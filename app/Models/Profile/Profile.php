@@ -27,15 +27,9 @@ class Profile extends Model
         'contact_2',
         'birthday',
         'sexual_orientation_id',
-        'organization_id',
         'education_institution_id',
         'education_course_id',
-        'occupation_id',
         'establishment_id',
-        'bank_account_type',
-        'bank',
-        'bank_agency',
-        'bank_account',
     ];
 
     /**

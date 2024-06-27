@@ -3,10 +3,11 @@
     <button 
         data-toggle="modal"
         data-target="#modalEdit_{{$id}}"
-        class="px-2 py-1 m-1 text-xs text-white bg-yellow-400 rounded-lg shadow-md hover:bg-yellow-500" 
+        class="px-2 py-1 m-1 text-xs text-black bg-{{$color ?? 'yellow'}}-400 rounded-lg shadow-md hover:bg-{{$color ?? 'yellow'}}-500"  
         type="button"
     >
-        <i class="text-black fas fa-pen"></i>
+        <i class="{{$icon ?? "fas fa-pen"}}"></i>
+        @isset($btnTitle) <span class="font-semibold">{{$btnTitle}}</span> @endisset
     </button>
 
     <div class="modal fade" id="modalEdit_{{$id}}" role="dialog" aria-labelledby="modalLabelEdit_{{$id}}" aria-hidden="true">
