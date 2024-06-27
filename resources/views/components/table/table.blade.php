@@ -1,6 +1,6 @@
 <div class="overflow-x-auto shadow-md rounded-xl lg:overflow-hidden">
     <table class="w-full bg-white border table-auto">
-        <thead class="text-sm text-center bg-green-200 border-b-2 border-green-800">
+        <thead class="text-sm text-center bg-purple-200 border-b-2 border-purple-800">
             <tr>
                 {{$thead ?? ""}}
             </tr>

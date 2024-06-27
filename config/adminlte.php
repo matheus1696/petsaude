@@ -15,7 +15,7 @@ return [
     */
 
     'title' => '',
-    'title_prefix' => 'InfoSaúde Caruaru',
+    'title_prefix' => 'PetSaúde Caruaru',
     'title_postfix' => '',
 
     /*
@@ -63,12 +63,12 @@ return [
     |
     */
 
-    'logo' => '<b>InfoSaúde</b> Caruaru',
-    'logo_img' => 'assets/img/logo.png',
+    'logo' => '<b>PetSaúde</b> Caruaru',
+    'logo_img' => 'assets/img/logo.svg',
     'logo_img_class' => 'brand-image img-circle',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'InfoSaúde Caruaru',
+    'logo_img_alt' => 'PetSaúde Caruaru',
 
     /*
     |--------------------------------------------------------------------------
@@ -131,7 +131,7 @@ return [
 
     'usermenu_enabled' => true,
     'usermenu_header' => false,
-    'usermenu_header_class' => 'bg-success',
+    'usermenu_header_class' => 'bg-purple',
     'usermenu_image' => false,
     'usermenu_desc' => false,
     'usermenu_profile_url' => false,
@@ -167,12 +167,12 @@ return [
     |
     */
 
-    'classes_auth_card' => 'card-outline card-success elevation-2',
+    'classes_auth_card' => 'card-outline card-purple elevation-2',
     'classes_auth_header' => 'text-muted text-sm',
     'classes_auth_body' => 'text-dark',
     'classes_auth_footer' => 'text-center',
-    'classes_auth_icon' => 'text-success',
-    'classes_auth_btn' => 'btn btn-block btn-success elevation-1',
+    'classes_auth_icon' => 'text-purple',
+    'classes_auth_btn' => 'btn btn-block btn-purple elevation-1',
 
     /*
     |--------------------------------------------------------------------------
@@ -192,9 +192,9 @@ return [
     'classes_content_wrapper' => '',
     'classes_content_header' => '',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-dark-success elevation-5',
+    'classes_sidebar' => 'sidebar-light-purple elevation-3',
     'classes_sidebar_nav' => '',
-    'classes_topnav' => 'navbar-white navbar-light text-sm',
+    'classes_topnav' => 'navbar-purple navbar-dark text-sm',
     'classes_topnav_nav' => 'navbar-expand',
     'classes_topnav_container' => 'container',
 
@@ -310,14 +310,50 @@ return [
             'icon'    => 'fas fa-phone-volume pr-2',
         ],
 
-        //Perfil do Usuário
+        //Perfil
         [
             'text'    => 'Perfil',
             'classes' => 'btn-sm',
-            'route'   => 'profiles.index',
             'icon'    => 'fas fa-user pr-2',
-            'can'     => 'user'
-        ],        
+            'can'     => 'user',
+            'submenu' => [
+                [
+                    'text'    => 'Dados Pessoais',
+                    'classes' => 'btn-sm',
+                    'route'   => 'profiles.index',
+                    'icon'    => 'fas fa-user pr-2',
+                    'icon_color' => 'purple',
+                    'can'     => 'user'
+                ],
+                
+                [
+                    'text'    => 'Alteração de Senha',
+                    'classes' => 'btn-sm',
+                    'route'   => 'profiles.index',
+                    'icon'    => 'fas fa-user pr-2',
+                    'icon_color' => 'purple',
+                    'can'     => 'user'
+                ],
+                
+                [
+                    'text'    => 'Dados Profissionais',
+                    'classes' => 'btn-sm',
+                    'route'   => 'profiles.index',
+                    'icon'    => 'fas fa-user pr-2',
+                    'icon_color' => 'purple',
+                    'can'     => 'user'
+                ],
+                
+                [
+                    'text'    => 'Dados Bancário',
+                    'classes' => 'btn-sm',
+                    'route'   => 'profiles.index',
+                    'icon'    => 'fas fa-user pr-2',
+                    'icon_color' => 'purple',
+                    'can'     => 'user'
+                ],
+            ]
+        ],      
 
         //Configurações de Perfil
         [
@@ -333,7 +369,7 @@ return [
                     'classes' => 'btn-sm',
                     'route'   => 'users.index',
                     'icon'    => 'fas fa-users pr-2',
-                    'icon_color' => 'teal',
+                    'icon_color' => 'purple',
                     'can'     => ['sysadmin','admin'],
                 ],
             ]
@@ -352,7 +388,7 @@ return [
                     'text'    => 'Empresa',
                     'classes' => 'btn-sm',
                     'icon'    => 'fas fa-building pr-2',
-                    'icon_color' => 'info',
+                    'icon_color' => 'purple',
                     'can'     => ['sysadmin','admin'],
                     'submenu' => [
                         [
@@ -360,7 +396,7 @@ return [
                             'classes' => 'btn-sm',
                             'route'   => 'establishments.index',
                             'icon'    => 'fas fa-clinic-medical pr-2',
-                            'icon_color' => 'teal',
+                            'icon_color' => 'purple',
                             'can'     => ['sysadmin','admin'],
                         ],
                         [
@@ -368,7 +404,7 @@ return [
                             'classes' => 'btn-sm',
                             'route'   => 'type_establishments.index',
                             'icon'    => 'fas fa-grip-horizontal pr-2',
-                            'icon_color' => 'teal',
+                            'icon_color' => 'purple',
                             'can'     => ['sysadmin','admin'],
                         ],
                         [
@@ -376,7 +412,7 @@ return [
                             'classes' => 'btn-sm',
                             'route'   => 'financial_blocks.index',
                             'icon'    => 'fas fa-grip-lines-vertical pr-2',
-                            'icon_color' => 'teal',
+                            'icon_color' => 'purple',
                             'can'     => ['sysadmin','admin'],
                         ],
                         [
@@ -384,7 +420,7 @@ return [
                             'classes' => 'btn-sm',
                             'route'   => 'organizations.organize',
                             'icon'    => 'fas fa-bezier-curve pr-2',
-                            'icon_color' => 'teal',
+                            'icon_color' => 'purple',
                             'can'     => ['sysadmin','admin'],
                         ],
                         [
@@ -392,7 +428,7 @@ return [
                             'classes' => 'btn-sm',
                             'route'   => 'occupations.index',
                             'icon'    => 'fas fa-id-badge pr-2',
-                            'icon_color' => 'teal',
+                            'icon_color' => 'purple',
                             'can'     => ['sysadmin','admin'],
                         ],
 
@@ -404,7 +440,7 @@ return [
                     'text'    => 'Regiões',
                     'classes' => 'btn-sm',
                     'icon'    => 'fas fa-globe-americas pr-2',
-                    'icon_color' => 'info',
+                    'icon_color' => 'purple',
                     'can'     => ['sysadmin','admin'],
                     'submenu' => [
                         [
@@ -412,7 +448,7 @@ return [
                             'classes' => 'btn-sm',
                             'route'   => 'countries.index',
                             'icon'    => 'fas fa-map-marked-alt pr-2',
-                            'icon_color' => 'teal',
+                            'icon_color' => 'purple',
                             'can'     => ['sysadmin','admin'],
                         ],
                         [
@@ -420,7 +456,7 @@ return [
                             'classes' => 'btn-sm',
                             'route'   => 'states.index',
                             'icon'    => 'fas fa-map-marked-alt pr-2',
-                            'icon_color' => 'teal',
+                            'icon_color' => 'purple',
                             'can'     => ['sysadmin','admin'],
                         ],
                         [
@@ -428,7 +464,7 @@ return [
                             'classes' => 'btn-sm',
                             'route'   => 'cities.index',
                             'icon'    => 'fas fa-map-marked-alt pr-2',
-                            'icon_color' => 'teal',
+                            'icon_color' => 'purple',
                             'can'     => ['sysadmin','admin'],
                         ],
                     ]

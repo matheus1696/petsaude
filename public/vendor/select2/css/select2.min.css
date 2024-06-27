@@ -298,7 +298,7 @@
               padding-left: 6em; }
   
   .select2-container--default .select2-results__option--highlighted[aria-selected] {
-    background-color: #285D35;
+    background-color: #6B21A8;
     color: white; }
   
   .select2-container--default .select2-results__group {
@@ -473,15 +473,15 @@
     overflow-y: auto; }
   
   .select2-container--classic .select2-results__option[role=group] {  
-    background-color: #285D35;
+    background-color: #6B21A8;
     padding: 0; }
   
   .select2-container--classic .select2-results__option[aria-disabled=true] {
-    background-color: #285D35;
+    background-color: #6B21A8;
     color: grey; }
   
   .select2-container--classic .select2-results__option--highlighted[aria-selected] {
-    background-color: #285D35;
+    background-color: #6B21A8;
     color: white; }
   
   .select2-container--classic .select2-results__group {
@@ -493,6 +493,6 @@
     border-color: #ff0000; }
   
   .select2-container .select2-results__option:hover {
-    background-color: #13883e !important;
+    background-color: #6B21A8 !important;
     color: #FFF !important;
   }

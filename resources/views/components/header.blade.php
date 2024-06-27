@@ -9,7 +9,7 @@
             @isset($routeCreate)                
                 <div>
                     <a href="{{$routeCreate}}">
-                        <span class="px-3 py-2 text-sm text-white bg-green-700 rounded-full shadow-md hover:bg-green-600">
+                        <span class="px-3 py-2 text-sm text-white bg-purple-800 rounded-full shadow-md hover:bg-purple-900">
                             <i class="pr-1 fas fa-plus"></i> 
                             {{$btnTitleCreate ?? "Adicionar"}}
                         </span>
