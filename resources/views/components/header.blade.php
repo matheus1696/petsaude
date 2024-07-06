@@ -1,8 +1,8 @@
 <!-- Componente Header -->
 <div>    
-    <div class="flex flex-col items-center justify-between gap-4 px-2 pt-2 md:flex-row">
+    <div class="flex flex-col items-center justify-between gap-4 px-4 pt-2 md:flex-row">
         <div class="flex-1">
-            <p class="text-xl font-semibold">{{$title ?? ''}}</p>
+            <p class="text-xl font-medium">{{$title ?? ''}}</p>
         </div>
 
         <div class="flex items-center justify-center gap-4">
