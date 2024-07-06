@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('name_mother')->nullable();
             $table->string('bank_account_type')->nullable();
-            $table->string('bank')->nullable();
+            $table->string('bank_name')->nullable();
             $table->string('bank_agency')->nullable();
             $table->string('bank_account')->nullable();
             $table->rememberToken();

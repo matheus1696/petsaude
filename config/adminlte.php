@@ -373,7 +373,34 @@ return [
                     'can'     => ['sysadmin','admin'],
                 ],
             ]
-        ], 
+        ],        
+
+        //Configurações do Projeto Empresas
+        [
+            'text'    => 'Configuração do Projeto',
+            'classes' => 'btn-sm',
+            'icon'    => 'fas fa-users pr-2',
+            'can'     => ['sysadmin','admin'],
+            'submenu' => [
+                [
+                    'text'    => 'Grupos',
+                    'classes' => 'btn-sm',
+                    'route'   => 'organizations.organize',
+                    'icon'    => 'fas fa-bezier-curve pr-2',
+                    'icon_color' => 'purple',
+                    'can'     => ['sysadmin','admin'],
+                ],
+                [
+                    'text'    => 'Ocupações',
+                    'classes' => 'btn-sm',
+                    'route'   => 'occupations.index',
+                    'icon'    => 'fas fa-id-badge pr-2',
+                    'icon_color' => 'purple',
+                    'can'     => ['sysadmin','admin'],
+                ],
+
+            ]
+        ],
 
         //Configurações de Sistema
         [
@@ -385,7 +412,7 @@ return [
 
                 //Configurações de Empresas
                 [
-                    'text'    => 'Configuração Instituições',
+                    'text'    => 'Unidades de Saúde',
                     'classes' => 'btn-sm',
                     'icon'    => 'fas fa-building pr-2',
                     'icon_color' => 'purple',
@@ -415,23 +442,6 @@ return [
                             'icon_color' => 'purple',
                             'can'     => ['sysadmin','admin'],
                         ],
-                        [
-                            'text'    => 'Grupos',
-                            'classes' => 'btn-sm',
-                            'route'   => 'organizations.organize',
-                            'icon'    => 'fas fa-bezier-curve pr-2',
-                            'icon_color' => 'purple',
-                            'can'     => ['sysadmin','admin'],
-                        ],
-                        [
-                            'text'    => 'Ocupações',
-                            'classes' => 'btn-sm',
-                            'route'   => 'occupations.index',
-                            'icon'    => 'fas fa-id-badge pr-2',
-                            'icon_color' => 'purple',
-                            'can'     => ['sysadmin','admin'],
-                        ],
-
                     ]
                 ],
 

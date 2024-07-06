@@ -1,6 +1,7 @@
 
 /.phpunit.cache
 /node_modules
+/database/seeders/UserParticipantesSeeder.php
 /public/build
 /public/hot
 /public/storage

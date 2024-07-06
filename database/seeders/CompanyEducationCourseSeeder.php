@@ -20,10 +20,13 @@ class CompanyEducationCourseSeeder extends Seeder
         CompanyEducationCourse::create(['title'=>'Biomedicina','filter'=>strtolower('Biomedicina'),]);
         CompanyEducationCourse::create(['title'=>'Fisioterapia','filter'=>strtolower('Enfermagem'),]);
         CompanyEducationCourse::create(['title'=>'Designer','filter'=>strtolower('Designer'),]);
-        CompanyEducationCourse::create(['title'=>'Psicilogia','filter'=>strtolower('Psicilogia'),]);
+        CompanyEducationCourse::create(['title'=>'Psicologia','filter'=>strtolower('Psicologia'),]);
         CompanyEducationCourse::create(['title'=>'Odontologia','filter'=>strtolower('Odontologia'),]);
         CompanyEducationCourse::create(['title'=>'Pedagogia','filter'=>strtolower('Pedagogia'),]);
         CompanyEducationCourse::create(['title'=>'História','filter'=>strtolower('História'),]);
         CompanyEducationCourse::create(['title'=>'Direito','filter'=>strtolower('Direito'),]);
+        CompanyEducationCourse::create(['title'=>'Nutrição','filter'=>strtolower('Nutrição'),]);
+        CompanyEducationCourse::create(['title'=>'História','filter'=>strtolower('História'),]);
+        CompanyEducationCourse::create(['title'=>'Assistente Social','filter'=>strtolower('Assistente Social'),]);
     }
 }

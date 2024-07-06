@@ -27,7 +27,7 @@
 
                     <x-table.td>
                         <!-- Inicio de Componentização do ModalShow -->
-                        <x-button.minButtonModalEdit id="UserBankDetailModal{{$item->id}}" title="Dados Bancário" icon="fas fa-money-check-alt">
+                        <x-button.minButtonModalEdit id="UserBankDetailModal{{$item->id}}" title="Dados Bancário" icon="fas fa-money-bill-alt">
                                 <!-- Inicio de Componentização de Formulário -->
                                 <x-form.form method="edit" route="{{route('users.bankDetail',['user'=>$item->id])}}">
 

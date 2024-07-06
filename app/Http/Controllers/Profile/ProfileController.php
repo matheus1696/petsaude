@@ -167,4 +167,25 @@ class ProfileController extends Controller
             return redirect(route('home'));
         };
     }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function editBankDetail()
+    {
+        //Listando Dados
+        $db = Profile::find(Auth::user()->id);
+
+        if ($db) {
+            //Log do Sistema
+            Logger::editUserProfile($db->name);
+
+            return view('users.profile.profile_bank_detail', compact('db'));
+        } else {
+            //Log do Sistema
+            Logger::errorUserNoExistent('Usuário informado não existe');
+
+            return redirect(route('home'));
+        }
+    }
 }

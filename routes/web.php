@@ -92,10 +92,9 @@ Route::middleware('auth')->group(function () {
     Route::get('profiles/professional',[ProfileController::class,'editProfessional'])->name('profiles.editProfessional');
     Route::put('profiles/professional',[ProfileController::class,'updateProfessional'])->name('profiles.updateProfessional');
     Route::get('profiles/bank/detail',[ProfileController::class,'editBankDetail'])->name('profiles.editBankDetail');
-    Route::put('profiles/bank/detail',[ProfileController::class,'updateBankDetail'])->name('profiles.updateBankDetail');
 });
 
-Route::get('/',function(){return view('index');});
+Route::get('/',function(){return redirect()->route('login');});
 
 //Lista Telefônica
 Route::resource('contacts', ContactListsController::class);

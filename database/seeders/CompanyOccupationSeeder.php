@@ -22,5 +22,13 @@ class CompanyOccupationSeeder extends Seeder
         CompanyOccupation::create(['code'=>'00004','title'=>'Estudante Bolsista','filter'=>'estudante bolsista',]);
 
         CompanyOccupation::create(['code'=>'00005','title'=>'Estudante Voluntário','filter'=>'estudante voluntário',]);
+
+        CompanyOccupation::create(['code'=>'00006','title'=>'Orientador de Serviço','filter'=>'orientador de serviço',]);
+
+        CompanyOccupation::create(['code'=>'00007','title'=>'Tutor Voluntário','filter'=>'tutor voluntário',]);
+
+        CompanyOccupation::create(['code'=>'00008','title'=>'Desistente','filter'=>'desistente',]);
+
+        CompanyOccupation::create(['code'=>'00009','title'=>'Coordenadora Geral','filter'=>'coordenadora geral',]);
     }
 }
