@@ -1,4 +1,7 @@
 <?php
+
+use App\Http\Controllers\Admin\Company\CompanyEducationCourseController;
+use App\Http\Controllers\Admin\Company\CompanyEducationInstitutionController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -45,12 +48,12 @@ Route::middleware('auth')->group(function () {
             Route::prefix('company')->group(function (){
 
                 //Rota - Dados do Organograma
-                    Route::get('organizations/organize',[CompanyOrganizationController::class,'organize'])->name('organizations.organize');
-                    Route::put('organizations/status/{organization}',[CompanyOrganizationController::class,'status'])->name('organizations.status');
-                    Route::resource('organizations',CompanyOrganizationController::class);
-                    
-                    //Rota de Vinculação de Usuário com Organização
-                    Route::resource('organization_linked_users',CompanyOrganizationLinkedUserController::class);
+                Route::get('organizations/organize',[CompanyOrganizationController::class,'organize'])->name('organizations.organize');
+                Route::put('organizations/status/{organization}',[CompanyOrganizationController::class,'status'])->name('organizations.status');
+                Route::resource('organizations',CompanyOrganizationController::class);
+                
+                //Rota de Vinculação de Usuário com Organização
+                Route::resource('organization_linked_users',CompanyOrganizationLinkedUserController::class);
                     
                 //Rota - Dados Ocupação (CBO)
                     Route::resource('occupations',CompanyOccupationController::class);
@@ -64,6 +67,10 @@ Route::middleware('auth')->group(function () {
                     Route::resource('establishment_departments',CompanyEstablishmentDepartmentController::class);
                 //Rota - Nível de Atenção
                     Route::resource('financial_blocks',CompanyFinancialBlockController::class);
+                //Rota - Cursos de Graduação
+                    Route::resource('courses',CompanyEducationCourseController::class);
+                //Rota - Instituições de Ensino
+                    Route::resource('institutions',CompanyEducationInstitutionController::class);
 
             });
 
@@ -91,7 +98,7 @@ Route::middleware('auth')->group(function () {
     Route::put('profiles/password',[ProfileController::class,'updatePassword'])->name('profiles.updatePassword');
     Route::get('profiles/professional',[ProfileController::class,'editProfessional'])->name('profiles.editProfessional');
     Route::put('profiles/professional',[ProfileController::class,'updateProfessional'])->name('profiles.updateProfessional');
-    Route::get('profiles/bank/detail',[ProfileController::class,'editBankDetail'])->name('profiles.editBankDetail');
+    Route::get('profiles/bank/detail',[ProfileController::class,'bankDetail'])->name('profiles.bankDetail');
 });
 
 Route::get('/',function(){return redirect()->route('login');});

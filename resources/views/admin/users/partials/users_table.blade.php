@@ -39,9 +39,9 @@
                                     </x-form.select>
 
                                     <!-- Inicio de Componentização de Select -->
-                                    <x-form.select col="12" label="Banco" name="bank" id="bank_{{$item}}">
-                                        <option value="Santander" @if ($item->bank == "Santander") selected @endif>Santander</option>
-                                        <option value="Bradesco" @if ($item->bank == "Bradesco") selected @endif>Bradesco</option>
+                                    <x-form.select col="12" label="Banco" name="bank_name" id="bank_{{$item}}">
+                                        <option value="Santander" @if ($item->bank_name == "Santander") selected @endif>Santander</option>
+                                        <option value="Bradesco" @if ($item->bank_name == "Bradesco") selected @endif>Bradesco</option>
                                     </x-form.select>
 
                                     <x-form.input col="6" label="Agência" name="bank_agency" id="bank_agency" value="{{$item->bank_agency}}"/>

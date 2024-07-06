@@ -17,7 +17,7 @@
                     </div>
                     <div class="text-sm">            
                         <p class="mb-2"><strong>Banco:</strong> </p>
-                        <p class="p-2 rounded-lg bg-gray-200">{{$db->bank ?? ''}}</p>
+                        <p class="p-2 rounded-lg bg-gray-200">{{$db->bank_name ?? ''}}</p>
                     </div>
                     <div class="text-sm">            
                         <p class="mb-2"><strong>Agência:</strong> </p>

@@ -133,7 +133,7 @@ class UsersController extends Controller
         $db = User::find($id);
 
         //Alterando Dados do Usuário
-        $data = $request->only('bank_account_type','bank','bank_agency','bank_account');
+        $data = $request->only('bank_account_type','bank_name','bank_agency','bank_account');
         $db->update($data);
 
         //Log do Sistema

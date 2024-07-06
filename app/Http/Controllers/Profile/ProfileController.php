@@ -171,7 +171,7 @@ class ProfileController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function editBankDetail()
+    public function bankDetail()
     {
         //Listando Dados
         $db = Profile::find(Auth::user()->id);

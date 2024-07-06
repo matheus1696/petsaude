@@ -34,7 +34,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'occupation_id',
         'establishment_id',
         'bank_account_type',
-        'bank',
+        'bank_name',
         'bank_agency',
         'bank_account',
     ];

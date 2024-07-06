@@ -329,7 +329,7 @@ return [
                 [
                     'text'    => 'Dados Bancários',
                     'classes' => 'btn-sm',
-                    'route'   => 'profiles.editBankDetail',
+                    'route'   => 'profiles.bankDetail',
                     'icon'    => 'fas fa-money-check-alt pr-2',
                     'icon_color' => 'purple',
                     'can'     => 'user'
@@ -391,7 +391,7 @@ return [
                     'can'     => ['sysadmin','admin'],
                 ],
                 [
-                    'text'    => 'Ocupações',
+                    'text'    => 'Funções',
                     'classes' => 'btn-sm',
                     'route'   => 'occupations.index',
                     'icon'    => 'fas fa-id-badge pr-2',
@@ -410,7 +410,7 @@ return [
             'can'     => ['sysadmin','admin'],
             'submenu' => [
 
-                //Configurações de Empresas
+                //Configurações de Unidades de Saúde
                 [
                     'text'    => 'Unidades de Saúde',
                     'classes' => 'btn-sm',
@@ -439,6 +439,33 @@ return [
                             'classes' => 'btn-sm',
                             'route'   => 'financial_blocks.index',
                             'icon'    => 'fas fa-grip-lines-vertical pr-2',
+                            'icon_color' => 'purple',
+                            'can'     => ['sysadmin','admin'],
+                        ],
+                    ]
+                ],
+
+                //Configurações de Instituições de Ensino
+                [
+                    'text'    => 'Instituições de Ensino',
+                    'classes' => 'btn-sm',
+                    'icon'    => 'fas fa-university pr-2',
+                    'icon_color' => 'purple',
+                    'can'     => ['sysadmin','admin'],
+                    'submenu' => [
+                        [
+                            'text'    => 'Instituições',
+                            'classes' => 'btn-sm',
+                            'route'   => 'institutions.index',
+                            'icon'    => 'fas fa-graduation-cap pr-2',
+                            'icon_color' => 'purple',
+                            'can'     => ['sysadmin','admin'],
+                        ],
+                        [
+                            'text'    => 'Cursos',
+                            'classes' => 'btn-sm',
+                            'route'   => 'courses.index',
+                            'icon'    => 'fas fa-certificate pr-2',
                             'icon_color' => 'purple',
                             'can'     => ['sysadmin','admin'],
                         ],
