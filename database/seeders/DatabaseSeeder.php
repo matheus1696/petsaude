@@ -36,6 +36,8 @@ class DatabaseSeeder extends Seeder
             CompanyEducationInstitutionSeeder::class,
             CompanyEducationCourseSeeder::class,
             UserParticipantesSeeder::class,
+            NoticeLevelSeeder::class,
+            NoticeBoardSeeder::class,
         ]);
     }
 }
