@@ -15,8 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('title')->nullable();
             $table->text('description')->nullable();
-            $table->string('to');
-            $table->unsignedBigInteger('notice_level_id');
+            $table->string('to_category');
+            $table->string('to_specific');
+            $table->unsignedBigInteger('notice_level_id');            
+            $table->boolean('mark_read')->default(false);
             $table->timestamps();
 
             $table->foreign('notice_level_id')->references('id')->on('notice_levels');

@@ -16,11 +16,13 @@ class NoticeLevelSeeder extends Seeder
         //
         NoticeLevel::create([
             'title'=>'Normal',
-            'color'=>'bg-purple-300'
+            'color'=>'bg-purple-300',
+            'color_hover'=>'bg-purple-400'
         ]);
         NoticeLevel::create([
             'title'=>'Urgente',
-            'color'=>'bg-red-300'
+            'color'=>'bg-red-300',
+            'color_hover'=>'bg-red-400'
         ]);
     }
 }
