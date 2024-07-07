@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Models\Company;
+namespace App\Models\Institution;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CompanyEducationInstitution extends Model
+class InstitutionEducation extends Model
 {
     use HasFactory;
 
-    protected $table = 'company_education_institutions';
+    protected $table = 'institution_educations';
 
     protected $fillable =
     [

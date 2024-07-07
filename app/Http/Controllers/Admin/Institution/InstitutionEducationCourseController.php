@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Company;
+namespace App\Http\Controllers\Admin\Institution;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Company\CompanyEducationCourseStoreRequest;
-use App\Http\Requests\Company\CompanyEducationCourseUpdateRequest;
-use App\Models\Company\CompanyEducationCourse;
+use App\Http\Requests\Institution\InstitutionEducationCourseStoreRequest;
+use App\Http\Requests\Institution\InstitutionEducationCourseUpdateRequest;
+use App\Models\Institution\InstitutionEducationCourse;
 use App\Services\Logger;
 
-class CompanyEducationCourseController extends Controller
+class InstitutionEducationCourseController extends Controller
 {  
     /*
     * Controller access permission resource.
@@ -24,14 +24,14 @@ class CompanyEducationCourseController extends Controller
     public function index()
     {
         //Listagem de Dados
-        $db = CompanyEducationCourse::select()
+        $db = InstitutionEducationCourse::select()
             ->orderBy('title')
             ->paginate(40);
 
         //Log do Sistema
         Logger::access();
 
-        return view('admin.company.education.course.course_index',[
+        return view('admin.institution.education.course.course_index',[
             'db'=>$db,
         ]);
     }
@@ -47,7 +47,7 @@ class CompanyEducationCourseController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CompanyEducationCourseStoreRequest $request)
+    public function store(InstitutionEducationCourseStoreRequest $request)
     {
         //
     }
@@ -55,7 +55,7 @@ class CompanyEducationCourseController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(CompanyEducationCourse $companyEducationCourse)
+    public function show(InstitutionEducationCourse $InstitutionEducationCourse)
     {
         //
     }
@@ -63,7 +63,7 @@ class CompanyEducationCourseController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(CompanyEducationCourse $companyEducationCourse)
+    public function edit(InstitutionEducationCourse $InstitutionEducationCourse)
     {
         //
     }
@@ -71,7 +71,7 @@ class CompanyEducationCourseController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(CompanyEducationCourseUpdateRequest $request, CompanyEducationCourse $companyEducationCourse)
+    public function update(InstitutionEducationCourseUpdateRequest $request, InstitutionEducationCourse $InstitutionEducationCourse)
     {
         //
     }
@@ -79,7 +79,7 @@ class CompanyEducationCourseController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(CompanyEducationCourse $companyEducationCourse)
+    public function destroy(InstitutionEducationCourse $InstitutionEducationCourse)
     {
         //
     }

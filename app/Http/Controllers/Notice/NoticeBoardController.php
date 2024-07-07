@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Notice;
 
-use App\Models\Notice\Notice_Level;
-use App\Http\Requests\StoreNotice_LevelRequest;
-use App\Http\Requests\UpdateNotice_LevelRequest;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Notice\NoticeBoardStoreRequest;
+use App\Http\Requests\Notice\NoticeBoardUpdateRequest;
+use App\Models\Notice\NoticeBoard;
 
-class NoticeLevelController extends Controller
+class NoticeBoardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +28,7 @@ class NoticeLevelController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreNotice_LevelRequest $request)
+    public function store(NoticeBoardStoreRequest $request)
     {
         //
     }
@@ -35,7 +36,7 @@ class NoticeLevelController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Notice_Level $notice_Level)
+    public function show(NoticeBoard $noticeBoard)
     {
         //
     }
@@ -43,7 +44,7 @@ class NoticeLevelController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Notice_Level $notice_Level)
+    public function edit(NoticeBoard $noticeBoard)
     {
         //
     }
@@ -51,7 +52,7 @@ class NoticeLevelController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateNotice_LevelRequest $request, Notice_Level $notice_Level)
+    public function update(NoticeBoardUpdateRequest $request, NoticeBoard $noticeBoard)
     {
         //
     }
@@ -59,7 +60,7 @@ class NoticeLevelController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Notice_Level $notice_Level)
+    public function destroy(NoticeBoard $noticeBoard)
     {
         //
     }

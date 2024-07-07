@@ -6,6 +6,6 @@
     @endslot
     
     @slot('body')        
-        @include('admin.company.education.institution.partials.institution_table')
+        @include('admin.institution.education.institution.partials.institution_table')
     @endslot
 </x-pages.index>

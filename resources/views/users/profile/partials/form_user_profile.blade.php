@@ -24,18 +24,18 @@
                 <x-form.input col="3" label="Contato 1" type="tel" name="contact_1" id="contact_1" value="{{$db->contact_1}}" maxlength="15" minlength="13" placeholder="(00) 00000-0000"/>                    
                 <x-form.input col="3" label="Contato 2" type="tel" name="contact_2" id="contact_2" value="{{$db->contact_2}}" maxlength="15" minlength="13" placeholder="(00) 00000-0000"/>
 
-                <x-form.select col="3" label="Instituição de Ensino" name="education_institution_id" id="education_institution_id">
-                    @foreach ($dbCompanyEducationInstitutions as $dbCompanyEducationInstitution)
-                        <option value="{{$dbCompanyEducationInstitution->id}}" @if ($db->education_institution_id == $dbCompanyEducationInstitution->id) selected @endif>
-                            {{$dbCompanyEducationInstitution->acronym}}
+                <x-form.select col="3" label="Instituição de Ensino" name="institution_education_id" id="institution_education_id">
+                    @foreach ($dbInstitutionEducations as $dbInstitutionEducation)
+                        <option value="{{$dbInstitutionEducation->id}}" @if ($db->institution_education_id == $dbInstitutionEducation->id) selected @endif>
+                            {{$dbInstitutionEducation->acronym}}
                         </option>
                     @endforeach
                 </x-form.select>
 
-                <x-form.select col="3" label="Curso" name="education_course_id" id="education_course_id">
-                    @foreach ($dbCompanyEducationCourses as $dbCompanyEducationCourse)
-                        <option value="{{$dbCompanyEducationCourse->id}}" @if ($db->education_course_id == $dbCompanyEducationCourse->id) selected @endif>
-                            {{$dbCompanyEducationCourse->title}}
+                <x-form.select col="3" label="Curso" name="institution_education_course_id" id="institution_education_course_id">
+                    @foreach ($dbInstitutionEducationCourses as $dbInstitutionEducationCourse)
+                        <option value="{{$dbInstitutionEducationCourse->id}}" @if ($db->institution_education_course_id == $dbInstitutionEducationCourse->id) selected @endif>
+                            {{$dbInstitutionEducationCourse->title}}
                         </option>
                     @endforeach
                 </x-form.select>                          

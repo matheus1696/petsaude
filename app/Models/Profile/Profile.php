@@ -27,8 +27,8 @@ class Profile extends Model
         'contact_2',
         'birthday',
         'sexual_orientation_id',
-        'education_institution_id',
-        'education_course_id',
+        'institution_education_id',
+        'institution_education_course_id',
         'establishment_id',
     ];
 

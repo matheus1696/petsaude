@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\Company\CompanyEducationCourseController;
-use App\Http\Controllers\Admin\Company\CompanyEducationInstitutionController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +12,8 @@ use App\Http\Controllers\Admin\Company\CompanyOccupationController;
 use App\Http\Controllers\Admin\Company\CompanyOrganizationController;
 use App\Http\Controllers\Admin\Company\CompanyOrganizationLinkedUserController;
 use App\Http\Controllers\Admin\Company\CompanyTypeEstablishmentController;
+use App\Http\Controllers\Admin\Institution\InstitutionEducationController;
+use App\Http\Controllers\Admin\Institution\InstitutionEducationCourseController;
 use App\Http\Controllers\Admin\Region\RegionCityController;
 use App\Http\Controllers\Admin\Region\RegionCountryController;
 use App\Http\Controllers\Admin\Region\RegionStateController;
@@ -87,18 +87,14 @@ Route::middleware('auth')->group(function () {
                     Route::put('establishments/status/{establishment}',[CompanyEstablishmentController::class,'status'])->name('establishments.status');
                     Route::resource('establishments',CompanyEstablishmentController::class);
                     Route::resource('establishment_departments',CompanyEstablishmentDepartmentController::class);
-                //Rota - Cursos de Graduação
-                    Route::resource('courses',CompanyEducationCourseController::class);
-                //Rota - Instituições de Ensino
-                    Route::resource('institutions',CompanyEducationInstitutionController::class);
             });
 
             //Grupo de Rotas - Configurações da Organização
             Route::prefix('institution')->group(function (){
                 //Rota - Cursos de Graduação
-                    Route::resource('courses',CompanyEducationCourseController::class);
+                    Route::resource('courses',InstitutionEducationCourseController::class);
                 //Rota - Instituições de Ensino
-                    Route::resource('institutions',CompanyEducationInstitutionController::class);
+                    Route::resource('institutions',InstitutionEducationController::class);
             });
 
             //Grupo de Rotas - Configuração de Localização

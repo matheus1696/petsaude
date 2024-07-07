@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
-            $table->unsignedBigInteger('education_course_id')->after('birthday')->nullable();
+            $table->unsignedBigInteger('institution_education_course_id')->after('birthday')->nullable();
 
-            $table->foreign('education_course_id','fk_company_education_course')->references('id')->on('company_education_courses');
+            $table->foreign('institution_education_course_id','fk_institution_education_course')->references('id')->on('institution_education_courses');
         });
     }
 
@@ -26,7 +26,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
-            $table->dropForeign('fk_company_education_course');
+            $table->dropForeign('fk_institution_education_course');
         });
     }
 };

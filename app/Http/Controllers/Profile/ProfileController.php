@@ -5,12 +5,11 @@ namespace App\Http\Controllers\Profile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Profile\ProfileBankDetailUpdateRequest;
 use App\Http\Requests\Profile\ProfilePersonalUpdateRequest;
 use App\Http\Requests\Profile\ProfilePasswordUpdateRequest;
 use App\Http\Requests\Profile\ProfileProfessionalUpdateRequest;
-use App\Models\Company\CompanyEducationCourse;
-use App\Models\Company\CompanyEducationInstitution;
+use App\Models\Institution\InstitutionEducation;
+use App\Models\Institution\InstitutionEducationCourse;
 use App\Models\Profile\Profile;
 use App\Models\User\UserSexualOrientation;
 use App\Services\Logger;
@@ -38,14 +37,14 @@ class ProfileController extends Controller
             Logger::editUserProfile($db->name);
             
             $dbUserSexualOrientations = UserSexualOrientation::where('status',true)->orderBy('sexual_orientation')->get();
-            $dbCompanyEducationInstitutions = CompanyEducationInstitution::where('status',true)->orderBy('title')->get();
-            $dbCompanyEducationCourses = CompanyEducationCourse::where('status',true)->orderBy('title')->get();
+            $dbInstitutionEducations = InstitutionEducation::where('status',true)->orderBy('title')->get();
+            $dbInstitutionEducationCourses = InstitutionEducationCourse::where('status',true)->orderBy('title')->get();
 
             return view('users.profile.profile_personal',[
                 'db'=>$db,
                 'dbUserSexualOrientations'=>$dbUserSexualOrientations,
-                'dbCompanyEducationInstitutions'=>$dbCompanyEducationInstitutions,
-                'dbCompanyEducationCourses'=>$dbCompanyEducationCourses,
+                'dbInstitutionEducations'=>$dbInstitutionEducations,
+                'dbInstitutionEducationCourses'=>$dbInstitutionEducationCourses,
             ]);
         } else {
             //Log do Sistema
@@ -65,7 +64,7 @@ class ProfileController extends Controller
 
         if ($db) {
             //Alterando Dados do Usuário
-            $data = $request->only('name','address','name_mother','cpf','registration','birthday','sexual_orientation_id','contact_1','contact_2','education_institution_id','education_course_id');
+            $data = $request->only('name','address','name_mother','cpf','registration','birthday','sexual_orientation_id','contact_1','contact_2','institution_education_id','institution_education_course_id');
             $db->update($data);
             
             //Log do Sistema
