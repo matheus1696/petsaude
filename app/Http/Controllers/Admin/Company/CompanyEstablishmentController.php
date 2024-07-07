@@ -21,7 +21,7 @@ class CompanyEstablishmentController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['permission:sysadmin|admin']);
+        $this->middleware(['permission:sysadmin|admin|admin_establishment']);
     }
 
     /**

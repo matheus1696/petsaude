@@ -17,7 +17,7 @@ class CompanyOrganizationController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['permission:sysadmin|admin']);
+        $this->middleware(['permission:sysadmin|admin|admin_project']);
     }
 
     /**

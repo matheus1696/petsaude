@@ -21,9 +21,9 @@ return [
     'verify'                      => 'Verificar sua conta',
     'verify_message'              => 'Precisamos verificar sua conta de e-mail',
     'verify_email_sent'           => 'Um novo link de verificação foi enviado para o seu email.',
-    'verify_check_your_email'     => 'Antes de prosseguir, por favor, verifique o e-mail cadastrado para acessar o link de confirmação.',
-    'verify_messagem_spam'        => '(OBS.: Por favor verifique a caixa de SPAM ou lixo eletrônico).',
-    'verify_if_not_recieved'      => 'Caso não tenha recebido o email, clique no botão abaixo.',
+    'verify_check_your_email'     => 'Antes de seguir, dê uma espiadinha no seu e-mail e clique no link de confirmação.',
+    'verify_messagem_spam'        => '(OBS.: Se não encontrar, dê uma olhadinha no SPAM também, ele pode estar lá escondido!).',
+    'verify_if_not_recieved'      => 'Se o e-mail não chegou, clique no botão abaixo para tentarmos de novo.',
     'verify_request_another'      => 'Solicitar um novo email de verificação',
     'confirm_password_message'    => 'Por favor, confirme sua senha para continuar.',
 ];

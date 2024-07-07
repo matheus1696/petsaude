@@ -307,6 +307,7 @@ return [
             'text'    => 'Lista Telefônica',
             'classes' => 'btn-sm',
             'route'   => 'contacts.index',
+            'can'     => 'user',
             'icon'    => 'fas fa-phone-volume pr-2',
         ],
 
@@ -360,7 +361,7 @@ return [
             'text'    => 'Configurações de Perfis',
             'classes' => 'btn-sm',
             'icon'    => 'fas fa-users-cog pr-2',
-            'can'     => ['sysadmin','admin'],
+            'can'     => ['sysadmin','admin','admin_user'],
             'submenu' => [
 
                 //Dados dos Usuários e Permissões dos Módulos
@@ -370,7 +371,7 @@ return [
                     'route'   => 'users.index',
                     'icon'    => 'fas fa-users pr-2',
                     'icon_color' => 'purple',
-                    'can'     => ['sysadmin','admin'],
+                    'can'     => ['sysadmin','admin','admin_user'],
                 ],
             ]
         ],        
@@ -380,7 +381,7 @@ return [
             'text'    => 'Configuração do Projeto',
             'classes' => 'btn-sm',
             'icon'    => 'fas fa-users pr-2',
-            'can'     => ['sysadmin','admin'],
+            'can'     => ['sysadmin','admin','admin_project'],
             'submenu' => [
                 [
                     'text'    => 'Grupos',
@@ -388,7 +389,7 @@ return [
                     'route'   => 'organizations.organize',
                     'icon'    => 'fas fa-bezier-curve pr-2',
                     'icon_color' => 'purple',
-                    'can'     => ['sysadmin','admin'],
+                    'can'     => ['sysadmin','admin','admin_project'],
                 ],
                 [
                     'text'    => 'Funções',
@@ -396,7 +397,7 @@ return [
                     'route'   => 'occupations.index',
                     'icon'    => 'fas fa-id-badge pr-2',
                     'icon_color' => 'purple',
-                    'can'     => ['sysadmin','admin'],
+                    'can'     => ['sysadmin','admin','admin_project'],
                 ],
 
             ]
@@ -416,7 +417,7 @@ return [
                     'classes' => 'btn-sm',
                     'icon'    => 'fas fa-building pr-2',
                     'icon_color' => 'purple',
-                    'can'     => ['sysadmin','admin'],
+                    'can'     => ['sysadmin','admin','admin_establishment'],
                     'submenu' => [
                         [
                             'text'    => 'Estabelecimentos',
@@ -424,7 +425,7 @@ return [
                             'route'   => 'establishments.index',
                             'icon'    => 'fas fa-clinic-medical pr-2',
                             'icon_color' => 'purple',
-                            'can'     => ['sysadmin','admin'],
+                            'can'     => ['sysadmin','admin','admin_establishment'],
                         ],
                         [
                             'text'    => 'Tipo de Estabelecimentos',
@@ -451,7 +452,7 @@ return [
                     'classes' => 'btn-sm',
                     'icon'    => 'fas fa-university pr-2',
                     'icon_color' => 'purple',
-                    'can'     => ['sysadmin','admin'],
+                    'can'     => ['sysadmin','admin','admin_institution'],
                     'submenu' => [
                         [
                             'text'    => 'Instituições',
@@ -459,7 +460,7 @@ return [
                             'route'   => 'institutions.index',
                             'icon'    => 'fas fa-graduation-cap pr-2',
                             'icon_color' => 'purple',
-                            'can'     => ['sysadmin','admin'],
+                            'can'     => ['sysadmin','admin','admin_institution'],
                         ],
                         [
                             'text'    => 'Cursos',
@@ -467,7 +468,7 @@ return [
                             'route'   => 'courses.index',
                             'icon'    => 'fas fa-certificate pr-2',
                             'icon_color' => 'purple',
-                            'can'     => ['sysadmin','admin'],
+                            'can'     => ['sysadmin','admin','admin_institution'],
                         ],
                     ]
                 ],

@@ -26,7 +26,9 @@ class HomeController extends Controller
     public function index()
     {
         $dbUser = Auth::user();
-        $alertPassword = Hash::check(Auth::user()->password, Auth::user()->cpf);
+        $password = $dbUser->password;
+        $cpf = $dbUser->cpf;
+        $alertPassword = Hash::check($cpf,$password);
 
         Logger::access('Página inicial após login');
 

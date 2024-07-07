@@ -9,7 +9,15 @@ use App\Models\Company\CompanyEducationInstitution;
 use App\Services\Logger;
 
 class CompanyEducationInstitutionController extends Controller
-{
+{    
+    /*
+    * Controller access permission resource.
+    */
+   public function __construct()
+   {
+       $this->middleware(['permission:sysadmin|admin|admin_institution']);
+   }
+
     /**
      * Display a listing of the resource.
      */

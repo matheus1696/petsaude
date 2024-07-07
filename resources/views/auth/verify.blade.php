@@ -1,49 +1,38 @@
-@extends('adminlte::page')
-@section('title', '' )
+<x-pages.index>
+    @slot('body')
+        <div class="flex justify-center items-center pt-20">
+            <div class="bg-white w-full md:w-1/2 overflow-x-auto rounded-xl shadow-lg border-t-4 border-purple-600 flex flex-col">
 
-@section('content')
-
-    <div class="p-3 row justify-content-center align-items-center min-vh-75">
-        <div class="col-xl-4 col-lg-6 col-10">
-            {{-- Card Box --}}
-            <div class="card {{ config('adminlte.classes_auth_card', 'card-outline card-primary') }}">
-
-                {{-- Card Header --}}
-                <div class="card-header {{ config('adminlte.classes_auth_header', '') }}">
-                    <h3 class="float-none text-center card-title">
-                        {{ __('adminlte::adminlte.verify_message') }}
-                    </h3>
+                <div class="text-center py-3 border-b border-gray-200">
+                    <h2 class="font-semibold">{{ __('adminlte::adminlte.verify_message') }}</h2>
                 </div>
 
-                {{-- Card Body --}}
-                <div class="card-body login-card-body {{ config('adminlte.classes_auth_body', '') }}">
-
-                    <p class="text-center">
-                        {{ __('adminlte::adminlte.verify_check_your_email') }}
-                        <span class="text-danger">
-                            {{ __('adminlte::adminlte.verify_messagem_spam') }}
-                        </span>
-                    </p>
-                    <p class="text-center">{{ __('adminlte::adminlte.verify_if_not_recieved') }}</p>
+                <div class="px-5 py-4 border-b border-gray-200">
+                    <span>{{ __('adminlte::adminlte.verify_check_your_email') }}</span>
+                    <span class="text-red-400 italic font-semibold">{{ __('adminlte::adminlte.verify_messagem_spam') }}</span>
                 </div>
 
-                {{-- Card Footer --}}
-                <div class="card-footer {{ config('adminlte.classes_auth_footer', '') }}">
-                    <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
+                <div class="px-5 py-4">
+                    <p class="text-center text-sm">{{ __('adminlte::adminlte.verify_if_not_recieved') }}</p>
+
+                    <form class="mt-3 flex justify-center" method="POST" action="{{ route('verification.resend') }}">
                         @csrf
-                        <button type="submit" class="btn btn-block btn-outline-success">
+                        <button type="submit" class="w-full border-2 border-purple-600 px-3 py-2 rounded-xl shadow-lg hover:bg-purple-600 hover:text-white transition-all duration-500 text-sm">
                             {{ __('adminlte::adminlte.verify_request_another') }}
                         </button>
                     </form>
-                                        
-                    @if(session('resent'))
-                        <div class="my-3 text-center alert alert-success" role="alert">
-                            {{ __('adminlte::adminlte.verify_email_sent') }}
-                        </div>
-                    @endif
                 </div>
 
+                @if(session('resent'))
+                    <div class="bg-purple-600 text-center text-white py-3 text-sm">
+                        <p>{{ __('adminlte::adminlte.verify_email_sent') }}</p>
+                    </div>
+                @endif
             </div>
         </div>
-    </div>
-@stop
+
+        
+
+        
+    @endslot
+</x-pages.index>
