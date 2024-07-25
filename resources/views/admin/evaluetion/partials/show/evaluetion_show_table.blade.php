@@ -25,7 +25,24 @@
                 </x-table.td>
                 <x-table.td>{{$dbEvaluetionTask->type}}</x-table.td>
                 <x-table.td>{{$dbEvaluetionTask->order}}</x-table.td>
-                <x-table.td> <a href="{{route('evaluetions.show', ['evaluetion'=>$dbEvaluetionTask->id])}}">Questões</a> </x-table.td>
+                <x-table.td>
+                    <x-button.minButtonModalEdit id="Evaluetion_{{$dbEvaluetionTask->id}}" title="Questão">
+
+                        <x-form.form route="{{route('evaluetions.taskUpdate',['evaluetion'=>$dbEvaluetionTask->id])}}" method="edit">
+                            
+                            <x-form.select col="12" label="Tipo" id="type" name="type">
+                                <option value="Texto" @if($dbEvaluetionTask->type === "Texto") selected @endif>Texto</option>
+                                <option value="Múltipla" @if($dbEvaluetionTask->type === "Múltipla") selected @endif>Múltipla Escolha</option>
+                            </x-form.select>
+    
+                            <x-form.textarea col="12" label="Questão" name="question" value="{{$dbEvaluetionTask->question}}"/>
+
+                            <x-form.textarea col="12" label="Descrição" name="description" value="{{$dbEvaluetionTask->description}}"/>
+                            
+                        </x-form.form>
+                        
+                    </x-button.minButtonModalEdit>
+                </x-table.td>
             </x-table.tr>
         @endforeach
     @endslot

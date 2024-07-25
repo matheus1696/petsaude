@@ -13,6 +13,7 @@ class EvaluetionTask extends Model
         'question',
         'type',
         'order',
+        'description',
         'evaluetion_id'
     ];
 }

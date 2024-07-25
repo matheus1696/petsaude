@@ -24,7 +24,9 @@
                             <option value="Múltipla">Múltipla Escolha</option>
                         </x-form.select>
 
-                        <x-form.textarea col="12" label="Questão" name="question"/>
+                        <x-form.textarea col="12" label="Questão" name="question"/>                        
+
+                        <x-form.textarea col="12" label="Descrição" name="description"/>
                     </x-form.form>
                 </div>
             </div>

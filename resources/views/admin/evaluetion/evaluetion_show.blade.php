@@ -2,7 +2,10 @@
 
     <!-- Slot Header -->
     @slot('header')
-        <x-header title="{{$dbEvaluetion->title}}" />
+        <x-header
+            title="{{$dbEvaluetion->title}}" 
+            routeBack="{{route('evaluetions.index')}}"
+        />
     @endslot
     
     @slot('body')

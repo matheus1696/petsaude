@@ -11,7 +11,7 @@ class UpdateEvaluetionTaskRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,6 +23,8 @@ class UpdateEvaluetionTaskRequest extends FormRequest
     {
         return [
             //
+            'question'=>'required',
+            'type'=>'required',
         ];
     }
 }

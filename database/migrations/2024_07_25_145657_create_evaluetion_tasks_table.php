@@ -16,6 +16,7 @@ return new class extends Migration
             $table->text('question');
             $table->integer('order');
             $table->string('type');
+            $table->text('description')->nullable();
             $table->unsignedBigInteger('evaluetion_id');
             $table->timestamps();
 
