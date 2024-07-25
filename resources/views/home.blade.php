@@ -27,7 +27,7 @@
                                 type="button"
                             >
                                 <h4 class="pl-2 text-xs text-start line-clamp-1 font-bold">- {{$dbNoticeHistory->NoticeBoard->title}}</h4>
-                                <p class="pl-2 text-xs py-1 text-start line-clamp-3">{{$dbNoticeHistory->NoticeBoard->description}}</p>
+                                <div class="pl-2 text-xs py-1 text-start line-clamp-3">{!!$dbNoticeHistory->NoticeBoard->description!!}</div>
                                 <p class="w-full text-end text-xs italic">{{date("d/m/Y", strtotime($dbNoticeHistory->created_at,))}}</p>
                             </button>
                             
