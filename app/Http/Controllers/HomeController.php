@@ -30,7 +30,7 @@ class HomeController extends Controller
         $dbNotices = NoticeBoard::where('mark_read',FALSE)
             ->where('to_specific_user_id',Auth::user()->id)
             ->get();
-
+            
         //Verificação de Senha do usuário
         $password = $dbUser->password;
         $cpf = $dbUser->cpf;
