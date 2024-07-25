@@ -11,7 +11,7 @@ class NoticeBoardStoreRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,10 @@ class NoticeBoardStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title'=>'required|min:10',
+            'notice_level_id'=>'required',
+            'to_specific_users'=>'required',
+            'description'=>'required|min:10|max:250',
         ];
     }
 }

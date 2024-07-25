@@ -12,9 +12,8 @@ class NoticeBoard extends Model
     protected $fillable = [
         'title',
         'description',
-        'to_specific_user_id',
+        'to_specific_users',
         'notice_level_id',
-        'mark_read',
     ];
 
     public function NoticeLevel(){

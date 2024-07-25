@@ -5,7 +5,11 @@ namespace App\Http\Controllers\Notice;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Notice\NoticeBoardStoreRequest;
 use App\Http\Requests\Notice\NoticeBoardUpdateRequest;
+use App\Models\Company\CompanyOrganization;
 use App\Models\Notice\NoticeBoard;
+use App\Models\Notice\NoticeBoardHistory;
+use App\Models\Notice\NoticeLevel;
+use App\Models\User;
 
 class NoticeBoardController extends Controller
 {
@@ -15,14 +19,11 @@ class NoticeBoardController extends Controller
     public function index()
     {
         //
-    }
+        $dbNotices = NoticeBoard::paginate(100);        
+        $dbNoticeLevels = NoticeLevel::all();
+        $dbOrganizations = CompanyOrganization::all();
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return view('admin.notice.notice_index', compact('dbNotices', 'dbNoticeLevels', 'dbOrganizations'));
     }
 
     /**
@@ -31,6 +32,23 @@ class NoticeBoardController extends Controller
     public function store(NoticeBoardStoreRequest $request)
     {
         //
+        $dbNotice = NoticeBoard::create($request->all());
+
+        if ($request['to_specific_users'] == 'all') {
+            $dbUsers = User::all();
+        } else {
+            $dbUsers = User::where('organization_id', $request['to_specific_users'])->get();
+        }
+
+        foreach ($dbUsers as $dbUser) {
+            NoticeBoardHistory::create([
+                'notice_id'=>$dbNotice->id,
+                'to_specific_user_id'=>$dbUser->id
+            ]);
+        }
+
+        return redirect()->back()->with('success','Aviso cadastrado com sucesso e enviado para todos os usuários.');
+        
     }
 
     /**
@@ -69,8 +87,8 @@ class NoticeBoardController extends Controller
     public function markRead(string $id)
     {
         //
-        $dbNotice = NoticeBoard::find($id);
-        $dbNotice->update(['mark_read'=>TRUE,]);
+        $dbNoticeHistory = NoticeBoardHistory::find($id);
+        $dbNoticeHistory->update(['mark_read'=>TRUE,]);
 
         return redirect()->back();
     }

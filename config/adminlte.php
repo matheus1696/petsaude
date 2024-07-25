@@ -374,7 +374,17 @@ return [
                     'can'     => ['sysadmin','admin','admin_user'],
                 ],
             ]
-        ],        
+        ],     
+        
+        //Gerenciamento de Quadros de Avisos
+        [
+            'text'    => 'Gerencia de Avisos',
+            'classes' => 'btn-sm',
+            'route'   => 'notices.index',
+            'icon'    => 'fas fa-users pr-2',
+            'icon_color' => 'purple',
+            'can'     => ['sysadmin','admin','admin_notice'],
+        ],
 
         //Configurações do Projeto Empresas
         [

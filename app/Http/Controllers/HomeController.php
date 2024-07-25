@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Notice\NoticeBoard;
+use App\Models\Notice\NoticeBoardHistory;
 use App\Services\Logger;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -27,7 +28,7 @@ class HomeController extends Controller
     public function index()
     {
         $dbUser = Auth::user();
-        $dbNotices = NoticeBoard::where('mark_read',FALSE)
+        $dbNoticeHistories = NoticeBoardHistory::where('mark_read',FALSE)
             ->where('to_specific_user_id',Auth::user()->id)
             ->get();
             
@@ -38,6 +39,6 @@ class HomeController extends Controller
 
         Logger::access('Página inicial após login');
 
-        return view('home',compact('dbUser','dbNotices','alertPassword'));
+        return view('home',compact('dbUser','dbNoticeHistories','alertPassword'));
     }
 }
