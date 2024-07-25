@@ -20,7 +20,7 @@ class NoticeBoardHistorySeeder extends Seeder
         $dbNoticeBoards = NoticeBoard::all();
 
         foreach ($dbUser as $value) {
-            foreach ($dbNoticeBoards as $key => $dbNoticeBoard) {                
+            foreach ($dbNoticeBoards as $dbNoticeBoard) {                
                 NoticeBoardHistory::create([
                     'notice_id'=>$dbNoticeBoard->id,
                     'to_specific_user_id'=>$value->id,

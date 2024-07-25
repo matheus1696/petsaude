@@ -20,12 +20,14 @@ class NoticeBoardSeeder extends Seeder
             'title'=>'Aviso 01',
             'description'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora maxime explicabo, perferendis et vitae molestias eveniet, corrupti commodi asperiores, inventore esse itaque blanditiis ullam consequuntur labore? Enim temporibus architecto quasi.',
             'notice_level_id'=>1,
+            'to_specific_users'=>'all',
         ]);
 
         NoticeBoard::create([
             'title'=>'Aviso 02',
             'description'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora maxime explicabo, perferendis et vitae molestias eveniet, corrupti commodi asperiores, inventore esse itaque blanditiis ullam consequuntur labore? Enim temporibus architecto quasi.',
             'notice_level_id'=>1,
+            'to_specific_users'=>'all',
         ]);
     }
 }
