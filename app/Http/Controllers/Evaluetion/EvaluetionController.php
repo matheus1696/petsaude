@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Evaluetion;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Evaluetion\StoreEvaluetionRequest;
+use App\Http\Requests\Evaluetion\StoreEvaluetionTaskRequest;
 use App\Models\Evaluation\Evaluetion;
 use App\Models\Company\CompanyOccupation;
+use App\Models\Evaluation\EvaluetionTask;
 
 class EvaluetionController extends Controller
 {
@@ -43,9 +45,13 @@ class EvaluetionController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Evaluetion $evaluetion)
+    public function show(string $id)
     {
         //
+        $dbEvaluetion = Evaluetion::find($id);
+        $dbEvaluetionTasks = EvaluetionTask::where('evaluetion_id',$id)->paginate(100);
+
+        return view('admin.evaluetion.evaluetion_show', compact('dbEvaluetion','dbEvaluetionTasks'));
     }
 
     /**
@@ -70,5 +76,19 @@ class EvaluetionController extends Controller
     public function destroy(Evaluetion $evaluetion)
     {
         //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function taskStore(StoreEvaluetionTaskRequest $request)
+    {
+        //
+        $dbEvaluetionTasks = EvaluetionTask::where('evaluetion_id',$request['evaluetion_id'])->count();
+
+        $request['order'] = $dbEvaluetionTasks + 1;
+        EvaluetionTask::create($request->all());
+
+        return redirect()->back()->with('success','Questionario criado com sucesso');
     }
 }

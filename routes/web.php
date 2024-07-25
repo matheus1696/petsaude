@@ -67,6 +67,7 @@ Route::middleware('auth')->group(function () {
         Route::resource('notices', NoticeBoardController::class);
 
         //Avaliações
+        Route::post('evaluetions/task/store',[EvaluetionController::class,'taskStore'])->name('evaluetions.taskStore');
         Route::resource('evaluetions', EvaluetionController::class);
 
         //Grupo de Rotas - Configurações da Organização

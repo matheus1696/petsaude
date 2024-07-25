@@ -18,8 +18,8 @@
                 <div class="m-4 modal-body">
                     <x-form.form method="create" route="{{route('evaluetions.store')}}">    
                         <x-form.input col="12" label="Título da Avaliação" name="title"/>   
-                        <x-form.input type="date" col="6" label="Data de Início" name="data_start" min="{{date('Y-m-d',strtotime('-1 month'))}}" max="{{date('Y-m-d',strtotime('+2 month'))}}"/>
-                        <x-form.input type="date" col="6" label="Data de Fim" name="data_end"  min="{{date('Y-m-d',strtotime('-1 month'))}}" max="{{date('Y-m-d',strtotime('+2 month'))}}"/>
+                        <x-form.input type="date" col="6" label="Data de Início" name="date_start" min="{{date('Y-m-d',strtotime('-1 month'))}}" max="{{date('Y-m-d',strtotime('+2 month'))}}"/>
+                        <x-form.input type="date" col="6" label="Data de Fim" name="date_end"  min="{{date('Y-m-d',strtotime('-1 month'))}}" max="{{date('Y-m-d',strtotime('+2 month'))}}"/>
                     
                         <x-form.select col="12" label="Avaliado" id="occupation_id" name="occupation_id">
                             @foreach ($dbOccupations as $dbOccupation)

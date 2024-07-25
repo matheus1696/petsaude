@@ -382,7 +382,6 @@ return [
             'classes' => 'btn-sm',
             'route'   => 'notices.index',
             'icon'    => 'fas fa-users pr-2',
-            'icon_color' => 'purple',
             'can'     => ['sysadmin','admin','admin_notice'],
         ],    
         
@@ -392,7 +391,6 @@ return [
             'classes' => 'btn-sm',
             'route'   => 'evaluetions.index',
             'icon'    => 'fas fa-users pr-2',
-            'icon_color' => 'purple',
             'can'     => ['sysadmin','admin','admin_evaluetion'],
         ],
 

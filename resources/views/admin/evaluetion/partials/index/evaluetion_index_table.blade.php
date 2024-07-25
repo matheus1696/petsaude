@@ -11,10 +11,11 @@
 
 <x-table.table :db="$dbEvaluetions">
     @slot('thead')
-        <x-table.th class="w-32">Título</x-table.th>
-        <x-table.th>Avaliado</x-table.th>
-        <x-table.th class="w-32">Data Início</x-table.th>
-        <x-table.th class="w-32">Data Fim</x-table.th>
+        <x-table.th>Título</x-table.th>
+        <x-table.th class="w-60">Avaliado</x-table.th>
+        <x-table.th class="w-28">Data Início</x-table.th>
+        <x-table.th class="w-28">Data Fim</x-table.th>
+        <x-table.th class="w-28"></x-table.th>
     @endslot
 
     @slot('tbody')
@@ -22,9 +23,9 @@
             <x-table.tr>
                 <x-table.td>{{$dbEvaluetion->title}}</x-table.td>
                 <x-table.td>{{$dbEvaluetion->CompanyOccupation->title}}</x-table.td>
-                <x-table.td>{{$dbEvaluetion->data_start}}</x-table.td>
-                <x-table.td>{{$dbEvaluetion->data_end}}</x-table.td>
-                <x-table.td>{{$dbEvaluetion->data_start - $dbEvaluetion->data_end}}</x-table.td>
+                <x-table.td>{{date('d/m/Y', strtotime($dbEvaluetion->date_start))}}</x-table.td>
+                <x-table.td>{{date('d/m/Y', strtotime($dbEvaluetion->date_end))}}</x-table.td>
+                <x-table.td> <a href="{{route('evaluetions.show', ['evaluetion'=>$dbEvaluetion->id])}}">Questões</a> </x-table.td>
             </x-table.tr>
         @endforeach
     @endslot

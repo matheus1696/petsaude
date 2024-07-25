@@ -13,8 +13,8 @@ class Evaluetion extends Model
     protected $fillable =
     [
         'title',
-        'data_start',
-        'data_end',
+        'date_start',
+        'date_end',
         'description',
         'occupation_id',
     ];
