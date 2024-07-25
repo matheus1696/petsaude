@@ -47,12 +47,8 @@
                         // [groupName, [list of button]]
                         ['style', ['bold', 'italic', 'underline', 'clear',]],
                         ['color', ['color']],
-                        ['font', ['strikethrough', 'superscript', 'subscript']],
                         ['fontsize', ['fontsize']],
                         ['height', ['height']],
-                        ['font', ['superscript', 'subscript']],
-                        ['table', ['table','addRowDown', 'addRowUp', 'addColLeft', 'addColRight','delete','deleteRow', 'deleteCol', 'deleteTable']],
-                        ['view', ['fullscreen']],
                     ],
                     placeholder: 'Digite aqui...',
                 });

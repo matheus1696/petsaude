@@ -23,7 +23,7 @@
         <div class="flex items-center justify-center gap-3 my-3">
             @if ($method == "create")
                 <div class="w-full">
-                    <button type="submit" class="w-full my-2 text-sm text-white transition duration-300 bg-{{$color ?? 'green'}}-800 rounded-lg shadow-md h-9 hover:bg-{{$color ?? 'green'}}-700 preventSubmitBtn">{{$title ?? 'Cadastrar'}}</button>
+                    <button type="submit" class="w-full my-2 text-sm text-white transition duration-300 bg-{{$color ?? 'purple'}}-800 rounded-lg shadow-md h-9 hover:bg-{{$color ?? 'purple'}}-700 preventSubmitBtn">{{$title ?? 'Cadastrar'}}</button>
                 </div>
             @else
                 <div class="w-full">

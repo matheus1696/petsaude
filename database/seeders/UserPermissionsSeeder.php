@@ -20,6 +20,7 @@ class UserPermissionsSeeder extends Seeder
         UserPermissions::create(['name'=>'admin_establishment','guard_name'=>'web']);
         UserPermissions::create(['name'=>'admin_institution','guard_name'=>'web']);
         UserPermissions::create(['name'=>'admin_notice','guard_name'=>'web']);
+        UserPermissions::create(['name'=>'admin_evaluetion','guard_name'=>'web']);
         UserPermissions::create(['name'=>'user','guard_name'=>'web']);
     }
 }

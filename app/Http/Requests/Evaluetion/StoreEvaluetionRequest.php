@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Evaluetion;
 
+use App\Rules\EvaluetionDataRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateNoticeBoardHistoryRequest extends FormRequest
+class StoreEvaluetionRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,6 +24,10 @@ class UpdateNoticeBoardHistoryRequest extends FormRequest
     {
         return [
             //
+            'title'=>'required',
+            'data_start' => ['date', new EvaluetionDataRule],
+            'data_end' => ['date', new EvaluetionDataRule],
+            'occupation_id'=>'required'
         ];
     }
 }

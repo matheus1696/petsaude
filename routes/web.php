@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\Region\RegionCityController;
 use App\Http\Controllers\Admin\Region\RegionCountryController;
 use App\Http\Controllers\Admin\Region\RegionStateController;
 use App\Http\Controllers\Admin\User\UsersController;
+use App\Http\Controllers\Evaluetion\EvaluetionController;
 use App\Http\Controllers\Notice\NoticeBoardController;
 use App\Http\Controllers\Profile\ProfileController;
 use App\Http\Controllers\Public\ContactListsController;
@@ -62,8 +63,11 @@ Route::middleware('auth')->group(function () {
                 Route::get('verify/{user}',[UsersController::class,'verify'])->name('users.verify');
         });
 
-        //Lista Telefônica
+        //Avisos
         Route::resource('notices', NoticeBoardController::class);
+
+        //Avaliações
+        Route::resource('evaluetions', EvaluetionController::class);
 
         //Grupo de Rotas - Configurações da Organização
         Route::prefix('project')->group(function (){

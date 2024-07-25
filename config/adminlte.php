@@ -384,6 +384,16 @@ return [
             'icon'    => 'fas fa-users pr-2',
             'icon_color' => 'purple',
             'can'     => ['sysadmin','admin','admin_notice'],
+        ],    
+        
+        //Gerenciamento de Avaliações
+        [
+            'text'    => 'Gerencia de Avaliações',
+            'classes' => 'btn-sm',
+            'route'   => 'evaluetions.index',
+            'icon'    => 'fas fa-users pr-2',
+            'icon_color' => 'purple',
+            'can'     => ['sysadmin','admin','admin_evaluetion'],
         ],
 
         //Configurações do Projeto Empresas
