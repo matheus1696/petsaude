@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('title')->nullable();
             $table->text('description')->nullable();
-            $table->string('to_category');
-            $table->string('to_specific');
+            //Informa o grupo ou os usuários específicos
+            $table->unsignedBigInteger('to_specific_user_id');
             $table->unsignedBigInteger('notice_level_id');            
             $table->boolean('mark_read')->default(false);
             $table->timestamps();
