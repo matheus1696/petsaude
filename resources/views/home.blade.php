@@ -40,8 +40,13 @@
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
-                                        <div class="m-4 modal-body text-normal">
-                                            {{$dbNotice->description}}, Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi facere corrupti sit, nam nihil quos. Laboriosam corrupti doloribus dolorem rem labore sed deserunt, mollitia vero incidunt? Architecto corporis ratione exercitationem.
+                                        <div class="modal-body">
+                                            <p class="text-justify">{{$dbNotice->description}}, Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi facere corrupti sit, nam nihil quos. Laboriosam corrupti doloribus dolorem rem labore sed deserunt, mollitia vero incidunt? Architecto corporis ratione exercitationem.</p>
+                                            
+                                            <div class="mt-10 flex justify-end">
+                                                <a href="{{route('notices.markRead',['notice'=>$dbNotice->id])}}" class="text-sm bg-purple-600 hover:bg-purple-700 shadow-lg rounded-lg text-white px-2 py-1">Marca como Lido</a>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>

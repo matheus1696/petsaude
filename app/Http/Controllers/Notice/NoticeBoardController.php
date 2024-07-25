@@ -64,4 +64,15 @@ class NoticeBoardController extends Controller
     {
         //
     }
+
+    
+    public function markRead(string $id)
+    {
+        //
+        $dbNotice = NoticeBoard::find($id);
+        $dbNotice->update(['mark_read'=>TRUE,]);
+
+        return redirect()->back();
+    }
+    
 }

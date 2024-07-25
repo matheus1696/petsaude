@@ -33,6 +33,8 @@ Route::middleware('auth')->group(function () {
 
     //Lista Telefônica
     Route::resource('contacts', ContactListsController::class);
+        
+    Route::get('notices/{notice}/mark/read',[NoticeBoardController::class,'markRead'])->name('notices.markRead');
     
     //Grupo de Rotas - Perfil do Usuário
     Route::prefix('profiles')->group(function (){
