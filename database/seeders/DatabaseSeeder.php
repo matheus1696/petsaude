@@ -38,6 +38,7 @@ class DatabaseSeeder extends Seeder
             UserParticipantesSeeder::class,
             NoticeLevelSeeder::class,
             NoticeBoardSeeder::class,
+            NoticeBoardHistorySeeder::class,
         ]);
     }
 }

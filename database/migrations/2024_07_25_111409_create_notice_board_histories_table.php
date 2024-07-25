@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('notice_boards', function (Blueprint $table) {
+        Schema::create('notice_board_histories', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
-            $table->text('description')->nullable();
-            $table->unsignedBigInteger('notice_level_id');
+            $table->unsignedBigInteger('notice_id');
+            $table->unsignedBigInteger('to_specific_user_id');
             $table->boolean('mark_read')->default(false);
             $table->timestamps();
 
-            $table->foreign('notice_level_id')->references('id')->on('notice_levels');
+            $table->foreign('notice_id')->references('id')->on('notice_boards');
+            $table->foreign('to_specific_user_id')->references('id')->on('users');
         });
     }
 
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('notice_boards');
+        Schema::dropIfExists('notice_board_histories');
     }
 };
