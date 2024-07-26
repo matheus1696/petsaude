@@ -8,8 +8,8 @@
     @slot('body')
         <div class="flex justify-between px-2 pb-2">
             <h3 class="text-lg font-semibold"></h3>
-            @include('admin.evaluetion.personal.partials.show.personal_show_form')
+            @include('admin.evaluetion.personal.partials.multiple.personal_show_form')
         </div>
-            @include('admin.evaluetion.personal.partials.show.personal_show_table')
+            @include('admin.evaluetion.personal.partials.multiple.personal_show_table')
     @endslot
 </x-pages.index>

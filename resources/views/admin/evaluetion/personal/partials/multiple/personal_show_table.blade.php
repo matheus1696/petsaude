@@ -9,7 +9,7 @@
     </div>
 @endif
 
-<x-table.table :db="$dbEvaluetionPersonalTasks">
+<x-table.table>
     @slot('thead')
         <x-table.th>Pergunta</x-table.th>
         <x-table.th class="w-40">Tipo</x-table.th>
@@ -17,7 +17,7 @@
     @endslot
 
     @slot('tbody')
-        @foreach ($dbEvaluetionPersonalTasks as $dbEvaluetionPersonalTask)
+        @foreach ($dbEvaluetionPersonalTaskMultiples as $dbEvaluetionPersonalTask)
             <x-table.tr>
                 <x-table.td class="line-climp-3 text-justify">{{$dbEvaluetionPersonalTask->title}}</x-table.td>
                 <x-table.td class="text-center">
@@ -32,7 +32,7 @@
 
                         <x-form.form route="{{route('evaluetion_personal_tasks.update',['evaluetion_personal_task'=>$dbEvaluetionPersonalTask->id])}}" method="edit">
                            
-                            <x-form.input col="12" label="Pergunta" name="title" value="{{$evaluetionPersonalTask->title}}"/>
+                            <x-form.input col="12" label="Pergunta" name="title" value="{{$dbEvaluetionPersonalTask->title}}"/>
 
                             <x-form.select col="12" label="Tipo" id="type" name="type">
                                 <option value="Múltipla" @if($dbEvaluetionPersonalTask->type === "Múltipla") selected @endif>Múltipla Escolha</option>
