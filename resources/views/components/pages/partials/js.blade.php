@@ -42,7 +42,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
                 $('.summernote').summernote({
-                    height: 75,
+                    height: 150,
                     toolbar: [
                         // [groupName, [list of button]]
                         ['style', ['bold', 'italic', 'underline', 'clear',]],

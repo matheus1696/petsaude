@@ -6,8 +6,12 @@
         class="px-2 py-1 m-1 text-xs text-black bg-{{$color ?? 'yellow'}}-400 rounded-lg shadow-md hover:bg-{{$color ?? 'yellow'}}-500"  
         type="button"
     >
-        <i class="{{$icon ?? "fas fa-pen"}}"></i>
-        @isset($btnTitle) <span class="font-semibold">{{$btnTitle}}</span> @endisset
+        <div class="flex items-center justify-center gap-2">
+            <i class="{{$icon ?? "fas fa-pen"}} text-xs"></i>
+            @isset($btnTitle) 
+                <span class="font-semibold">{{$btnTitle}}</span>
+            @endisset
+        </div>
     </button>
 
     <div class="modal fade" id="modalEdit_{{$id}}" role="dialog" aria-labelledby="modalLabelEdit_{{$id}}" aria-hidden="true">

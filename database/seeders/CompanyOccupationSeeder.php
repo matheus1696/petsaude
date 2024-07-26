@@ -30,7 +30,5 @@ class CompanyOccupationSeeder extends Seeder
         CompanyOccupation::create(['code'=>'00008','title'=>'Desistente','filter'=>'desistente',]);
 
         CompanyOccupation::create(['code'=>'00009','title'=>'Coordenadora Geral','filter'=>'coordenadora geral',]);
-        
-        CompanyOccupation::create(['code'=>'00010','title'=>'Usuário','filter'=>'usuário',]);
     }
 }
