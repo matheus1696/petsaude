@@ -309,6 +309,15 @@ return [
             'route'   => 'contacts.index',
             'can'     => 'user',
             'icon'    => 'fas fa-phone-volume pr-2',
+        ],        
+
+        //Gerenciamento de Quadros de Avisos
+        [
+            'text'    => 'Avisos',
+            'classes' => 'btn-sm',
+            'route'   => 'notices.user',
+            'icon'    => 'fas fa-comments pr-2',
+            'can'     => 'user'
         ],
 
         //Perfil
@@ -355,178 +364,187 @@ return [
                 ],
             ]
         ],
-        
-        
-        //Gerenciamento de Quadros de Avisos
-        [
-            'text'    => 'Avisos',
-            'classes' => 'btn-sm',
-            'route'   => 'notices.user',
-            'icon'    => 'fas fa-comments pr-2',
-            'can'     => 'user'
-        ],
-        
-        //Gerenciamento de Quadros de Avisos
-        [
-            'text'    => 'Gerencia de Avisos',
-            'classes' => 'btn-sm',
-            'route'   => 'notices.index',
-            'icon'    => 'fas fa-volume-up pr-2',
-            'can'     => ['sysadmin','admin','admin_notice'],
-        ],
 
-        //Configurações de Perfil
+        //Configurações
         [
-            'text'    => 'Configurações de Perfis',
+            'text'    => 'Configurações',
             'classes' => 'btn-sm',
-            'icon'    => 'fas fa-users-cog pr-2',
-            'can'     => ['sysadmin','admin','admin_user'],
-            'submenu' => [
-
-                //Dados dos Usuários e Permissões dos Módulos
-                [
-                    'text'    => 'Dados dos Usuários',
-                    'classes' => 'btn-sm',
-                    'route'   => 'users.index',
-                    'icon'    => 'fas fa-users pr-2',
-                    'icon_color' => 'purple',
-                    'can'     => ['sysadmin','admin','admin_user'],
-                ],
-            ]
-        ],  
-
-        //Configurações do Projeto Empresas
-        [
-            'text'    => 'Configuração do Projeto',
-            'classes' => 'btn-sm',
-            'icon'    => 'fas fa-users pr-2',
-            'can'     => ['sysadmin','admin','admin_project'],
-            'submenu' => [
-                [
-                    'text'    => 'Grupos',
-                    'classes' => 'btn-sm',
-                    'route'   => 'organizations.organize',
-                    'icon'    => 'fas fa-bezier-curve pr-2',
-                    'icon_color' => 'purple',
-                    'can'     => ['sysadmin','admin','admin_project'],
-                ],
-                [
-                    'text'    => 'Funções',
-                    'classes' => 'btn-sm',
-                    'route'   => 'occupations.index',
-                    'icon'    => 'fas fa-id-badge pr-2',
-                    'icon_color' => 'purple',
-                    'can'     => ['sysadmin','admin','admin_project'],
-                ],
-
-            ]
-        ],
-
-        //Configurações de Sistema
-        [
-            'text'    => 'Configurações do Sistema',
-            'classes' => 'btn-sm',
-            'icon'    => 'fas fa-cogs pr-2',
+            'icon'    => 'fas fa-cog pr-2',
             'can'     => ['sysadmin','admin'],
             'submenu' => [
-
-                //Configurações de Unidades de Saúde
+                
+                //Gerenciamento de Quadros de Avisos evaluetion_personals
                 [
-                    'text'    => 'Unidades de Saúde',
+                    'text'    => 'Gerencia de Avisos',
                     'classes' => 'btn-sm',
-                    'icon'    => 'fas fa-building pr-2',
-                    'icon_color' => 'purple',
-                    'can'     => ['sysadmin','admin','admin_establishment'],
+                    'route'   => 'notices.index',
+                    'icon'    => 'fas fa-volume-up pr-2',
+                    'can'     => ['sysadmin','admin','admin_notice'],
+                ],
+                
+                //Gerenciamento de Quadros de Avisos 
+                [
+                    'text'    => 'Gerencia de Avaliações',
+                    'classes' => 'btn-sm',
+                    'route'   => 'evaluetion_personals.index',
+                    'icon'    => 'fas fa-volume-up pr-2',
+                    'can'     => ['sysadmin','admin','admin_evaluetion'],
+                ],
+
+                //Configurações de Perfil
+                [
+                    'text'    => 'Configurações de Perfis',
+                    'classes' => 'btn-sm',
+                    'icon'    => 'fas fa-users-cog pr-2',
+                    'can'     => ['sysadmin','admin','admin_user'],
+                    'submenu' => [
+
+                        //Dados dos Usuários e Permissões dos Módulos
+                        [
+                            'text'    => 'Dados dos Usuários',
+                            'classes' => 'btn-sm',
+                            'route'   => 'users.index',
+                            'icon'    => 'fas fa-users pr-2',
+                            'icon_color' => 'purple',
+                            'can'     => ['sysadmin','admin','admin_user'],
+                        ],
+                    ]
+                ],  
+
+                //Configurações do Projeto Empresas
+                [
+                    'text'    => 'Configuração do Projeto',
+                    'classes' => 'btn-sm',
+                    'icon'    => 'fas fa-users pr-2',
+                    'can'     => ['sysadmin','admin','admin_project'],
                     'submenu' => [
                         [
-                            'text'    => 'Estabelecimentos',
+                            'text'    => 'Grupos',
                             'classes' => 'btn-sm',
-                            'route'   => 'establishments.index',
-                            'icon'    => 'fas fa-clinic-medical pr-2',
+                            'route'   => 'organizations.organize',
+                            'icon'    => 'fas fa-bezier-curve pr-2',
                             'icon_color' => 'purple',
-                            'can'     => ['sysadmin','admin','admin_establishment'],
+                            'can'     => ['sysadmin','admin','admin_project'],
                         ],
                         [
-                            'text'    => 'Tipo de Estabelecimentos',
+                            'text'    => 'Funções',
                             'classes' => 'btn-sm',
-                            'route'   => 'type_establishments.index',
-                            'icon'    => 'fas fa-grip-horizontal pr-2',
+                            'route'   => 'occupations.index',
+                            'icon'    => 'fas fa-id-badge pr-2',
                             'icon_color' => 'purple',
-                            'can'     => ['sysadmin','admin'],
+                            'can'     => ['sysadmin','admin','admin_project'],
                         ],
-                        [
-                            'text'    => 'Blocos Financeiros',
-                            'classes' => 'btn-sm',
-                            'route'   => 'financial_blocks.index',
-                            'icon'    => 'fas fa-grip-lines-vertical pr-2',
-                            'icon_color' => 'purple',
-                            'can'     => ['sysadmin','admin'],
-                        ],
+
                     ]
                 ],
 
-                //Configurações de Instituições de Ensino
+                //Configurações de Sistema
                 [
-                    'text'    => 'Instituições de Ensino',
+                    'text'    => 'Configurações do Sistema',
                     'classes' => 'btn-sm',
-                    'icon'    => 'fas fa-university pr-2',
-                    'icon_color' => 'purple',
-                    'can'     => ['sysadmin','admin','admin_institution'],
-                    'submenu' => [
-                        [
-                            'text'    => 'Instituições',
-                            'classes' => 'btn-sm',
-                            'route'   => 'institutions.index',
-                            'icon'    => 'fas fa-graduation-cap pr-2',
-                            'icon_color' => 'purple',
-                            'can'     => ['sysadmin','admin','admin_institution'],
-                        ],
-                        [
-                            'text'    => 'Cursos',
-                            'classes' => 'btn-sm',
-                            'route'   => 'courses.index',
-                            'icon'    => 'fas fa-certificate pr-2',
-                            'icon_color' => 'purple',
-                            'can'     => ['sysadmin','admin','admin_institution'],
-                        ],
-                    ]
-                ],
-
-                //Configurações de Regiões
-                [
-                    'text'    => 'Regiões',
-                    'classes' => 'btn-sm',
-                    'icon'    => 'fas fa-globe-americas pr-2',
-                    'icon_color' => 'purple',
+                    'icon'    => 'fas fa-cogs pr-2',
                     'can'     => ['sysadmin','admin'],
                     'submenu' => [
+
+                        //Configurações de Unidades de Saúde
                         [
-                            'text'    => 'Paises',
+                            'text'    => 'Unidades de Saúde',
                             'classes' => 'btn-sm',
-                            'route'   => 'countries.index',
-                            'icon'    => 'fas fa-map-marked-alt pr-2',
+                            'icon'    => 'fas fa-building pr-2',
+                            'icon_color' => 'purple',
+                            'can'     => ['sysadmin','admin','admin_establishment'],
+                            'submenu' => [
+                                [
+                                    'text'    => 'Estabelecimentos',
+                                    'classes' => 'btn-sm',
+                                    'route'   => 'establishments.index',
+                                    'icon'    => 'fas fa-clinic-medical pr-2',
+                                    'icon_color' => 'purple',
+                                    'can'     => ['sysadmin','admin','admin_establishment'],
+                                ],
+                                [
+                                    'text'    => 'Tipo de Estabelecimentos',
+                                    'classes' => 'btn-sm',
+                                    'route'   => 'type_establishments.index',
+                                    'icon'    => 'fas fa-grip-horizontal pr-2',
+                                    'icon_color' => 'purple',
+                                    'can'     => ['sysadmin','admin'],
+                                ],
+                                [
+                                    'text'    => 'Blocos Financeiros',
+                                    'classes' => 'btn-sm',
+                                    'route'   => 'financial_blocks.index',
+                                    'icon'    => 'fas fa-grip-lines-vertical pr-2',
+                                    'icon_color' => 'purple',
+                                    'can'     => ['sysadmin','admin'],
+                                ],
+                            ]
+                        ],
+
+                        //Configurações de Instituições de Ensino
+                        [
+                            'text'    => 'Instituições de Ensino',
+                            'classes' => 'btn-sm',
+                            'icon'    => 'fas fa-university pr-2',
+                            'icon_color' => 'purple',
+                            'can'     => ['sysadmin','admin','admin_institution'],
+                            'submenu' => [
+                                [
+                                    'text'    => 'Instituições',
+                                    'classes' => 'btn-sm',
+                                    'route'   => 'institutions.index',
+                                    'icon'    => 'fas fa-graduation-cap pr-2',
+                                    'icon_color' => 'purple',
+                                    'can'     => ['sysadmin','admin','admin_institution'],
+                                ],
+                                [
+                                    'text'    => 'Cursos',
+                                    'classes' => 'btn-sm',
+                                    'route'   => 'courses.index',
+                                    'icon'    => 'fas fa-certificate pr-2',
+                                    'icon_color' => 'purple',
+                                    'can'     => ['sysadmin','admin','admin_institution'],
+                                ],
+                            ]
+                        ],
+
+                        //Configurações de Regiões
+                        [
+                            'text'    => 'Regiões',
+                            'classes' => 'btn-sm',
+                            'icon'    => 'fas fa-globe-americas pr-2',
                             'icon_color' => 'purple',
                             'can'     => ['sysadmin','admin'],
+                            'submenu' => [
+                                [
+                                    'text'    => 'Paises',
+                                    'classes' => 'btn-sm',
+                                    'route'   => 'countries.index',
+                                    'icon'    => 'fas fa-map-marked-alt pr-2',
+                                    'icon_color' => 'purple',
+                                    'can'     => ['sysadmin','admin'],
+                                ],
+                                [
+                                    'text'    => 'Estados',
+                                    'classes' => 'btn-sm',
+                                    'route'   => 'states.index',
+                                    'icon'    => 'fas fa-map-marked-alt pr-2',
+                                    'icon_color' => 'purple',
+                                    'can'     => ['sysadmin','admin'],
+                                ],
+                                [
+                                    'text'    => 'Cidades',
+                                    'classes' => 'btn-sm',
+                                    'route'   => 'cities.index',
+                                    'icon'    => 'fas fa-map-marked-alt pr-2',
+                                    'icon_color' => 'purple',
+                                    'can'     => ['sysadmin','admin'],
+                                ],
+                            ]
                         ],
-                        [
-                            'text'    => 'Estados',
-                            'classes' => 'btn-sm',
-                            'route'   => 'states.index',
-                            'icon'    => 'fas fa-map-marked-alt pr-2',
-                            'icon_color' => 'purple',
-                            'can'     => ['sysadmin','admin'],
-                        ],
-                        [
-                            'text'    => 'Cidades',
-                            'classes' => 'btn-sm',
-                            'route'   => 'cities.index',
-                            'icon'    => 'fas fa-map-marked-alt pr-2',
-                            'icon_color' => 'purple',
-                            'can'     => ['sysadmin','admin'],
-                        ],
-                    ]
+                    ],
                 ],
-            ],
+            ]
         ],
 
     ],

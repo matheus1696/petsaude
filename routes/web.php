@@ -18,7 +18,9 @@ use App\Http\Controllers\Admin\Region\RegionCityController;
 use App\Http\Controllers\Admin\Region\RegionCountryController;
 use App\Http\Controllers\Admin\Region\RegionStateController;
 use App\Http\Controllers\Admin\User\UsersController;
-use App\Http\Controllers\Evaluetion\EvaluetionController;
+use App\Http\Controllers\Evaluetion\EvaluetionPersonalController;
+use App\Http\Controllers\Evaluetion\EvaluetionPersonalTaskController;
+use App\Http\Controllers\Evaluetion\EvaluetionPersonalTaskMultipleController;
 use App\Http\Controllers\Notice\NoticeBoardController;
 use App\Http\Controllers\Notice\NoticeUserController;
 use App\Http\Controllers\Profile\ProfileController;
@@ -67,6 +69,11 @@ Route::middleware('auth')->group(function () {
         //Avisos
         Route::get('notices/user', [NoticeUserController::class, 'index'])->name('notices.user');
         Route::resource('notices', NoticeBoardController::class);
+
+        //Avaliações
+        Route::resource('evaluetion_personals', EvaluetionPersonalController::class);
+        Route::resource('evaluetion_personal_tasks', EvaluetionPersonalTaskController::class);
+        Route::resource('task_multiples', EvaluetionPersonalTaskMultipleController::class);
 
         //Grupo de Rotas - Configurações da Organização
         Route::prefix('project')->group(function (){

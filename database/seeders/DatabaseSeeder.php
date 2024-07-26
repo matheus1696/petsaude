@@ -39,6 +39,7 @@ class DatabaseSeeder extends Seeder
             NoticeLevelSeeder::class,
             NoticeBoardSeeder::class,
             NoticeBoardHistorySeeder::class,
+            EvaluetionPersonalSeeder::class,
         ]);
     }
 }
