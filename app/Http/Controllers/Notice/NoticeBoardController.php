@@ -88,7 +88,7 @@ class NoticeBoardController extends Controller
     {
         //
         $dbNoticeHistory = NoticeBoardHistory::find($id);
-        $dbNoticeHistory->update(['mark_read'=>TRUE,]);
+        $dbNoticeHistory->update(['mark_read'=>!$dbNoticeHistory->mark_read]);
 
         return redirect()->back();
     }

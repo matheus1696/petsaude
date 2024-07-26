@@ -20,6 +20,7 @@ use App\Http\Controllers\Admin\Region\RegionStateController;
 use App\Http\Controllers\Admin\User\UsersController;
 use App\Http\Controllers\Evaluetion\EvaluetionController;
 use App\Http\Controllers\Notice\NoticeBoardController;
+use App\Http\Controllers\Notice\NoticeUserController;
 use App\Http\Controllers\Profile\ProfileController;
 use App\Http\Controllers\Public\ContactListsController;
 
@@ -64,6 +65,7 @@ Route::middleware('auth')->group(function () {
         });
 
         //Avisos
+        Route::get('notices/user', [NoticeUserController::class, 'index'])->name('notices.user');
         Route::resource('notices', NoticeBoardController::class);
 
         //Grupo de Rotas - Configurações da Organização

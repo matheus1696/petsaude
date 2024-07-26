@@ -354,7 +354,26 @@ return [
                     'can'     => 'user'
                 ],
             ]
-        ],      
+        ],
+        
+        
+        //Gerenciamento de Quadros de Avisos
+        [
+            'text'    => 'Avisos',
+            'classes' => 'btn-sm',
+            'route'   => 'notices.user',
+            'icon'    => 'fas fa-comments pr-2',
+            'can'     => 'user'
+        ],
+        
+        //Gerenciamento de Quadros de Avisos
+        [
+            'text'    => 'Gerencia de Avisos',
+            'classes' => 'btn-sm',
+            'route'   => 'notices.index',
+            'icon'    => 'fas fa-volume-up pr-2',
+            'can'     => ['sysadmin','admin','admin_notice'],
+        ],
 
         //Configurações de Perfil
         [
@@ -374,16 +393,7 @@ return [
                     'can'     => ['sysadmin','admin','admin_user'],
                 ],
             ]
-        ],     
-        
-        //Gerenciamento de Quadros de Avisos
-        [
-            'text'    => 'Gerencia de Avisos',
-            'classes' => 'btn-sm',
-            'route'   => 'notices.index',
-            'icon'    => 'fas fa-users pr-2',
-            'can'     => ['sysadmin','admin','admin_notice'],
-        ],
+        ],  
 
         //Configurações do Projeto Empresas
         [
