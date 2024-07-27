@@ -38,8 +38,6 @@
                                 <option value="Múltipla" @if($dbEvaluetionPersonalTask->type === "Múltipla") selected @endif>Múltipla Escolha</option>
                                 <option value="Texto Livre" @if($dbEvaluetionPersonalTask->type === "Texto Livre") selected @endif>Texto</option>
                             </x-form.select>
-                        
-                            <x-form.textarea col="12" label="Descrição" name="description" value="{{$dbEvaluetionPersonalTask->description}}"/>
                             
                         </x-form.form>
                         

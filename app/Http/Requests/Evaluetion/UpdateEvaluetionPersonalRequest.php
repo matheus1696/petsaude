@@ -4,7 +4,7 @@ namespace App\Http\Requests\Evaluetion;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EvaluetionPersonalStoreRequest extends FormRequest
+class UpdateEvaluetionPersonalRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,7 +23,7 @@ class EvaluetionPersonalStoreRequest extends FormRequest
     {
         return [
             'title'=>'required|min:5',
-            'description'=>'nullable|min:10|max:250',
+            'description'=>'nullable|min:10',
             'to_specific_group_id'=>'required',
         ];
     }

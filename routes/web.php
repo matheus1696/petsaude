@@ -18,9 +18,7 @@ use App\Http\Controllers\Admin\Region\RegionCityController;
 use App\Http\Controllers\Admin\Region\RegionCountryController;
 use App\Http\Controllers\Admin\Region\RegionStateController;
 use App\Http\Controllers\Admin\User\UsersController;
-use App\Http\Controllers\Evaluetion\EvaluetionPersonalController;
-use App\Http\Controllers\Evaluetion\EvaluetionPersonalTaskController;
-use App\Http\Controllers\Evaluetion\EvaluetionPersonalTaskMultipleController;
+use App\Http\Controllers\Admin\Evaluetion\EvaluetionPersonalController;
 use App\Http\Controllers\Notice\NoticeBoardController;
 use App\Http\Controllers\Notice\NoticeUserController;
 use App\Http\Controllers\Profile\ProfileController;
@@ -72,8 +70,12 @@ Route::middleware('auth')->group(function () {
 
         //Avaliações
         Route::resource('evaluetion_personals', EvaluetionPersonalController::class);
-        Route::resource('evaluetion_personal_tasks', EvaluetionPersonalTaskController::class);
-        Route::resource('task_multiples', EvaluetionPersonalTaskMultipleController::class);
+        Route::post('evaluetion/personals/task/store', [EvaluetionPersonalController::class, 'taskStore'])->name('evaluetion_personals.taskStore');
+        Route::put('evaluetion/personals/tasks/{task}/update', [EvaluetionPersonalController::class, 'taskUpdate'])->name('evaluetion_personals.taskUpdate');
+        Route::delete('evaluetion/personals/tasks/{task}/destroy', [EvaluetionPersonalController::class, 'taskDestroy'])->name('evaluetion_personals.taskDestroy');
+        Route::post('evaluetion/personals/task/multiple/store', [EvaluetionPersonalController::class, 'taskStore'])->name('evaluetion_personals.taskMultipleStore');
+        Route::put('evaluetion/personals/task/multiples/{multiple}/update', [EvaluetionPersonalController::class, 'taskUpdate'])->name('evaluetion_personals.taskMultipleUpdate');
+        Route::delete('evaluetion/personals/task/multiples/{multiple}/destroy', [EvaluetionPersonalController::class, 'taskDestroy'])->name('evaluetion_personals.taskMultipleDestroy');
 
         //Grupo de Rotas - Configurações da Organização
         Route::prefix('project')->group(function (){

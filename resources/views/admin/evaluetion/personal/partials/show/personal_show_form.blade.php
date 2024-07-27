@@ -24,8 +24,6 @@
                             <option value="Múltipla">Múltipla Escolha</option>
                             <option value="Texto Livre">Texto</option>
                         </x-form.select>
-                    
-                        <x-form.textarea col="12" label="description" name="description"/>
                     </x-form.form>
                 </div>
             </div>

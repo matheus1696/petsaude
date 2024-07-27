@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Evaluetion;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreEvaluetionPersonalTaskMultipleRequest extends FormRequest
+class StoreEvaluetionPersonalRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,7 +22,9 @@ class StoreEvaluetionPersonalTaskMultipleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title'=>'required|min:5',
+            'description'=>'nullable|min:10',
+            'to_specific_group_id'=>'required',
         ];
     }
 }

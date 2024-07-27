@@ -2,6 +2,7 @@
 
 namespace App\Models\Evaluation;
 
+use App\Models\Company\CompanyOrganization;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,5 +13,10 @@ class EvaluetionPersonal extends Model
     protected $fillable = [
         'title',
         'description',
+        'to_specific_group_id',
     ];
+
+    public function CompanyOrganization(){
+        return $this->belongsTo(CompanyOrganization::class,'to_specific_group_id','id');
+    }
 }
