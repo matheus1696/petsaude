@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Evaluetion;
 
 use App\Http\Controllers\Controller;
 use App\Models\Evaluation\EvaluetionPersonalTask;
+use App\Models\Evaluation\EvaluetionPersonalTaskMultiple;
 use Illuminate\Http\Request;
 
 class EvaluetionPersonalTaskController extends Controller
@@ -30,7 +31,15 @@ class EvaluetionPersonalTaskController extends Controller
     public function store(Request $request)
     {
         //
-        EvaluetionPersonalTask::create($request->all());
+        $dbTask = EvaluetionPersonalTask::create($request->all());
+
+        if ($dbTask->type = "Múltipla") {
+            EvaluetionPersonalTaskMultiple::create(['title'=>'Excelente','description'=>'O desempenho excedeu todas as expectativas.','task_id'=>$dbTask->id,]);
+            EvaluetionPersonalTaskMultiple::create(['title'=>'Bom','description'=>'O desempenho foi satisfatório e atendeu às expectativas.','task_id'=>$dbTask->id,]);
+            EvaluetionPersonalTaskMultiple::create(['title'=>'Regular','description'=>'O desempenho foi mediano.','task_id'=>$dbTask->id,]);
+            EvaluetionPersonalTaskMultiple::create(['title'=>'Ruim','description'=>'O desempenho foi abaixo do esperado. ','task_id'=>$dbTask->id,]);
+            EvaluetionPersonalTaskMultiple::create(['title'=>'Péssimo','description'=>'O desempenho foi muito abaixo do esperado.','task_id'=>$dbTask->id,]);
+        }
 
         return redirect()->back()->with('success','Pergunta criada com sucesso');
     }
@@ -59,6 +68,19 @@ class EvaluetionPersonalTaskController extends Controller
         //
         $evaluetionPersonalTask->update($request->all());
 
+        if ($request['type'] == "Texto Livre") {
+            $dbTaskMultiples = EvaluetionPersonalTaskMultiple::where('task_id',$evaluetionPersonalTask->id)->get();
+            foreach ($dbTaskMultiples as $dbTaskMultiple) {
+                $dbTaskMultiple->delete();
+            }
+        } else {
+            EvaluetionPersonalTaskMultiple::create(['title'=>'Excelente','description'=>'O desempenho excedeu todas as expectativas.','task_id'=>$evaluetionPersonalTask->id,]);
+            EvaluetionPersonalTaskMultiple::create(['title'=>'Bom','description'=>'O desempenho foi satisfatório e atendeu às expectativas.','task_id'=>$evaluetionPersonalTask->id,]);
+            EvaluetionPersonalTaskMultiple::create(['title'=>'Regular','description'=>'O desempenho foi mediano.','task_id'=>$evaluetionPersonalTask->id,]);
+            EvaluetionPersonalTaskMultiple::create(['title'=>'Ruim','description'=>'O desempenho foi abaixo do esperado. ','task_id'=>$evaluetionPersonalTask->id,]);
+            EvaluetionPersonalTaskMultiple::create(['title'=>'Péssimo','description'=>'O desempenho foi muito abaixo do esperado.','task_id'=>$evaluetionPersonalTask->id,]);
+        }
+        
         return redirect()->back()->with('success','Pergunta alterada com sucesso');
     }
 

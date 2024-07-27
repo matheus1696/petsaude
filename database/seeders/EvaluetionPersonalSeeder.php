@@ -14,9 +14,5 @@ class EvaluetionPersonalSeeder extends Seeder
     public function run(): void
     {
         //
-        EvaluetionPersonal::create([
-            'title'=>'Auto avaliação',
-            'description'=>'Auto avaliação de participação do projeto',
-        ]);
     }
 }
