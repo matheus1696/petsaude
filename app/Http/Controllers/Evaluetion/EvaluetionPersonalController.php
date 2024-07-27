@@ -65,9 +65,12 @@ class EvaluetionPersonalController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(EvaluetionPersonal $evaluetionPersonal)
+    public function update(Request $request, EvaluetionPersonal $evaluetionPersonal)
     {
         //
+        $evaluetionPersonal->update($request->all());
+
+        return redirect()->back();
     }
 
     /**
