@@ -11,40 +11,28 @@
 
 <x-table.table>
     @slot('thead')
-        <x-table.th>Pergunta</x-table.th>
-        <x-table.th class="w-40">Tipo</x-table.th>
+        <x-table.th class="w-40">Seleção</x-table.th>
+        <x-table.th>Descrição</x-table.th>
         <x-table.th class="w-32"></x-table.th>
     @endslot
 
     @slot('tbody')
-        @foreach ($dbEvaluetionPersonalTaskMultiples as $dbEvaluetionPersonalTask)
+        @foreach ($dbEvaluetionPersonalTaskMultiples as $dbEvaluetionPersonalTaskMultiple)
             <x-table.tr>
-                <x-table.td class="line-climp-3 text-justify">{{$dbEvaluetionPersonalTask->title}}</x-table.td>
-                <x-table.td class="text-center">
-                    @if ($dbEvaluetionPersonalTask->type == 'Múltipla')
-                        <x-button.minButtonShow route="{{route('task_multiples.show',['task_multiple'=>$dbEvaluetionPersonalTask->id])}}" />
-                    @else
-                        {{$dbEvaluetionPersonalTask->type}}
-                    @endif
-                </x-table.td> 
+                <x-table.td>{{$dbEvaluetionPersonalTaskMultiple->title}}</x-table.td>
+                <x-table.td class="line-climp-1 text-justify">{!!$dbEvaluetionPersonalTaskMultiple->description!!}</x-table.td>
                 <x-table.td>
-                    <x-button.minButtonModalEdit id="EvaluetionPersonalTask_{{$dbEvaluetionPersonalTask->id}}" title="Alterar Pergunta">
+                    <x-button.minButtonModalEdit id="EvaluetionPersonalTask_{{$dbEvaluetionPersonalTaskMultiple->id}}" title="Alterar Seleção">
 
-                        <x-form.form route="{{route('evaluetion_personal_tasks.update',['evaluetion_personal_task'=>$dbEvaluetionPersonalTask->id])}}" method="edit">
-                           
-                            <x-form.input col="12" label="Pergunta" name="title" value="{{$dbEvaluetionPersonalTask->title}}"/>
-
-                            <x-form.select col="12" label="Tipo" id="type" name="type">
-                                <option value="Múltipla" @if($dbEvaluetionPersonalTask->type === "Múltipla") selected @endif>Múltipla Escolha</option>
-                                <option value="Texto Livre" @if($dbEvaluetionPersonalTask->type === "Texto Livre") selected @endif>Texto</option>
-                            </x-form.select>
+                        <x-form.form method="edit" route="{{route('task_multiples.update',['task_multiple'=>$dbEvaluetionPersonalTaskMultiple->id])}}">
+                            <input hidden name="task_id" value="{{$dbEvaluetionPersonalTask->id}}">
+                            <x-form.input col="12" label="Seleção" name="title" value="{{$dbEvaluetionPersonalTaskMultiple->title}}"/>
                         
-                            <x-form.textarea col="12" label="description" name="description" value="{{$dbEvaluetionPersonalTask->description}}"/>
-                            
+                            <x-form.textarea col="12" label="Descrição do Campo" name="description" value="{{$dbEvaluetionPersonalTaskMultiple->description}}"/>
                         </x-form.form>
                         
                     </x-button.minButtonModalEdit>
-                    <x-button.minButtonDelete route="{{route('evaluetion_personal_tasks.destroy',['evaluetion_personal_task'=>$dbEvaluetionPersonalTask->id])}}"/>
+                    <x-button.minButtonDelete route="{{route('task_multiples.destroy',['task_multiple'=>$dbEvaluetionPersonalTaskMultiple->id])}}"/>
                 </x-table.td>
             </x-table.tr>
         @endforeach

@@ -16,16 +16,11 @@
                     </button>
                 </div>
                 <div class="m-4 modal-body">
-                    <x-form.form method="create" route="{{route('evaluetion_personal_tasks.store')}}">
-                        <input hidden name="evaluetion_personal_id" value="{{$dbEvaluetionPersonals->id}}">
-                        <x-form.input col="12" label="Pergunta" name="title"/>
-
-                        <x-form.select col="12" label="Tipo" id="type" name="type">
-                            <option value="Múltipla">Múltipla Escolha</option>
-                            <option value="Texto Livre">Texto</option>
-                        </x-form.select>
+                    <x-form.form method="create" route="{{route('task_multiples.store')}}">
+                        <input hidden name="task_id" value="{{$dbEvaluetionPersonalTask->id}}">
+                        <x-form.input col="12" label="Seleção" name="title"/>
                     
-                        <x-form.textarea col="12" label="description" name="description"/>
+                        <x-form.textarea col="12" label="Descrição do Campo" name="description"/>
                     </x-form.form>
                 </div>
             </div>

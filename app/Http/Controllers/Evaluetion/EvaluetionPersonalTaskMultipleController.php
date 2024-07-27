@@ -43,11 +43,10 @@ class EvaluetionPersonalTaskMultipleController extends Controller
     public function show(string $id)
     {
         //
-        $evaluetionPersonalTaskMultiples = EvaluetionPersonalTaskMultiple::where('task_id',$id)->get();
-        $task = 
-        $evaluetionPersonalTask = EvaluetionPersonalTask::find($evaluetionPersonalTaskMultiples->first()->task_id);
+        $dbEvaluetionPersonalTaskMultiples = EvaluetionPersonalTaskMultiple::where('task_id',$id)->get();
+        $dbEvaluetionPersonalTask = EvaluetionPersonalTask::find($id);
 
-        return view('admin.evaluetion.personal.personal_show_multiple',compact('evaluetionPersonalTask','evaluetionPersonalTaskMultiples'));
+        return view('admin.evaluetion.personal.personal_show_multiple',compact('dbEvaluetionPersonalTask','dbEvaluetionPersonalTaskMultiples'));
     }
 
     /**
