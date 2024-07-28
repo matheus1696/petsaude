@@ -38,6 +38,8 @@ class EvaluetionPersonalController extends Controller
             EvaluetionPersonal::create([
                 'title'=>$request['title'],
                 'description'=>$request['description'],
+                'date_start'=>$request['date_start'],
+                'date_end'=>$request['date_end'],
             ]);
         }else{
             EvaluetionPersonal::create($request->all()); 
@@ -71,10 +73,23 @@ class EvaluetionPersonalController extends Controller
                 'title'=>$request['title'],
                 'to_specific_group_id'=>NULL,
                 'description'=>$request['description'],
+                'date_start'=>$request['date_start'],
+                'date_end'=>$request['date_end'],
             ]);
         }else{
             $evaluetionPersonal->update($request->all());
         }
+
+        return redirect()->back();
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function released(Request $request, EvaluetionPersonal $evaluetionPersonal)
+    {
+        //
+        $evaluetionPersonal->update($request->all());
 
         return redirect()->back();
     }

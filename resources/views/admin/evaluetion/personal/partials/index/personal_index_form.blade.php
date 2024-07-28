@@ -9,4 +9,8 @@
     @endforeach
 </x-form.select>
 
+<x-form.input type="date" col="6" label="Início" name="date_start" value="{{$dbEvaluetionPersonal->date_start ?? ''}}" />
+
+<x-form.input type="date" col="6" label="Fim" name="date_end" value="{{$dbEvaluetionPersonal->date_end ?? ''}}" />
+
 <x-form.textarea col="12" label="Descrição" name="description" value="{{$dbEvaluetionPersonal->description ?? ''}}" />

@@ -68,6 +68,7 @@ Route::middleware('auth')->group(function () {
 
         //Avaliações
         Route::resource('evaluetion_personals', EvaluetionPersonalController::class);
+        Route::put('evaluetion_personals/{evaluetion_personal}/released', [EvaluetionPersonalController::class, 'released'])->name('evaluetion_personals.released');
         Route::post('evaluetion_personals/{evaluetion_personal}/task/store', [EvaluetionPersonalController::class, 'taskStore'])->name('evaluetion_personals.taskStore');
         Route::get('evaluetion_personals/tasks/{task}/show', [EvaluetionPersonalController::class, 'taskShow'])->name('evaluetion_personals.taskShow');
         Route::put('evaluetion_personals/tasks/{task}/update', [EvaluetionPersonalController::class, 'taskUpdate'])->name('evaluetion_personals.taskUpdate');
