@@ -5,11 +5,11 @@
     @endslot
 
     @slot('body')
-        @include('public.contacts.partials.contacts_search')
+        @include('contacts.partials.contacts_search')
         
         <div class="grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
             @foreach ($db as $item)
-                @include('public.contacts.partials.contacts_cards')
+                @include('contacts.partials.contacts_cards')
             @endforeach
         </div>
 

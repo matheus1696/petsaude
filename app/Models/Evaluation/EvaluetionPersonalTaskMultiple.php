@@ -16,4 +16,8 @@ class EvaluetionPersonalTaskMultiple extends Model
         'description',
         'task_id'
     ];
+
+    public function EvaluetionPersonalTask(){
+        return $this->belongsTo(EvaluetionPersonalTask::class,'task_id','id');
+    }
 }

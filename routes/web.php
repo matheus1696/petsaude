@@ -20,9 +20,8 @@ use App\Http\Controllers\Admin\Region\RegionStateController;
 use App\Http\Controllers\Admin\User\UsersController;
 use App\Http\Controllers\Admin\Evaluetion\EvaluetionPersonalController;
 use App\Http\Controllers\Admin\Notice\NoticeBoardController;
-use App\Http\Controllers\Profile\NoticeController;
 use App\Http\Controllers\Profile\ProfileController;
-use App\Http\Controllers\Public\ContactListsController;
+use App\Http\Controllers\ContactListsController;
 
 //Rota de Login
 Route::get('/',function(){return redirect()->route('login');});

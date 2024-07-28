@@ -1,10 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Public;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-
 use App\Models\Company\CompanyEstablishment;
 use App\Models\Company\CompanyEstablishmentDepartment;
 
@@ -28,7 +26,7 @@ class ContactListsController extends Controller
                 ->get();
         }
 
-        return view('public.contacts.contacts_index',[
+        return view('contacts.contacts_index',[
             'search'=>$search,
             'db'=>$db,           
             'dbEstablishments'=>$dbEstablishments,             
@@ -74,7 +72,7 @@ class ContactListsController extends Controller
                 ->paginate(20);
         }
 
-        return view('public.contacts.contacts_show',[
+        return view('contacts.contacts_show',[
             'search'=>$search,
             'db'=>$db,
             'dbEstablishment'=>$dbEstablishment,

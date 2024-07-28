@@ -5,18 +5,16 @@ namespace App\Models\Evaluation;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class EvaluetionPersonalTask extends Model
+class EvaluationPersonalReleased extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'title',
-        'type',
-        'order',
-        'evaluetion_personal_id'
+        'evaluation_id',
+        'user_id',
     ];
 
     public function EvaluetionPersonal(){
-        return $this->belongsTo(EvaluetionPersonal::class,'evaluetion_personal_id','id');
+        return $this->belongsTo(EvaluetionPersonal::class,'evaluetion_id','id');
     }
 }
