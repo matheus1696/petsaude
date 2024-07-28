@@ -172,9 +172,13 @@ class EvaluetionPersonalController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function taskMultipleDestroy(EvaluetionPersonalTaskMultiple $evaluetionPersonalTaskMultiple)
+    public function taskMultipleDestroy(string $id)
     {
         //
+        $dbEvaluetionPersonalTaskMultiple = EvaluetionPersonalTaskMultiple::find($id);
+        $dbEvaluetionPersonalTaskMultiple->delete();
+
+        return redirect()->back();
     }
 
     /** * Show the form for editing the specified resource. */
