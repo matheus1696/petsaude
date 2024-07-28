@@ -14,7 +14,10 @@ return new class extends Migration
         Schema::create('evaluetion_personals', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->date('date_start')->nullable();
+            $table->date('date_end')->nullable();
             $table->text('description')->nullable();
+            $table->boolean('released')->default(FALSE);
             $table->unsignedBigInteger('to_specific_group_id')->nullable();
             $table->timestamps();
 

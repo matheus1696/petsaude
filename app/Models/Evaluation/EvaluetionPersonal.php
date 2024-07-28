@@ -14,6 +14,7 @@ class EvaluetionPersonal extends Model
         'title',
         'description',
         'to_specific_group_id',
+        'released'
     ];
 
     public function CompanyOrganization(){
