@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Notice;
+namespace App\Http\Controllers\Admin\Notice;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Notice\NoticeBoardStoreRequest;
@@ -81,16 +81,6 @@ class NoticeBoardController extends Controller
     public function destroy(NoticeBoard $noticeBoard)
     {
         //
-    }
-
-    
-    public function markRead(string $id)
-    {
-        //
-        $dbNoticeHistory = NoticeBoardHistory::find($id);
-        $dbNoticeHistory->update(['mark_read'=>!$dbNoticeHistory->mark_read]);
-
-        return redirect()->back();
     }
     
 }

@@ -10,6 +10,7 @@ use App\Http\Requests\Profile\ProfilePasswordUpdateRequest;
 use App\Http\Requests\Profile\ProfileProfessionalUpdateRequest;
 use App\Models\Institution\InstitutionEducation;
 use App\Models\Institution\InstitutionEducationCourse;
+use App\Models\Notice\NoticeBoardHistory;
 use App\Models\Profile\Profile;
 use App\Models\User\UserSexualOrientation;
 use App\Services\Logger;
@@ -186,5 +187,25 @@ class ProfileController extends Controller
 
             return redirect(route('home'));
         }
+    }
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function noticeUser()
+    {
+        //
+        $dbNotices = NoticeBoardHistory::where('to_specific_user_id',Auth::user()->id)->orderBy('mark_read')->paginate(100);
+
+        return view('admin.notice.notice_user', compact('dbNotices'));
+    }
+    
+    public function noticeRead(string $id)
+    {
+        //
+        $dbNoticeHistory = NoticeBoardHistory::find($id);
+        $dbNoticeHistory->update(['mark_read'=>!$dbNoticeHistory->mark_read]);
+
+        return redirect()->back();
     }
 }

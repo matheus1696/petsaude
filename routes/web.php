@@ -19,8 +19,8 @@ use App\Http\Controllers\Admin\Region\RegionCountryController;
 use App\Http\Controllers\Admin\Region\RegionStateController;
 use App\Http\Controllers\Admin\User\UsersController;
 use App\Http\Controllers\Admin\Evaluetion\EvaluetionPersonalController;
-use App\Http\Controllers\Notice\NoticeBoardController;
-use App\Http\Controllers\Notice\NoticeUserController;
+use App\Http\Controllers\Admin\Notice\NoticeBoardController;
+use App\Http\Controllers\Profile\NoticeController;
 use App\Http\Controllers\Profile\ProfileController;
 use App\Http\Controllers\Public\ContactListsController;
 
@@ -35,8 +35,6 @@ Route::middleware('auth')->group(function () {
 
     //Lista Telefônica
     Route::resource('contacts', ContactListsController::class);
-        
-    Route::get('notices/{notice}/mark/read',[NoticeBoardController::class,'markRead'])->name('notices.markRead');
     
     //Grupo de Rotas - Perfil do Usuário
     Route::prefix('profiles')->group(function (){
@@ -48,6 +46,8 @@ Route::middleware('auth')->group(function () {
         Route::get('professional',[ProfileController::class,'editProfessional'])->name('profiles.editProfessional');
         Route::put('professional',[ProfileController::class,'updateProfessional'])->name('profiles.updateProfessional');
         Route::get('bank/detail',[ProfileController::class,'bankDetail'])->name('profiles.bankDetail');
+        Route::get('notices/user', [ProfileController::class, 'noticeUser'])->name('notices.user');
+        Route::get('notices/{notice}/read',[ProfileController::class,'noticeRead'])->name('notices.markRead');
 
     });
 
@@ -65,7 +65,6 @@ Route::middleware('auth')->group(function () {
         });
 
         //Avisos
-        Route::get('notices/user', [NoticeUserController::class, 'index'])->name('notices.user');
         Route::resource('notices', NoticeBoardController::class);
 
         //Avaliações
