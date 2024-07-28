@@ -12,6 +12,7 @@ class EvaluetionPersonalTask extends Model
     protected $fillable = [
         'title',
         'type',
+        'order',
         'evaluetion_personal_id'
     ];
 }

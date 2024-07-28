@@ -53,7 +53,9 @@ class EvaluetionPersonalController extends Controller
     {
         //
         $dbEvaluetionPersonals = EvaluetionPersonal::find($id);
-        $dbEvaluetionPersonalTasks = EvaluetionPersonalTask::where('evaluetion_personal_id',$dbEvaluetionPersonals->id)->paginate(100);
+        $dbEvaluetionPersonalTasks = EvaluetionPersonalTask::where('evaluetion_personal_id',$dbEvaluetionPersonals->id)
+            ->orderBy('order')
+            ->paginate(100);
 
         return view('admin.evaluetion.personal.personal_show',compact('dbEvaluetionPersonals','dbEvaluetionPersonalTasks'));
     }
@@ -80,7 +82,11 @@ class EvaluetionPersonalController extends Controller
     public function taskStore(StoreEvaluetionPersonalTaskRequest $request, string $id)
     {
         //
+        $dbTaskCount = EvaluetionPersonalTask::where('evaluetion_personal_id', $id)->count();
+
+        
         $request['evaluetion_personal_id'] = $id;
+        $request['order'] = $dbTaskCount + 1;
         $dbTask = EvaluetionPersonalTask::create($request->all());
 
         if ($dbTask->type = "Múltipla") {
@@ -98,7 +104,8 @@ class EvaluetionPersonalController extends Controller
     {
         //
         $dbEvaluetionPersonalTasks = EvaluetionPersonalTask::find($id);
-        $dbEvaluetionPersonalTaskMultiples = EvaluetionPersonalTaskMultiple::where('task_id',$id)->get();
+        $dbEvaluetionPersonalTaskMultiples = EvaluetionPersonalTaskMultiple::where('task_id',$id)->orderBy('order')->get();
+
         return view('admin.evaluetion.personal.personal_multiple',compact('dbEvaluetionPersonalTasks','dbEvaluetionPersonalTaskMultiples'));
     }  
 
@@ -111,19 +118,34 @@ class EvaluetionPersonalController extends Controller
         $dbEvaluetionPersonalTasks = EvaluetionPersonalTask::find($id);
         $dbEvaluetionPersonalTasks->update($request->all());
 
+        $dbTaskMultiples = EvaluetionPersonalTaskMultiple::where('task_id',$dbEvaluetionPersonalTasks->id)->get();
+
         if ($request['type'] == "Texto Livre") {
-            $dbTaskMultiples = EvaluetionPersonalTaskMultiple::where('task_id',$dbEvaluetionPersonalTasks->id)->get();
             foreach ($dbTaskMultiples as $dbTaskMultiple) {
                 $dbTaskMultiple->delete();
             }
-        } else {
+        }
+        
+        if ($dbTaskMultiples->count() <= 0) {
             EvaluetionPersonalTaskMultiple::create(['title'=>'Excelente','description'=>'O desempenho excedeu todas as expectativas.','order'=>1,'value'=>5,'task_id'=>$dbEvaluetionPersonalTasks->id,]);
             EvaluetionPersonalTaskMultiple::create(['title'=>'Bom','description'=>'O desempenho foi satisfatório e atendeu às expectativas.','order'=>2,'value'=>4,'task_id'=>$dbEvaluetionPersonalTasks->id,]);
             EvaluetionPersonalTaskMultiple::create(['title'=>'Regular','description'=>'O desempenho foi mediano.','order'=>3,'value'=>3,'task_id'=>$dbEvaluetionPersonalTasks->id,]);
             EvaluetionPersonalTaskMultiple::create(['title'=>'Ruim','description'=>'O desempenho foi abaixo do esperado. ','order'=>4,'value'=>2,'task_id'=>$dbEvaluetionPersonalTasks->id,]);
             EvaluetionPersonalTaskMultiple::create(['title'=>'Péssimo','description'=>'O desempenho foi muito abaixo do esperado.','order'=>5,'value'=>1,'task_id'=>$dbEvaluetionPersonalTasks->id,]);
         }
-        
+
+        return redirect()->back()->with('success','Pergunta alterada com sucesso');
+    } 
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function taskOrder(Request $request, string $id)
+    {
+        //
+        $dbEvaluetionPersonalTasks = EvaluetionPersonalTask::find($id);
+        $dbEvaluetionPersonalTasks->update($request->all());
+
         return redirect()->back()->with('success','Pergunta alterada com sucesso');
     }
 
@@ -161,6 +183,30 @@ class EvaluetionPersonalController extends Controller
      * Update the specified resource in storage.
      */
     public function taskMultipleUpdate(UpdateEvaluetionPersonalTaskMultipleRequest $request, string $id)
+    {
+        //
+        $evaluetionPersonalTaskMultiple = EvaluetionPersonalTaskMultiple::find($id);
+        $evaluetionPersonalTaskMultiple->update($request->all());
+
+        return redirect()->back();
+    }    
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function taskMultipleOrder(Request $request, string $id)
+    {
+        //
+        $evaluetionPersonalTaskMultiple = EvaluetionPersonalTaskMultiple::find($id);
+        $evaluetionPersonalTaskMultiple->update($request->all());
+
+        return redirect()->back();
+    }  
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function taskMultipleValue(Request $request, string $id)
     {
         //
         $evaluetionPersonalTaskMultiple = EvaluetionPersonalTaskMultiple::find($id);

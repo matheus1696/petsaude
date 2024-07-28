@@ -73,9 +73,12 @@ Route::middleware('auth')->group(function () {
         Route::post('evaluetion_personals/{evaluetion_personal}/task/store', [EvaluetionPersonalController::class, 'taskStore'])->name('evaluetion_personals.taskStore');
         Route::get('evaluetion_personals/tasks/{task}/show', [EvaluetionPersonalController::class, 'taskShow'])->name('evaluetion_personals.taskShow');
         Route::put('evaluetion_personals/tasks/{task}/update', [EvaluetionPersonalController::class, 'taskUpdate'])->name('evaluetion_personals.taskUpdate');
+        Route::put('evaluetion_personals/tasks/{task}/order', [EvaluetionPersonalController::class, 'taskOrder'])->name('evaluetion_personals.taskOrder');
         Route::delete('evaluetion_personals/tasks/{task}/destroy', [EvaluetionPersonalController::class, 'taskDestroy'])->name('evaluetion_personals.taskDestroy');
         Route::post('evaluetion_personals/task/{task}/multiple/store', [EvaluetionPersonalController::class, 'taskMultipleStore'])->name('evaluetion_personals.taskMultipleStore');
         Route::put('evaluetion_personals/task/multiples/{multiple}/update', [EvaluetionPersonalController::class, 'taskMultipleUpdate'])->name('evaluetion_personals.taskMultipleUpdate');
+        Route::put('evaluetion_personals/task/multiples/{multiple}/order', [EvaluetionPersonalController::class, 'taskMultipleOrder'])->name('evaluetion_personals.taskMultipleOrder');
+        Route::put('evaluetion_personals/task/multiples/{multiple}/value', [EvaluetionPersonalController::class, 'taskMultipleValue'])->name('evaluetion_personals.taskMultipleValue');
         Route::delete('evaluetion_personals/task/multiples/{multiple}/destroy', [EvaluetionPersonalController::class, 'taskMultipleDestroy'])->name('evaluetion_personals.taskMultipleDestroy');
 
         //Grupo de Rotas - Configurações da Organização

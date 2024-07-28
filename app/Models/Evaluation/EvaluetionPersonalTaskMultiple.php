@@ -11,6 +11,8 @@ class EvaluetionPersonalTaskMultiple extends Model
 
     protected $fillable = [
         'title',
+        'order',
+        'value',
         'description',
         'task_id'
     ];
