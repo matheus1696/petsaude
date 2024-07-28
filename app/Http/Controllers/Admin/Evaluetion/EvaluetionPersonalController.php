@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Evaluetion;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Evaluetion\StoreEvaluetionPersonalRequest;
 use App\Http\Requests\Evaluetion\StoreEvaluetionPersonalTaskMultipleRequest;
+use App\Http\Requests\Evaluetion\StoreEvaluetionPersonalTaskRequest;
 use App\Http\Requests\Evaluetion\UpdateEvaluetionPersonalRequest;
 use App\Http\Requests\Evaluetion\UpdateEvaluetionPersonalTaskMultipleRequest;
 use App\Models\Company\CompanyOrganization;
@@ -33,7 +34,14 @@ class EvaluetionPersonalController extends Controller
     public function store(StoreEvaluetionPersonalRequest $request)
     {
         //
-        EvaluetionPersonal::create($request->all());
+        if ($request['to_specific_group_id'] == 'all') {
+            EvaluetionPersonal::create([
+                'title'=>$request['title'],
+                'description'=>$request['description'],
+            ]);
+        }else{
+            EvaluetionPersonal::create($request->all()); 
+        }
         
         return redirect()->back()->with('success','Criação de avaliação realizada com sucesso');
     }
@@ -56,14 +64,23 @@ class EvaluetionPersonalController extends Controller
     public function update(UpdateEvaluetionPersonalRequest $request, EvaluetionPersonal $evaluetionPersonal)
     {
         //
-        $evaluetionPersonal->update($request->all());
+        if ($request['to_specific_group_id'] == 'all') {
+            $evaluetionPersonal->update([
+                'title'=>$request['title'],
+                'to_specific_group_id'=>NULL,
+                'description'=>$request['description'],
+            ]);
+        }else{
+            $evaluetionPersonal->update($request->all());
+        }
 
         return redirect()->back();
     }
 
-    public function taskStore(Request $request)
+    public function taskStore(StoreEvaluetionPersonalTaskRequest $request, string $id)
     {
         //
+        $request['evaluetion_personal_id'] = $id;
         $dbTask = EvaluetionPersonalTask::create($request->all());
 
         if ($dbTask->type = "Múltipla") {
@@ -77,25 +94,34 @@ class EvaluetionPersonalController extends Controller
         return redirect()->back()->with('success','Pergunta criada com sucesso');
     }    
 
+    public function taskShow(string $id)
+    {
+        //
+        $dbEvaluetionPersonalTasks = EvaluetionPersonalTask::find($id);
+        $dbEvaluetionPersonalTaskMultiples = EvaluetionPersonalTaskMultiple::where('task_id',$id)->get();
+        return view('admin.evaluetion.personal.personal_multiple',compact('dbEvaluetionPersonalTasks','dbEvaluetionPersonalTaskMultiples'));
+    }  
+
     /**
      * Update the specified resource in storage.
      */
-    public function taskUpdate(Request $request, EvaluetionPersonalTask $evaluetionPersonalTask)
+    public function taskUpdate(Request $request, string $id)
     {
         //
-        $evaluetionPersonalTask->update($request->all());
+        $dbEvaluetionPersonalTasks = EvaluetionPersonalTask::find($id);
+        $dbEvaluetionPersonalTasks->update($request->all());
 
         if ($request['type'] == "Texto Livre") {
-            $dbTaskMultiples = EvaluetionPersonalTaskMultiple::where('task_id',$evaluetionPersonalTask->id)->get();
+            $dbTaskMultiples = EvaluetionPersonalTaskMultiple::where('task_id',$dbEvaluetionPersonalTasks->id)->get();
             foreach ($dbTaskMultiples as $dbTaskMultiple) {
                 $dbTaskMultiple->delete();
             }
         } else {
-            EvaluetionPersonalTaskMultiple::create(['title'=>'Excelente','description'=>'O desempenho excedeu todas as expectativas.','task_id'=>$evaluetionPersonalTask->id,]);
-            EvaluetionPersonalTaskMultiple::create(['title'=>'Bom','description'=>'O desempenho foi satisfatório e atendeu às expectativas.','task_id'=>$evaluetionPersonalTask->id,]);
-            EvaluetionPersonalTaskMultiple::create(['title'=>'Regular','description'=>'O desempenho foi mediano.','task_id'=>$evaluetionPersonalTask->id,]);
-            EvaluetionPersonalTaskMultiple::create(['title'=>'Ruim','description'=>'O desempenho foi abaixo do esperado. ','task_id'=>$evaluetionPersonalTask->id,]);
-            EvaluetionPersonalTaskMultiple::create(['title'=>'Péssimo','description'=>'O desempenho foi muito abaixo do esperado.','task_id'=>$evaluetionPersonalTask->id,]);
+            EvaluetionPersonalTaskMultiple::create(['title'=>'Excelente','description'=>'O desempenho excedeu todas as expectativas.','task_id'=>$dbEvaluetionPersonalTasks->id,]);
+            EvaluetionPersonalTaskMultiple::create(['title'=>'Bom','description'=>'O desempenho foi satisfatório e atendeu às expectativas.','task_id'=>$dbEvaluetionPersonalTasks->id,]);
+            EvaluetionPersonalTaskMultiple::create(['title'=>'Regular','description'=>'O desempenho foi mediano.','task_id'=>$dbEvaluetionPersonalTasks->id,]);
+            EvaluetionPersonalTaskMultiple::create(['title'=>'Ruim','description'=>'O desempenho foi abaixo do esperado. ','task_id'=>$dbEvaluetionPersonalTasks->id,]);
+            EvaluetionPersonalTaskMultiple::create(['title'=>'Péssimo','description'=>'O desempenho foi muito abaixo do esperado.','task_id'=>$dbEvaluetionPersonalTasks->id,]);
         }
         
         return redirect()->back()->with('success','Pergunta alterada com sucesso');
@@ -104,10 +130,17 @@ class EvaluetionPersonalController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function taskDestroy(EvaluetionPersonalTask $evaluetionPersonalTask)
+    public function taskDestroy(string $id)
     {
         //
-        $evaluetionPersonalTask->delete();
+        $dbEvaluetionPersonalTasks = EvaluetionPersonalTask::find($id);
+
+        $dbTaskMultiples = EvaluetionPersonalTaskMultiple::where('task_id',$dbEvaluetionPersonalTasks->id)->get();
+            foreach ($dbTaskMultiples as $dbTaskMultiple) {
+                $dbTaskMultiple->delete();
+            }
+
+        $dbEvaluetionPersonalTasks->delete();
 
         return redirect()->back()->with('success','Pergunta excluída com sucesso');
     }
@@ -115,9 +148,10 @@ class EvaluetionPersonalController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function taskMultipleStore(StoreEvaluetionPersonalTaskMultipleRequest $request)
+    public function taskMultipleStore(StoreEvaluetionPersonalTaskMultipleRequest $request, string $id)
     {
         //
+        $request['task_id'] = $id;
         EvaluetionPersonalTaskMultiple::create($request->all());
 
         return redirect()->back();
@@ -126,7 +160,7 @@ class EvaluetionPersonalController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function taskMultipleupdate(UpdateEvaluetionPersonalTaskMultipleRequest $request, string $id)
+    public function taskMultipleUpdate(UpdateEvaluetionPersonalTaskMultipleRequest $request, string $id)
     {
         //
         $evaluetionPersonalTaskMultiple = EvaluetionPersonalTaskMultiple::find($id);
@@ -138,7 +172,7 @@ class EvaluetionPersonalController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function taskMultipledestroy(EvaluetionPersonalTaskMultiple $evaluetionPersonalTaskMultiple)
+    public function taskMultipleDestroy(EvaluetionPersonalTaskMultiple $evaluetionPersonalTaskMultiple)
     {
         //
     }

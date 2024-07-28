@@ -71,11 +71,12 @@ Route::middleware('auth')->group(function () {
         //Avaliações
         Route::resource('evaluetion_personals', EvaluetionPersonalController::class);
         Route::post('evaluetion_personals/{evaluetion_personal}/task/store', [EvaluetionPersonalController::class, 'taskStore'])->name('evaluetion_personals.taskStore');
-        Route::put('evaluetion_personals/{evaluetion_personal}/tasks/{task}/update', [EvaluetionPersonalController::class, 'taskUpdate'])->name('evaluetion_personals.taskUpdate');
-        Route::delete('evaluetion_personals/{evaluetion_personal}/tasks/{task}/destroy', [EvaluetionPersonalController::class, 'taskDestroy'])->name('evaluetion_personals.taskDestroy');
-        Route::post('evaluetion_personals/task/{task}/multiple/store', [EvaluetionPersonalController::class, 'taskStore'])->name('evaluetion_personals.taskMultipleStore');
-        Route::put('evaluetion_personals/task/{task}/multiples/{multiple}/update', [EvaluetionPersonalController::class, 'taskUpdate'])->name('evaluetion_personals.taskMultipleUpdate');
-        Route::delete('evaluetion_personals/task/multiples/{task}/{multiple}/destroy', [EvaluetionPersonalController::class, 'taskDestroy'])->name('evaluetion_personals.taskMultipleDestroy');
+        Route::get('evaluetion_personals/tasks/{task}/show', [EvaluetionPersonalController::class, 'taskShow'])->name('evaluetion_personals.taskShow');
+        Route::put('evaluetion_personals/tasks/{task}/update', [EvaluetionPersonalController::class, 'taskUpdate'])->name('evaluetion_personals.taskUpdate');
+        Route::delete('evaluetion_personals/tasks/{task}/destroy', [EvaluetionPersonalController::class, 'taskDestroy'])->name('evaluetion_personals.taskDestroy');
+        Route::post('evaluetion_personals/task/{task}/multiple/store', [EvaluetionPersonalController::class, 'taskMultipleStore'])->name('evaluetion_personals.taskMultipleStore');
+        Route::put('evaluetion_personals/task/multiples/{multiple}/update', [EvaluetionPersonalController::class, 'taskMultipleUpdate'])->name('evaluetion_personals.taskMultipleUpdate');
+        Route::delete('evaluetion_personals/task/multiples/{multiple}/destroy', [EvaluetionPersonalController::class, 'taskMultipleDestroy'])->name('evaluetion_personals.taskMultipleDestroy');
 
         //Grupo de Rotas - Configurações da Organização
         Route::prefix('project')->group(function (){
