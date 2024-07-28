@@ -104,15 +104,4 @@ class ContactListsController extends Controller
     {
         //
     }
-
-    /**
-     * API Display a listing of the resource.
-     */
-    public function getAllContact() {
-        $contact = CompanyEstablishmentDepartment::select()
-        ->join('company_establishments', 'company_establishments.id', '=', 'company_establishment_departments.establishment_id')
-        ->get()->toJson(JSON_PRETTY_PRINT);
-
-        return response($contact, 200);
-    }
 }
