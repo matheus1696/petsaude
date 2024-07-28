@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('type');
+            $table->integer('order');
             $table->unsignedBigInteger('evaluetion_personal_id');
             $table->timestamps();
 

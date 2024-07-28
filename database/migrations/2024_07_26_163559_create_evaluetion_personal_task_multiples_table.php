@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
+            $table->integer('order');
+            $table->integer('value');
             $table->unsignedBigInteger('task_id');
             $table->timestamps();
 

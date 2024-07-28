@@ -84,11 +84,11 @@ class EvaluetionPersonalController extends Controller
         $dbTask = EvaluetionPersonalTask::create($request->all());
 
         if ($dbTask->type = "Múltipla") {
-            EvaluetionPersonalTaskMultiple::create(['title'=>'Excelente','description'=>'O desempenho excedeu todas as expectativas.','task_id'=>$dbTask->id,]);
-            EvaluetionPersonalTaskMultiple::create(['title'=>'Bom','description'=>'O desempenho foi satisfatório e atendeu às expectativas.','task_id'=>$dbTask->id,]);
-            EvaluetionPersonalTaskMultiple::create(['title'=>'Regular','description'=>'O desempenho foi mediano.','task_id'=>$dbTask->id,]);
-            EvaluetionPersonalTaskMultiple::create(['title'=>'Ruim','description'=>'O desempenho foi abaixo do esperado. ','task_id'=>$dbTask->id,]);
-            EvaluetionPersonalTaskMultiple::create(['title'=>'Péssimo','description'=>'O desempenho foi muito abaixo do esperado.','task_id'=>$dbTask->id,]);
+            EvaluetionPersonalTaskMultiple::create(['title'=>'Excelente','description'=>'O desempenho excedeu todas as expectativas.','order'=>1,'value'=>5,'task_id'=>$dbTask->id,]);
+            EvaluetionPersonalTaskMultiple::create(['title'=>'Bom','description'=>'O desempenho foi satisfatório e atendeu às expectativas.','order'=>2,'value'=>4,'task_id'=>$dbTask->id,]);
+            EvaluetionPersonalTaskMultiple::create(['title'=>'Regular','description'=>'O desempenho foi mediano.','order'=>3,'value'=>3,'task_id'=>$dbTask->id,]);
+            EvaluetionPersonalTaskMultiple::create(['title'=>'Ruim','description'=>'O desempenho foi abaixo do esperado. ','order'=>4,'value'=>2,'task_id'=>$dbTask->id,]);
+            EvaluetionPersonalTaskMultiple::create(['title'=>'Péssimo','description'=>'O desempenho foi muito abaixo do esperado.','order'=>5,'value'=>1,'task_id'=>$dbTask->id,]);
         }
 
         return redirect()->back()->with('success','Pergunta criada com sucesso');
@@ -117,11 +117,11 @@ class EvaluetionPersonalController extends Controller
                 $dbTaskMultiple->delete();
             }
         } else {
-            EvaluetionPersonalTaskMultiple::create(['title'=>'Excelente','description'=>'O desempenho excedeu todas as expectativas.','task_id'=>$dbEvaluetionPersonalTasks->id,]);
-            EvaluetionPersonalTaskMultiple::create(['title'=>'Bom','description'=>'O desempenho foi satisfatório e atendeu às expectativas.','task_id'=>$dbEvaluetionPersonalTasks->id,]);
-            EvaluetionPersonalTaskMultiple::create(['title'=>'Regular','description'=>'O desempenho foi mediano.','task_id'=>$dbEvaluetionPersonalTasks->id,]);
-            EvaluetionPersonalTaskMultiple::create(['title'=>'Ruim','description'=>'O desempenho foi abaixo do esperado. ','task_id'=>$dbEvaluetionPersonalTasks->id,]);
-            EvaluetionPersonalTaskMultiple::create(['title'=>'Péssimo','description'=>'O desempenho foi muito abaixo do esperado.','task_id'=>$dbEvaluetionPersonalTasks->id,]);
+            EvaluetionPersonalTaskMultiple::create(['title'=>'Excelente','description'=>'O desempenho excedeu todas as expectativas.','order'=>1,'value'=>5,'task_id'=>$dbEvaluetionPersonalTasks->id,]);
+            EvaluetionPersonalTaskMultiple::create(['title'=>'Bom','description'=>'O desempenho foi satisfatório e atendeu às expectativas.','order'=>2,'value'=>4,'task_id'=>$dbEvaluetionPersonalTasks->id,]);
+            EvaluetionPersonalTaskMultiple::create(['title'=>'Regular','description'=>'O desempenho foi mediano.','order'=>3,'value'=>3,'task_id'=>$dbEvaluetionPersonalTasks->id,]);
+            EvaluetionPersonalTaskMultiple::create(['title'=>'Ruim','description'=>'O desempenho foi abaixo do esperado. ','order'=>4,'value'=>2,'task_id'=>$dbEvaluetionPersonalTasks->id,]);
+            EvaluetionPersonalTaskMultiple::create(['title'=>'Péssimo','description'=>'O desempenho foi muito abaixo do esperado.','order'=>5,'value'=>1,'task_id'=>$dbEvaluetionPersonalTasks->id,]);
         }
         
         return redirect()->back()->with('success','Pergunta alterada com sucesso');
