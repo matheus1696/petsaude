@@ -12,6 +12,8 @@ class EvaluetionPersonal extends Model
 
     protected $fillable = [
         'title',
+        'date_start',
+        'date_end',
         'description',
         'to_specific_group_id',
         'released'
