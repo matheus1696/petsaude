@@ -261,7 +261,7 @@ class ProfileController extends Controller
         $count = count($request->all());
 
         for ($i=1; $i < $count; $i++) { 
-            echo "teste";
+            
         };
 
         return redirect()->route('evaluetion_personals.user');
