@@ -47,6 +47,7 @@ Route::middleware('auth')->group(function () {
         Route::get('bank/detail',[ProfileController::class,'bankDetail'])->name('profiles.bankDetail');
         Route::get('notices/user', [ProfileController::class, 'noticeUser'])->name('notices.user');
         Route::get('notices/{notice}/read',[ProfileController::class,'noticeRead'])->name('notices.markRead');
+        Route::get('evaluetion_personals/user', [ProfileController::class, 'evaluetionPersonalUser'])->name('evaluetion_personals.user');
 
     });
 

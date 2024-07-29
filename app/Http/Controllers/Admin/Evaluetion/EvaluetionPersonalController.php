@@ -38,6 +38,7 @@ class EvaluetionPersonalController extends Controller
             EvaluetionPersonal::create([
                 'title'=>$request['title'],
                 'description'=>$request['description'],
+                'type'=>$request['type'],
                 'date_start'=>$request['date_start'],
                 'date_end'=>$request['date_end'],
             ]);

@@ -311,11 +311,20 @@ return [
             'icon'    => 'fas fa-phone-volume pr-2',
         ],        
 
-        //Gerenciamento de Quadros de Avisos
+        //Quadros de Avisos
         [
             'text'    => 'Avisos',
             'classes' => 'btn-sm',
             'route'   => 'notices.user',
+            'icon'    => 'fas fa-comments pr-2',
+            'can'     => 'user'
+        ],        
+
+        //Avaliações
+        [
+            'text'    => 'Avaliações',
+            'classes' => 'btn-sm',
+            'route'   => 'evaluetion_personals.user',
             'icon'    => 'fas fa-comments pr-2',
             'can'     => 'user'
         ],
@@ -373,7 +382,7 @@ return [
             'can'     => ['sysadmin','admin'],
             'submenu' => [
                 
-                //Gerenciamento de Quadros de Avisos evaluetion_personals
+                //Gerenciamento de Quadros de Avisos
                 [
                     'text'    => 'Gerencia de Avisos',
                     'classes' => 'btn-sm',
@@ -382,7 +391,7 @@ return [
                     'can'     => ['sysadmin','admin','admin_notice'],
                 ],
                 
-                //Gerenciamento de Quadros de Avisos 
+                //Gerenciamento de Quadros de Avaluações 
                 [
                     'text'    => 'Gerencia de Avaliações',
                     'classes' => 'btn-sm',

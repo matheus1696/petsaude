@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Profile\ProfilePersonalUpdateRequest;
 use App\Http\Requests\Profile\ProfilePasswordUpdateRequest;
 use App\Http\Requests\Profile\ProfileProfessionalUpdateRequest;
+use App\Models\Evaluation\EvaluetionPersonal;
 use App\Models\Institution\InstitutionEducation;
 use App\Models\Institution\InstitutionEducationCourse;
 use App\Models\Notice\NoticeBoardHistory;
@@ -197,7 +198,7 @@ class ProfileController extends Controller
         //
         $dbNotices = NoticeBoardHistory::where('to_specific_user_id',Auth::user()->id)->orderBy('mark_read')->paginate(100);
 
-        return view('admin.notice.notice_user', compact('dbNotices'));
+        return view('users.notice.notice_index', compact('dbNotices'));
     }
     
     public function noticeRead(string $id)
@@ -207,5 +208,18 @@ class ProfileController extends Controller
         $dbNoticeHistory->update(['mark_read'=>!$dbNoticeHistory->mark_read]);
 
         return redirect()->back();
+    }
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function evaluetionPersonalUser()
+    {
+        //
+        $dbEvaluetionPersonals = EvaluetionPersonal::where('to_specific_group_id',NULL)
+            ->orWhere('to_specific_group_id',Auth::user()->organization_id)
+            ->get();
+
+        return view('users.evaluetion.evaluetion_index', compact('dbEvaluetionPersonals'));
     }
 }

@@ -4,6 +4,7 @@
         <x-table.th class="w-32">Início</x-table.th>
         <x-table.th class="w-32">Fim</x-table.th>
         <x-table.th>Descrição</x-table.th>
+        <x-table.th class="w-40">Tipo</x-table.th>
         <x-table.th class="w-40">Grupo</x-table.th>
         <x-table.th class="w-24">Liberado</x-table.th>
         <x-table.th class="w-32">Ações</x-table.th>
@@ -24,6 +25,7 @@
                     @endif
                 </x-table.td>
                 <x-table.td class="text-justify"><div class="max-h-40 line-clamp-3">{!!$dbEvaluetionPersonal->description!!}</div></x-table.td>
+                <x-table.td>{{$dbEvaluetionPersonal->type}}</x-table.td>
                 
                 <x-table.td class="line-climp-3 text-center">
                     @if ($dbEvaluetionPersonal->to_specific_group_id === NULL)

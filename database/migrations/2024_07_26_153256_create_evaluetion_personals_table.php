@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->date('date_start')->nullable();
             $table->date('date_end')->nullable();
+            $table->string('type');
             $table->text('description')->nullable();
             $table->boolean('released')->default(FALSE);
             $table->unsignedBigInteger('to_specific_group_id')->nullable();

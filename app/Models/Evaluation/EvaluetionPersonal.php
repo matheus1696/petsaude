@@ -14,6 +14,7 @@ class EvaluetionPersonal extends Model
         'title',
         'date_start',
         'date_end',
+        'type',
         'description',
         'to_specific_group_id',
         'released'

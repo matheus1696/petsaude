@@ -24,6 +24,7 @@ class StoreEvaluetionPersonalRequest extends FormRequest
         return [
             'title'=>'required|min:5',
             'description'=>'nullable|min:10',
+            'type'=>'required',
             'to_specific_group_id'=>'required',
         ];
     }

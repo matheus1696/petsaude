@@ -6,6 +6,6 @@
     @endslot
     
     @slot('body')
-        @include('admin.notice.partials.user.notice_user_table')
+        @include('users.notice.partials.index.notice_index_board')
     @endslot
 </x-pages.index>
