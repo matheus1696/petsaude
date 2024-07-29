@@ -215,9 +215,15 @@ class ProfileController extends Controller
      */
     public function evaluetionPersonalUser()
     {
-        //
-        $dbEvaluetionPersonals = EvaluetionPersonal::where('to_specific_group_id',NULL)
-            ->orWhere('to_specific_group_id',Auth::user()->organization_id)
+        // Obtém o ID da organização do usuário autenticado
+        $organizationId = Auth::user()->organization_id;
+
+        // Realiza a consulta com as condições agrupadas corretamente
+            $dbEvaluetionPersonals = EvaluetionPersonal::where('released', true)
+            ->where(function ($query) use ($organizationId) {
+                $query->whereNull('to_specific_group_id')
+                    ->orWhere('to_specific_group_id', $organizationId);
+            })
             ->get();
 
         return view('users.evaluetion.evaluetion_index', compact('dbEvaluetionPersonals'));

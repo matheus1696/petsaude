@@ -22,7 +22,7 @@ class EvaluetionPersonalController extends Controller
     public function index()
     {
         //
-        $dbEvaluetionPersonals = EvaluetionPersonal::paginate(100);
+        $dbEvaluetionPersonals = EvaluetionPersonal::orderBy('created_at')->paginate(100);
         $dbOrganizations = CompanyOrganization::all();
 
         return view('admin.evaluetion.personal.personal_index',compact('dbEvaluetionPersonals','dbOrganizations'));
