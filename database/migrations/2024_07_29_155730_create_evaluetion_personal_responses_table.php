@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('evaluetion_personal_id');
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('response');
             $table->timestamps();
         });
     }

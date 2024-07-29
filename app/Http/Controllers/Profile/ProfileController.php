@@ -9,6 +9,7 @@ use App\Http\Requests\Profile\ProfilePersonalUpdateRequest;
 use App\Http\Requests\Profile\ProfilePasswordUpdateRequest;
 use App\Http\Requests\Profile\ProfileProfessionalUpdateRequest;
 use App\Models\Evaluation\EvaluetionPersonal;
+use App\Models\Evaluation\EvaluetionPersonalResponse;
 use App\Models\Evaluation\EvaluetionPersonalTask;
 use App\Models\Evaluation\EvaluetionPersonalTaskMultiple;
 use App\Models\Institution\InstitutionEducation;
@@ -261,7 +262,13 @@ class ProfileController extends Controller
         $count = count($request->all());
 
         for ($i=1; $i < $count; $i++) { 
-            
+            if ($request['evaluetionResponse_'.$i]) {
+                EvaluetionPersonalResponse::create([
+                    'evaluetion_personal_id'=>$id,
+                    'user_id'=>Auth::user()->id,
+                    'response'=>$request['evaluetionResponse_'.$i],
+                ]);
+            }
         };
 
         return redirect()->route('evaluetion_personals.user');
