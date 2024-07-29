@@ -189,6 +189,10 @@ class EvaluetionPersonalController extends Controller
     public function taskMultipleStore(StoreEvaluetionPersonalTaskMultipleRequest $request, string $id)
     {
         //
+        $dbTaskCount = EvaluetionPersonalTaskMultiple::where('task_id',$id)->count();
+
+        $request['value'] = $dbTaskCount + 1; 
+        $request['order'] = $dbTaskCount + 1; 
         $request['task_id'] = $id;
         EvaluetionPersonalTaskMultiple::create($request->all());
 

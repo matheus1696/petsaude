@@ -1,5 +1,4 @@
 <x-pages.index>
-    
     @slot('body')
         <div class="m-auto w-1/2">
             <div>
