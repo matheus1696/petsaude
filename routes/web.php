@@ -48,6 +48,8 @@ Route::middleware('auth')->group(function () {
         Route::get('notices/user', [ProfileController::class, 'noticeUser'])->name('notices.user');
         Route::get('notices/{notice}/read',[ProfileController::class,'noticeRead'])->name('notices.markRead');
         Route::get('evaluetion_personals/user', [ProfileController::class, 'evaluetionPersonalUser'])->name('evaluetion_personals.user');
+        Route::get('evaluetion_personals/user/{evaluetion_personal}/show', [ProfileController::class, 'evaluetionPersonalResponseShow'])->name('evaluetion_personals.responseShow');
+        Route::post('evaluetion_personals/user/{evaluetion_personal}/response', [ProfileController::class, 'evaluetionPersonalResponseStore'])->name('evaluetion_personals.responseStore');
 
     });
 

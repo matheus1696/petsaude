@@ -9,12 +9,15 @@ use App\Http\Requests\Profile\ProfilePersonalUpdateRequest;
 use App\Http\Requests\Profile\ProfilePasswordUpdateRequest;
 use App\Http\Requests\Profile\ProfileProfessionalUpdateRequest;
 use App\Models\Evaluation\EvaluetionPersonal;
+use App\Models\Evaluation\EvaluetionPersonalTask;
+use App\Models\Evaluation\EvaluetionPersonalTaskMultiple;
 use App\Models\Institution\InstitutionEducation;
 use App\Models\Institution\InstitutionEducationCourse;
 use App\Models\Notice\NoticeBoardHistory;
 use App\Models\Profile\Profile;
 use App\Models\User\UserSexualOrientation;
 use App\Services\Logger;
+use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
@@ -219,13 +222,48 @@ class ProfileController extends Controller
         $organizationId = Auth::user()->organization_id;
 
         // Realiza a consulta com as condições agrupadas corretamente
-            $dbEvaluetionPersonals = EvaluetionPersonal::where('released', true)
+            $dbEvaluetionPersonalReleaseds = EvaluetionPersonal::where('released', true)
             ->where(function ($query) use ($organizationId) {
                 $query->whereNull('to_specific_group_id')
                     ->orWhere('to_specific_group_id', $organizationId);
             })
             ->get();
 
-        return view('users.evaluetion.evaluetion_index', compact('dbEvaluetionPersonals'));
+        return view('users.evaluetion.evaluetion_index', compact('dbEvaluetionPersonalReleaseds'));
+    }
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function evaluetionPersonalResponseShow(string $id)
+    {
+        $dbEvaluetionPersonal = EvaluetionPersonal::find($id);
+        $dbEvaluetionPersonalTasks = EvaluetionPersonalTask::where('evaluetion_personal_id',$id)
+            ->orderBy('order')
+            ->get();
+
+        $dbEvaluetionPersonalTaskMultileCount = EvaluetionPersonalTask::where('evaluetion_personal_id',$id)->count();
+
+        if ($dbEvaluetionPersonalTaskMultileCount > 1) {
+            $dbEvaluetionPersonalTaskMultiples = EvaluetionPersonalTaskMultiple::all();
+
+            return view('users.evaluetion.evaluetion_show', compact('dbEvaluetionPersonal','dbEvaluetionPersonalTasks','dbEvaluetionPersonalTaskMultiples'));
+        }
+
+        return view('users.evaluetion.evaluetion_show', compact('dbEvaluetionPersonal','dbEvaluetionPersonalTasks'));
+    }
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function evaluetionPersonalResponseStore(Request $request, string $id)
+    {
+        $count = count($request->all());
+
+        for ($i=1; $i < $count; $i++) { 
+            echo "teste";
+        };
+
+        return redirect()->route('evaluetion_personals.user');
     }
 }
