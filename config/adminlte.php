@@ -391,13 +391,57 @@ return [
                     'can'     => ['sysadmin','admin','admin_notice'],
                 ],
                 
-                //Gerenciamento de Quadros de Avaluações 
+
+                //Gerenciamento de Avaluações 
                 [
                     'text'    => 'Gerencia de Avaliações',
                     'classes' => 'btn-sm',
-                    'route'   => 'evaluetion_personals.index',
-                    'icon'    => 'fas fa-volume-up pr-2',
+                    'icon'    => 'fas fa-users-cog pr-2',
                     'can'     => ['sysadmin','admin','admin_evaluetion'],
+                    'submenu' => [
+
+                        
+                        //Gerenciamento de Auto Avaluações 
+                        [
+                            'text'    => 'Auto Avaliações',
+                            'classes' => 'btn-sm',
+                            'route'   => 'evaluetion_personals.index',
+                            'icon'    => 'fas fa-volume-up pr-2',
+                            'can'     => ['sysadmin','admin','admin_evaluetion'],
+                        ],
+                        
+                        //Gerenciamento de Auto Avaluações 
+                        [
+                            'text'    => 'Avaliações de Pares',
+                            'classes' => 'btn-sm',
+                            'icon'    => 'fas fa-volume-up pr-2',
+                            'can'     => ['sysadmin','admin','admin_evaluetion'],
+                        ],
+                        
+                        //Gerenciamento de Auto Avaluações 
+                        [
+                            'text'    => 'Avaliação de Preceptores',
+                            'classes' => 'btn-sm',
+                            'icon'    => 'fas fa-volume-up pr-2',
+                            'can'     => ['sysadmin','admin','admin_evaluetion'],
+                        ],
+                        
+                        //Gerenciamento de Auto Avaluações 
+                        [
+                            'text'    => 'Avaliação de Tutores',
+                            'classes' => 'btn-sm',
+                            'icon'    => 'fas fa-volume-up pr-2',
+                            'can'     => ['sysadmin','admin','admin_evaluetion'],
+                        ],
+                        
+                        //Gerenciamento de Auto Avaluações 
+                        [
+                            'text'    => 'Avaliação de Estudantes',
+                            'classes' => 'btn-sm',
+                            'icon'    => 'fas fa-volume-up pr-2',
+                            'can'     => ['sysadmin','admin','admin_evaluetion'],
+                        ],
+                    ]
                 ],
 
                 //Configurações de Perfil

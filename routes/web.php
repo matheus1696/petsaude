@@ -18,7 +18,6 @@ use App\Http\Controllers\Admin\Region\RegionCityController;
 use App\Http\Controllers\Admin\Region\RegionCountryController;
 use App\Http\Controllers\Admin\Region\RegionStateController;
 use App\Http\Controllers\Admin\User\UsersController;
-use App\Http\Controllers\Admin\Evaluetion\EvaluetionPersonalController;
 use App\Http\Controllers\Admin\Notice\NoticeBoardController;
 use App\Http\Controllers\Profile\ProfileController;
 use App\Http\Controllers\ContactListsController;
@@ -47,10 +46,6 @@ Route::middleware('auth')->group(function () {
         Route::get('bank/detail',[ProfileController::class,'bankDetail'])->name('profiles.bankDetail');
         Route::get('notices/user', [ProfileController::class, 'noticeUser'])->name('notices.user');
         Route::get('notices/{notice}/read',[ProfileController::class,'noticeRead'])->name('notices.markRead');
-        Route::get('evaluetion_personals/user', [ProfileController::class, 'evaluetionPersonalUser'])->name('evaluetion_personals.user');
-        Route::get('evaluetion_personals/user/{evaluetion_personal}/show', [ProfileController::class, 'evaluetionPersonalResponseShow'])->name('evaluetion_personals.responseShow');
-        Route::post('evaluetion_personals/user/{evaluetion_personal}/response', [ProfileController::class, 'evaluetionPersonalResponseStore'])->name('evaluetion_personals.responseStore');
-
     });
 
     //Camada de Seguraça para Contas Verificadas
@@ -68,20 +63,6 @@ Route::middleware('auth')->group(function () {
 
         //Avisos
         Route::resource('notices', NoticeBoardController::class);
-
-        //Avaliações
-        Route::resource('evaluetion_personals', EvaluetionPersonalController::class);
-        Route::put('evaluetion_personals/{evaluetion_personal}/released', [EvaluetionPersonalController::class, 'released'])->name('evaluetion_personals.released');
-        Route::post('evaluetion_personals/{evaluetion_personal}/task/store', [EvaluetionPersonalController::class, 'taskStore'])->name('evaluetion_personals.taskStore');
-        Route::get('evaluetion_personals/tasks/{task}/show', [EvaluetionPersonalController::class, 'taskShow'])->name('evaluetion_personals.taskShow');
-        Route::put('evaluetion_personals/tasks/{task}/update', [EvaluetionPersonalController::class, 'taskUpdate'])->name('evaluetion_personals.taskUpdate');
-        Route::put('evaluetion_personals/tasks/{task}/order', [EvaluetionPersonalController::class, 'taskOrder'])->name('evaluetion_personals.taskOrder');
-        Route::delete('evaluetion_personals/tasks/{task}/destroy', [EvaluetionPersonalController::class, 'taskDestroy'])->name('evaluetion_personals.taskDestroy');
-        Route::post('evaluetion_personals/task/{task}/multiple/store', [EvaluetionPersonalController::class, 'taskMultipleStore'])->name('evaluetion_personals.taskMultipleStore');
-        Route::put('evaluetion_personals/task/multiples/{multiple}/update', [EvaluetionPersonalController::class, 'taskMultipleUpdate'])->name('evaluetion_personals.taskMultipleUpdate');
-        Route::put('evaluetion_personals/task/multiples/{multiple}/order', [EvaluetionPersonalController::class, 'taskMultipleOrder'])->name('evaluetion_personals.taskMultipleOrder');
-        Route::put('evaluetion_personals/task/multiples/{multiple}/value', [EvaluetionPersonalController::class, 'taskMultipleValue'])->name('evaluetion_personals.taskMultipleValue');
-        Route::delete('evaluetion_personals/task/multiples/{multiple}/destroy', [EvaluetionPersonalController::class, 'taskMultipleDestroy'])->name('evaluetion_personals.taskMultipleDestroy');
 
         //Grupo de Rotas - Configurações da Organização
         Route::prefix('project')->group(function (){
