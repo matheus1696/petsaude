@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Evaluation;
 
+use App\Http\Controllers\Controller;
 use App\Models\Evaluation\EvaluationList;
-use App\Http\Requests\StoreEvaluationListRequest;
-use App\Http\Requests\UpdateEvaluationListRequest;
+use App\Http\Requests\Evaluation\StoreEvaluationListRequest;
+use App\Http\Requests\Evaluation\UpdateEvaluationListRequest;
 
 class EvaluationListController extends Controller
 {

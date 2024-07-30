@@ -3,7 +3,7 @@
     <!-- Modal toggle -->
     <button data-toggle="modal" data-target="#modalEvaluetion" class="px-2 py-1 text-xs text-white bg-purple-700 rounded-lg shadow-md hover:bg-purple-600" type="button">
         <i class="fas fa-plus"></i>
-        <span class="ml-1 font-semibold">Liberar avaliação</span>
+        <span class="ml-1 font-semibold">Nova avaliação</span>
     </button>
 
     <div id="modalEvaluetion" class="modal fade" role="dialog" aria-labelledby="modalEvaluetion" aria-hidden="true">

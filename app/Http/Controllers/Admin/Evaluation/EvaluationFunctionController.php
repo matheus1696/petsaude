@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Evaluation;
 
+use App\Http\Controllers\Controller;
 use App\Models\Evaluation\EvaluationFunction;
 use App\Http\Requests\StoreEvaluationFunctionRequest;
 use App\Http\Requests\UpdateEvaluationFunctionRequest;

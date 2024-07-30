@@ -21,6 +21,7 @@ use App\Http\Controllers\Admin\User\UsersController;
 use App\Http\Controllers\Admin\Notice\NoticeBoardController;
 use App\Http\Controllers\Profile\ProfileController;
 use App\Http\Controllers\ContactListsController;
+use App\Http\Controllers\Evaluation\EvaluationListController;
 
 //Rota de Login
 Route::get('/',function(){return redirect()->route('login');});
@@ -66,6 +67,8 @@ Route::middleware('auth')->group(function () {
 
         //Avaliações
         Route::resource('evaluations', EvaluationListController::class);
+        Route::resource('questions', EvaluationListController::class);
+        Route::resource('question_types', EvaluationListController::class);
 
         //Grupo de Rotas - Configurações da Organização
         Route::prefix('project')->group(function (){
