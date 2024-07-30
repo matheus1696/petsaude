@@ -22,6 +22,7 @@ use App\Http\Controllers\Admin\Notice\NoticeBoardController;
 use App\Http\Controllers\Profile\ProfileController;
 use App\Http\Controllers\ContactListsController;
 use App\Http\Controllers\EvaluationController;
+use App\Http\Controllers\EvaluationListController;
 use App\Http\Controllers\Profile\EvaluetionResponseController;
 
 //Rota de Login
@@ -67,7 +68,7 @@ Route::middleware('auth')->group(function () {
         Route::resource('notices', NoticeBoardController::class);
 
         //Avaliações
-        Route::resource('evaluations', EvaluationController::class);
+        Route::resource('evaluations', EvaluationListController::class);
 
         //Grupo de Rotas - Configurações da Organização
         Route::prefix('project')->group(function (){
