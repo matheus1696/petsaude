@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Evaluation;
+namespace App\Http\Controllers\Admin\Evaluation;
 
 use App\Http\Controllers\Controller;
 use App\Models\Evaluation\EvaluationResponse;

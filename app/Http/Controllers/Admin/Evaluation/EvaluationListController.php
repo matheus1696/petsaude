@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Evaluation;
+namespace App\Http\Controllers\Admin\Evaluation;
 
 use App\Http\Controllers\Controller;
 use App\Models\Evaluation\EvaluationList;
 use App\Http\Requests\Evaluation\StoreEvaluationListRequest;
 use App\Http\Requests\Evaluation\UpdateEvaluationListRequest;
+use App\Models\Company\CompanyOrganization;
+use App\Models\Evaluation\Evaluation;
 
 class EvaluationListController extends Controller
 {
@@ -15,6 +17,9 @@ class EvaluationListController extends Controller
     public function index()
     {
         //
+        $dbEvaluations = Evaluation::all();
+        $dbOrganizations = CompanyOrganization::all();
+        return view('admin.evaluation.evaluation_index', compact('dbEvaluations','dbOrganizations'));
     }
 
     /**

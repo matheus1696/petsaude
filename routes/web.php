@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\Company\CompanyOccupationController;
 use App\Http\Controllers\Admin\Company\CompanyOrganizationController;
 use App\Http\Controllers\Admin\Company\CompanyOrganizationLinkedUserController;
 use App\Http\Controllers\Admin\Company\CompanyTypeEstablishmentController;
+use App\Http\Controllers\Admin\Evaluation\EvaluationListController;
 use App\Http\Controllers\Admin\Institution\InstitutionEducationController;
 use App\Http\Controllers\Admin\Institution\InstitutionEducationCourseController;
 use App\Http\Controllers\Admin\Region\RegionCityController;
@@ -21,7 +22,6 @@ use App\Http\Controllers\Admin\User\UsersController;
 use App\Http\Controllers\Admin\Notice\NoticeBoardController;
 use App\Http\Controllers\Profile\ProfileController;
 use App\Http\Controllers\ContactListsController;
-use App\Http\Controllers\Evaluation\EvaluationListController;
 
 //Rota de Login
 Route::get('/',function(){return redirect()->route('login');});

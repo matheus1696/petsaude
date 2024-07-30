@@ -16,19 +16,14 @@
                     </button>
                 </div>
                 <div class="m-4 modal-body">
-                    <x-form.form method="create" route="{{route('evaluations.store')}}">    
-
-                        <x-form.select col="12" label="Tipo" name="type">
-                            <option>Auto Avaliação</option>
-                            <option>Avaliação de Pares</option>
-                            <option>Avaliação de Preceptor</option>
-                            <option>Avaliação de Tutores</option>
-                            <option>Avaliação de Estudantes</option>
+                    <x-form.form route="{{route('evaluations.store')}}" method="create">
+                        <x-form.input label="Título" name="title" />
+                        <x-form.select label="Grupo" name="type">
+                            <option value="all">Todos os Usuário</option>
+                            @foreach ($dbOrganizations as $dbOrganization)
+                                <option value="{{$dbOrganization}}">{{$dbOrganization->acronym}} - {{$dbOrganization->title}}</option>
+                            @endforeach
                         </x-form.select>
-
-                        <x-form.input type="date" col="6" label="Início" name="date_start"/>
-                        <x-form.input type="date" col="6" label="Fim" name="date_end"/>
-
                     </x-form.form>
                 </div>
             </div>
