@@ -21,6 +21,7 @@ use App\Http\Controllers\Admin\User\UsersController;
 use App\Http\Controllers\Admin\Notice\NoticeBoardController;
 use App\Http\Controllers\Profile\ProfileController;
 use App\Http\Controllers\ContactListsController;
+use App\Http\Controllers\Profile\EvaluetionResponseController;
 
 //Rota de Login
 Route::get('/',function(){return redirect()->route('login');});
@@ -46,6 +47,7 @@ Route::middleware('auth')->group(function () {
         Route::get('bank/detail',[ProfileController::class,'bankDetail'])->name('profiles.bankDetail');
         Route::get('notices/user', [ProfileController::class, 'noticeUser'])->name('notices.user');
         Route::get('notices/{notice}/read',[ProfileController::class,'noticeRead'])->name('notices.markRead');
+        Route::resource('evaluetion_responses',EvaluetionResponseController::class);
     });
 
     //Camada de Seguraça para Contas Verificadas
