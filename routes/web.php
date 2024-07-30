@@ -21,9 +21,6 @@ use App\Http\Controllers\Admin\User\UsersController;
 use App\Http\Controllers\Admin\Notice\NoticeBoardController;
 use App\Http\Controllers\Profile\ProfileController;
 use App\Http\Controllers\ContactListsController;
-use App\Http\Controllers\EvaluationController;
-use App\Http\Controllers\EvaluationListController;
-use App\Http\Controllers\Profile\EvaluetionResponseController;
 
 //Rota de Login
 Route::get('/',function(){return redirect()->route('login');});
