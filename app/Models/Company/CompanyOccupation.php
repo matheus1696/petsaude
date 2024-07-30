@@ -16,6 +16,7 @@ class CompanyOccupation extends Model
         'code',
         'title',
         'filter',
+        'classification',
         'status',
     ];
 }

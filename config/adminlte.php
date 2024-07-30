@@ -309,7 +309,7 @@ return [
             'route'   => 'contacts.index',
             'can'     => 'user',
             'icon'    => 'fas fa-phone-volume pr-2',
-        ],        
+        ],
 
         //Quadros de Avisos
         [
@@ -318,15 +318,15 @@ return [
             'route'   => 'notices.user',
             'icon'    => 'fas fa-comments pr-2',
             'can'     => 'user'
-        ],        
-
-        //Avaliações
+        ],
+                
+        //Gerenciamento de Avaliações
         [
-            'text'    => 'Avaliações',
+            'text'    => 'Avaliações do Grupo',
             'classes' => 'btn-sm',
-            'route'   => 'evaluetion_responses.index',
-            'icon'    => 'fas fa-comments pr-2',
-            'can'     => 'user'
+            'route'   => 'evaluations.index',
+            'icon'    => 'fas fa-volume-up pr-2',
+            'can'     => 'user',
         ],
 
         //Perfil

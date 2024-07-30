@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('evaluetion_responses', function (Blueprint $table) {
+        Schema::create('evaluations', function (Blueprint $table) {
             $table->id();
             $table->string('type');
             $table->text('question_1');
@@ -32,8 +32,12 @@ return new class extends Migration
             $table->text('value_8')->nullable();
             $table->text('question_9')->nullable();
             $table->text('value_9')->nullable();
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id_evaluated');
+            $table->unsignedBigInteger('user_id_response');
             $table->timestamps();
+
+            $table->foreign('user_id_evaluated')->references('id')->on('users');
+            $table->foreign('user_id_response')->references('id')->on('users');
         });
     }
 
@@ -42,6 +46,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('evaluetion_responses');
+        Schema::dropIfExists('evaluations');
     }
 };

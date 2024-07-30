@@ -1,16 +1,15 @@
 <?php
 
-namespace App\Models\Evaluetion;
+namespace App\Models\Evaluation;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class EvaluetionResponse extends Model
+class Evaluation extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'type',
         'question_1',
         'question_2',
         'question_3',
@@ -29,6 +28,8 @@ class EvaluetionResponse extends Model
         'value_7',
         'value_8',
         'value_9',
-        'user_id'
+        'type',
+        'user_id_evaluated',
+        'user_id_response',
     ];
 }
