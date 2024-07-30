@@ -46,7 +46,7 @@ class EvaluationController extends Controller
         //
         Evaluation::create($request->all());
 
-        return redirect()->back();
+        return redirect()->route('evaluations.index');
     }
 
     /**

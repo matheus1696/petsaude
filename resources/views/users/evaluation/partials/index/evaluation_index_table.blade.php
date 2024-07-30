@@ -31,13 +31,23 @@
                     @endif
                 </x-table.td>
                 <x-table.td>
+                    @php
+                        $respondido = false;
+                    @endphp
                     @foreach ($dbResponses as $dbResponse)
                         @if ($dbResponse->user_id_evaluated == $dbUser->id)
-                            Respondido
-                        @else
-                            <x-button.minButtonShow icon="" btnTitle="Responder" route="{{route('evaluations.show',['evaluation'=>$dbUser->id])}}" />
+                            @php
+                                $respondido = true;
+                                break;
+                            @endphp
                         @endif
                     @endforeach
+                    
+                    @if ($respondido)
+                        Respondido
+                    @else
+                        <x-button.minButtonShow icon="" btnTitle="Responder" route="{{route('evaluations.show',['evaluation'=>$dbUser->id])}}" />
+                    @endif
                 </x-table.td>
             </x-table.tr>
         @endforeach
