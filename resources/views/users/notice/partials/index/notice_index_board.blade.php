@@ -1,4 +1,4 @@
-<div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-5 p-3">
     @foreach ($dbNotices as $dbNotice)
         <button 
         data-toggle="modal"

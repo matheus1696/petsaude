@@ -27,7 +27,7 @@ class UsersController extends Controller
     public function index(Request $request)
     {
         //Listando Dados
-        $db = User::orderBy('name')->with('SexualOrientation')->paginate(20);
+        $db = User::orderBy('name')->with('SexualOrientation')->paginate(40);
         $dbUsers = User::select()->orderBy('name')->get();
         $dbPermissions= UserPermissions::all();
         $dbHasPermissions = UserHasPermissions::all();
@@ -37,15 +37,13 @@ class UsersController extends Controller
         //Pesquisa de Dados
         $search = $request->all();
         
-        if (isset($search['searchName']) || isset($search['searchEmail'])) {
+        if (isset($search['searchEmail'])) {
 
             $query = User::query();
 
-            if (!empty($search['searchName'])) { $query->where('name', $search['searchName']);}
-
             if (!empty($search['searchEmail'])) {$query->where('email', $search['searchEmail']);}
 
-            $db = $query->orderBy('name')->paginate(20);
+            $db = $query->orderBy('name')->paginate(40);
         }      
 
         //Log do Sistema

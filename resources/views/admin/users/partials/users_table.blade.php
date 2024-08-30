@@ -55,6 +55,8 @@
                             <div class="grid grid-cols-1 gap-3 mb-3 -mt-5 md:grid-cols-2">
                                 <p><strong>Nome: </strong>{{$item->name}}</p>
                                 <p><strong>Email: </strong>{{$item->email}}</p>
+                                <p><strong>CPF: </strong>{{$item->cpf}}</p>
+                                <p><strong>RG: </strong>{{$item->registration}}</p>
                                 <p><strong>Data de Nascimento: </strong>@if($item->birthday)
                                     {{date('d/m/Y',strtotime($item->birthday))}} @endif
                                 </p>
