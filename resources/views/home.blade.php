@@ -6,10 +6,10 @@
     @endslot
     @slot('body')
         <div class="flex flex-col md:flex-row  gap-2">
-            <div class="flex-1 font-semibold">
+            <div class="flex-1 font-semibold text-center">
                 Informações PET
             </div>
-            <div class="w-72">
+            <div class="w-full md:w-72">
                 <h3 class="py-2 font-semibold text-center ">Quadros de Avisos</h3>
                 <ul class="flex flex-col gap-5 text-gray-700">
                     @if ($alertPassword)

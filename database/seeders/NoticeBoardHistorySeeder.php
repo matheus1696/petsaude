@@ -15,7 +15,7 @@ class NoticeBoardHistorySeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        /*
         $dbUser = User::all();
         $dbNoticeBoards = NoticeBoard::all();
 
@@ -27,5 +27,6 @@ class NoticeBoardHistorySeeder extends Seeder
                 ]);
             }
         }
+        */
     }
 }

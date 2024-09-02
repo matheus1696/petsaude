@@ -14,8 +14,7 @@ class NoticeBoardSeeder extends Seeder
      */
     public function run(): void
     {
-        //
-        
+        /*        
         NoticeBoard::create([
             'title'=>'Aviso 01',
             'description'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora maxime explicabo, perferendis et vitae molestias eveniet, corrupti commodi asperiores, inventore esse itaque blanditiis ullam consequuntur labore? Enim temporibus architecto quasi.',
@@ -29,5 +28,6 @@ class NoticeBoardSeeder extends Seeder
             'notice_level_id'=>1,
             'to_specific_users'=>'all',
         ]);
+        */
     }
 }
