@@ -1,4 +1,4 @@
-<input hidden value="Avaliação de Pares" name="type">
+<input hidden value="Avaliação de Preceptor" name="type">
 
 <!-- Pergunta 1 -->
 <div class="col-span-12">

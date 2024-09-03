@@ -23,6 +23,7 @@ class StoreEvaluationRequest extends FormRequest
     {
         return [
             //
+            'value_1'=>'required',
         ];
     }
 }
