@@ -7,7 +7,7 @@
         type="button"
         >
             <h4 class="pl-2 text-xs text-start line-clamp-1 font-bold">- {{$dbNotice->NoticeBoard->title}}</h4>
-            <div class="pl-2 text-xs py-1 text-start line-clamp-4">{!!$dbNotice->NoticeBoard->description!!} Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum fugiat vitae minus libero accusamus, hic reprehenderit recusandae enim consequuntur nobis error culpa dicta rerum consequatur veritatis exercitationem explicabo quia minima!</div>
+            <div class="pl-2 text-xs py-1 text-start line-clamp-4">{!!$dbNotice->NoticeBoard->description!!}</div>
             <p class="w-full text-end text-xs italic">{{date("d/m/Y", strtotime($dbNotice->created_at,))}}</p>
         </button>
 
@@ -21,7 +21,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p class="text-justify">{{$dbNotice->NoticeBoard->description}}</p>
+                        <p class="text-justify">{!!$dbNotice->NoticeBoard->description!!}</p>
                         
                         <div class="mt-10 flex justify-end">
                             <a href="{{route('notices.markRead',['notice'=>$dbNotice->id])}}" class="text-sm bg-purple-600 hover:bg-purple-700 shadow-lg rounded-lg text-white px-2 py-1">

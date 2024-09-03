@@ -41,7 +41,7 @@
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <p class="text-justify">{{$dbNoticeHistory->NoticeBoard->description}}</p>
+                                            <p class="text-justify">{!!$dbNoticeHistory->NoticeBoard->description!!}</p>
                                             
                                             <div class="mt-10 flex justify-end">
                                                 <a href="{{route('notices.markRead',['notice'=>$dbNoticeHistory->id])}}" class="text-sm bg-purple-600 hover:bg-purple-700 shadow-lg rounded-lg text-white px-2 py-1">Marca como Lido</a>
