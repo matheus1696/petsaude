@@ -25,7 +25,7 @@ class NoticeBoardStoreRequest extends FormRequest
             'title'=>'required|min:10',
             'notice_level_id'=>'required',
             'to_specific_users'=>'required',
-            'description'=>'required|min:10|max:250',
+            'description'=>'required|min:10',
         ];
     }
 }
